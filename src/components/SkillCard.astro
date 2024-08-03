@@ -1,0 +1,11 @@
+---
+interface Props {
+	skill: string;
+}
+
+const { skill } = Astro.props;
+---
+
+<div class="shadow rounded p-5 w-24">
+  <img src=`/${skill}.svg` />
+</div>

@@ -1,0 +1,15 @@
+export const skills = [
+  'react',
+  'next',
+  'jest',
+  'tailwind',
+  'typescript',
+  'javascript',
+  'docker',
+  'dart',
+  'flutter',
+  'elixir',
+  'graphql',
+  'css',
+  'html',
+];
