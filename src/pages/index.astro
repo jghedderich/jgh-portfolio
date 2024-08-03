@@ -3,11 +3,12 @@ import RepoCard from '../components/RepoCard.astro';
 import SkillCard from '../components/SkillCard.astro';
 import Layout from '../layouts/Layout.astro';
 import {skills} from '../data';
+import About from '../components/About.astro';
 ---
 
 <Layout title="Juan Hedderich">
 	<main class="max-w-screen-lg mx-auto">
-    <section class="flex flex-col justify-between items-center text-center h-[100vh] py-5">
+    <section class="flex bg-blue-100 flex-col justify-between items-center text-center h-[100vh] py-5">
       <div></div>
       <div>
         <h1 class="text-7xl">Juan Hedderich</h1>
@@ -19,18 +20,33 @@ import {skills} from '../data';
         <img src="/ui/arrow.svg" class="h-6 animate-bounce"/>
       </div>
     </section>
-    <section>
-      <h2 class="text-3xl mx-5">Mis Proyectos</h2>
-      <div class="flex gap-5 my-3">
-        <RepoCard title='Inmobilia App' description="Es una app muy cool que muestra real state" language='typescript' />
-        <RepoCard title='Inmobilia App' description="Es una app muy cool que muestra real state" language='javascript' />
-        <RepoCard title='Inmobilia App' description="Es una app muy cool que muestra real state" language='typescript' />
+    <section class="h-[100vh] py-6 flex flex-col justify-between bg-red-100">
+      <div>
+        <h2 class="text-3xl mx-5">Mis Proyectos</h2>
+        <div class="flex gap-5 my-3">
+          <RepoCard title='Inmobilia App' description="Es una app muy cool que muestra real state" language='typescript' />
+          <RepoCard title='Inmobilia App' description="Es una app muy cool que muestra real state" language='javascript' />
+          <RepoCard title='Inmobilia App' description="Es una app muy cool que muestra real state" language='typescript' />
+        </div>
+      </div>
+      <div class="flex flex-col gap-2 justify-center items-center">
+        <p class="text-lg">my skills</p>
+        <img src="/ui/arrow.svg" class="h-6 animate-bounce"/>
       </div>
     </section>
 
-    <div class="flex gap-3">
-      {skills.map((skill: string) => <SkillCard skill={skill} />)}
-    </div>
+    <section class="flex flex-col justify-center h-[100vh] bg-blue-100">
+      <h2 class="text-3xl mx-5">Mis habilidades</h2>
+      <div class="flex gap-3">
+        {skills.map((skill: string) => <SkillCard skill={skill} />)}
+      </div>
+      <div class="flex flex-col gap-2 justify-center items-center">
+        <p class="text-lg">contact</p>
+        <img src="/ui/arrow.svg" class="h-6 animate-bounce"/>
+      </div>
+    </section>
+
+    <About />
 
   </main>
 </Layout>
