@@ -1,15 +1,18 @@
 ---
-import { skills } from "../../data";
-import SkillCard from "./SkillCard.astro";
+import { skills } from '../../data';
+import SkillCard from './SkillCard.astro';
 ---
 
-<section class="flex flex-col justify-center h-[100vh] bg-blue-100">
+<section class="flex flex-col justify-between h-[100vh] py-6">
   <h2 class="text-3xl mx-5">Mis habilidades</h2>
-  <div class="flex gap-3">
-    {skills.map((skill: string) => <SkillCard skill={skill} />)}
-  </div>
+  <section class="py-10">
+    <div class="flex gap-3 flex-wrap mx-5">
+      {skills.map((skill: string) => <SkillCard skill={skill} />)}
+    </div>
+  </section>
+
   <div class="flex flex-col gap-2 justify-center items-center">
     <p class="text-lg">contact</p>
-    <img src="/ui/arrow.svg" class="h-6 animate-bounce"/>
-   </div>
+    <img src="/ui/arrow.svg" class="h-6 animate-bounce" />
+  </div>
 </section>

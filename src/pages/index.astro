@@ -6,24 +6,24 @@ import ReposSection from '../components/repositories/ReposSection.astro';
 ---
 
 <Layout title="Juan Hedderich">
-	<main class="max-w-screen-lg mx-auto">
-    <section class="flex bg-blue-100 flex-col justify-between items-center text-center h-[100vh] py-5">
+  <main class="">
+    <section
+      class="flex flex-col justify-between items-center text-center h-[100vh] py-5"
+    >
       <div></div>
       <div>
         <h1 class="text-7xl">Juan Hedderich</h1>
         <h3 class="text-2xl">Ingeniero de Software</h3>
-
       </div>
       <div class="flex flex-col gap-2 justify-center">
         <p class="text-lg">my work</p>
-        <img src="/ui/arrow.svg" class="h-6 animate-bounce"/>
+        <img src="/ui/arrow.svg" class="h-6 animate-bounce" />
       </div>
     </section>
     <ReposSection />
 
     <SkillsSection />
     <About />
-
   </main>
 </Layout>
 
@@ -32,5 +32,3 @@ import ReposSection from '../components/repositories/ReposSection.astro';
     font-family: monospace;
   }
 </style>
-
-

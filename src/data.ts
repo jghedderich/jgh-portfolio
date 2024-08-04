@@ -1,4 +1,4 @@
-export const skills = [
+export const skills: string[] = [
   'react',
   'next',
   'jest',
@@ -12,4 +12,7 @@ export const skills = [
   'graphql',
   'css',
   'html',
+  'python',
+  'c',
+  'astro',
 ];
