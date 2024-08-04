@@ -3,12 +3,38 @@ import { skills } from '../../data';
 import SkillCard from './SkillCard.astro';
 ---
 
-<section class="flex flex-col justify-between h-[100vh] py-6">
+<script>
+  const scrollers = document.querySelectorAll(".scroller");
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    addAnimation();
+  }
+
+  function addAnimation() {
+    scrollers.forEach(scroller => {
+      scroller.setAttribute('data-animated', true);
+
+      const scrollerInner = scroller.querySelector('.scroller__inner');
+      const scrollerContent = Array.from(scrollerInner!.children);
+
+      scrollerContent.forEach(item => {
+        const duplicatedItem = item.cloneNode(true);
+        duplicatedItem.setAttribute('aria-hidden', true);
+        scrollerInner?.appendChild(duplicatedItem);
+      })
+    })
+  }
+</script>
+
+<section class="flex flex-col h-[100vh] py-6 max-w-screen-lg mx-auto">
   <h2 class="text-3xl mx-5">Mis habilidades</h2>
-  <section class="py-10">
-    <div class="flex gap-3 flex-wrap mx-5">
-      {skills.map((skill: string) => <SkillCard skill={skill} />)}
-    </div>
+  <section class="py-10 scroller">
+    <ul class="skill-list scroller__inner">
+      {skills.map((skill: string) => (
+      <li class="border rounded p-5 hover:bg-gray-50 transition ease-out shrink-0">
+        <img src=`/${skill}.svg` class="w-24 h-24" />
+        </li>)
+      )}
+    </ul>
   </section>
 
   <div class="flex flex-col gap-2 justify-center items-center">
@@ -16,3 +42,40 @@ import SkillCard from './SkillCard.astro';
     <img src="/ui/arrow.svg" class="h-6 animate-bounce" />
   </div>
 </section>
+
+
+<style>
+  .scroller {
+    max-width: 1200px;
+    /* outline: 3px solid lime; */
+  }
+
+  .scroller__inner {
+    padding-block: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .scroller[data-animated="true"] {
+    overflow: hidden;
+    -webkit-mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+    mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+  }
+
+  .scroller[data-animated="true"] .scroller__inner {
+    width: max-content;
+    flex-wrap: nowrap;
+    animation: scroll 50s linear infinite;
+  }
+
+  .scroller[data-animated="true"] .scroller__inner:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes scroll {
+    to {
+      transform: translate(calc(-50% - 0.5rem));
+    }
+  }
+</style>
