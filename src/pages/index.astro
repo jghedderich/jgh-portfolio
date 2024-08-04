@@ -26,8 +26,13 @@ import arrowIcon from '../assets/ui/arrow.svg';
 
     <ReposSection />
     <SkillsSection />
-    <About />
-    <div class="fixed -bottom-20 right-20">
+    <div class="relative">
+      <About />
+      <div class="absolute bottom-20 -right-20 -rotate-45">
+        <Penguin />
+      </div>
+    </div>
+    <div class="absolute bottom-20 -left-20 rotate-45">
       <Penguin />
     </div>
   </main>
