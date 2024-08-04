@@ -1,11 +1,16 @@
 ---
+import { Image } from 'astro:assets';
+import juanImage from '../../assets/Juan.JPG';
+import githubIcon from '../../assets/ui/github-mark.svg';
+import linkedInIcon from '../../assets/ui/linkedin.svg';
+import emailIcon from '../../assets/ui/email.svg';
 const {} = Astro.props;
 ---
 
 <section
   class="flex flex-col justify-center items-center gap-5 w-full p-6 mt-6 max-w-3xl mx-auto"
 >
-  <img src="/Juan.JPG" class="rounded-full h-40 w-fit" />
+  <Image src={juanImage} alt="Juan Hedderich" class="rounded-full h-40 w-fit" />
 
   <p class="text-lg">
     Enfocado en aprender y mejorar, estoy comprometido a hacer software de
@@ -17,21 +22,21 @@ const {} = Astro.props;
       target="_blank"
       class="hover:scale-105 transition ease-out"
     >
-      <img src="/ui/github-mark.svg" class="h-10" />
+      <Image src={githubIcon} alt="GitHub icon" class="w-7" />
     </a>
     <a
       href="mailto:jgh2748@gmail.com"
       target="_blank"
       class="hover:scale-105 transition ease-out"
     >
-      <img src="/ui/email.svg" class="h-10" />
+      <Image src={emailIcon} alt="Email icon" class="w-7" />
     </a>
     <a
       href="https://www.linkedin.com/in/juan-hedderich-00778825b/"
       target="_blank"
       class="hover:scale-105 transition ease-out"
     >
-      <img src="/ui/linkedin.svg" class="h-10" />
+      <Image src={linkedInIcon} alt="LinkedIn icon" class="w-7" />
     </a>
   </div>
 </section>
