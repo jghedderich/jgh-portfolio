@@ -6,8 +6,6 @@ interface Props {
 const { skill } = Astro.props;
 ---
 
-<div
-  class="border flex flex-col justify-center items-center gap-3 rounded p-5 hover:bg-gray-50 transition ease-out shrink-0"
->
-  <img src=`/${skill}.svg` class="w-32 h-32" />
-</div>
+<li class="relative group rounded p-5 transition ease-out shrink-0">
+  <img src=`/${skill}.svg` class="w-24 h-24" />
+</li>

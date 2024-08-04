@@ -1,0 +1,16 @@
+---
+import Penguin from './Penguin.astro';
+---
+
+<div class="absolute -left-16 group">
+  <div class="flex items-center relative">
+    <div class="rotate-45 group-hover:-translate-x-14 transition ease-out">
+      <Penguin />
+    </div>
+    <div
+      class="rounded h-fit transition ease-out opacity-100 group-hover:opacity-0"
+    >
+      <h3 class="text-2xl">Hola!</h3>
+    </div>
+  </div>
+</div>

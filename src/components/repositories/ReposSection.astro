@@ -2,7 +2,7 @@
 import RepoCard from './RepoCard.astro';
 ---
 
-<section class="h-[100vh] py-6 flex flex-col justify-between">
+<section class="py-6 flex flex-col justify-between max-w-screen-lg mx-auto">
   <div>
     <h2 class="text-3xl mx-5">Mis Proyectos</h2>
     <div class="flex gap-5 my-3">
@@ -22,9 +22,5 @@ import RepoCard from './RepoCard.astro';
         language="typescript"
       />
     </div>
-  </div>
-  <div class="flex flex-col gap-2 justify-center items-center">
-    <p class="text-lg">my skills</p>
-    <img src="/ui/arrow.svg" class="h-6 animate-bounce" />
   </div>
 </section>
