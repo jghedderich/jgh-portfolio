@@ -14,6 +14,7 @@ import htmlImage from './assets/html.svg';
 import pythonImage from './assets/python.svg';
 import cImage from './assets/c.svg';
 import astroImage from './assets/astro.svg';
+import bootstrapImage from './assets/bootstrap.svg';
 import type { Skill } from './types/skill';
 
 export const skills: Skill[] = [
@@ -80,5 +81,9 @@ export const skills: Skill[] = [
   {
     name: 'Astro',
     image: astroImage,
+  },
+  {
+    name: 'Bootstrap',
+    image: bootstrapImage,
   },
 ];

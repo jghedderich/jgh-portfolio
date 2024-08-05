@@ -1,5 +1,8 @@
 ---
 import RepoCard from './RepoCard.astro';
+
+const response = await fetch('https://api.github.com/users/cdfornari/repos');
+const data = await response.json();
 ---
 
 <section
@@ -8,51 +11,13 @@ import RepoCard from './RepoCard.astro';
   <div>
     <h2 class="text-3xl">Mis Proyectos</h2>
     <div class="flex flex-wrap gap-5 my-3">
-      <RepoCard
-        title="Inmobilia App"
-        description="Es una app muy cooque muestra real state"
-        language="typescript"
-      />
-      <RepoCard
-        title="Inmobilia App"
-        description="Es una app muy cooque muestra real state"
-        language="javascript"
-      />
-      <RepoCard
-        title="Inmobilia App"
-        description="Es una app muy cooque muestra real state"
-        language="typescript"
-      />
-      <RepoCard
-        title="Inmobilia App"
-        description="Es una app muy cooque muestra real state"
-        language="typescript"
-      />
-      <RepoCard
-        title="Inmobilia App"
-        description="Es una app muy cooque muestra real state"
-        language="javascript"
-      />
-      <RepoCard
-        title="Inmobilia App"
-        description="Es una app muy cooque muestra real state"
-        language="typescript"
-      />
-      <RepoCard
-        title="Inmobilia App"
-        description="Es una app muy cooque muestra real state"
-        language="typescript"
-      />
-      <RepoCard
-        title="Inmobilia App"
-        description="Es una app muy cooque muestra real state"
-        language="javascript"
-      />
-      <RepoCard
-        title="Inmobilia App"
-        description="Es una app muy cooque muestra real state"
-        language="typescript"
-      />
+      {
+        data == undefined ? (
+          <p>no data</p>
+        ) : (
+          data.map((repo: any) => <RepoCard {repo} />)
+        )
+      }
     </div>
   </div>
 </section>
