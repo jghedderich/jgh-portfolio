@@ -1,0 +1,23 @@
+---
+import { Image } from 'astro:assets';
+import arrowIcon from '../../assets/ui/arrow.svg';
+---
+
+<section
+  class="relative flex flex-col justify-between items-center text-center h-[100vh] py-5"
+>
+  <div></div>
+  <div>
+    <h1 class="text-7xl">Juan Hedderich</h1>
+    <h3 class="text-2xl">Ingeniero de Software</h3>
+  </div>
+  <div class="flex flex-col gap-2 justify-center items-center">
+    <p class="text-lg">my work</p>
+    <Image
+      src={arrowIcon}
+      loading="eager"
+      alt="arrow icon"
+      class="h-6 animate-bounce"
+    />
+  </div>
+</section>

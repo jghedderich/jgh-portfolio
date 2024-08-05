@@ -9,5 +9,10 @@ const { skill } = Astro.props;
 ---
 
 <li class="relative group rounded p-5 transition ease-out shrink-0">
-  <Image src={skill.image} alt=`${skill.name} icon` class="w-24 h-24" />
+  <Image
+    src={skill.image}
+    loading="eager"
+    alt=`${skill.name} icon`
+    class="w-24 h-24"
+  />
 </li>

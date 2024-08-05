@@ -10,7 +10,12 @@ const {} = Astro.props;
 <section
   class="flex flex-col h-[700px] justify-start items-center gap-5 w-full p-6 mt-6 max-w-3xl mx-auto"
 >
-  <Image src={juanImage} alt="Juan Hedderich" class="rounded-full h-40 w-fit" />
+  <Image
+    src={juanImage}
+    loading="eager"
+    alt="Juan Hedderich"
+    class="rounded-full h-40 w-fit"
+  />
 
   <p class="text-lg">
     Enfocado en aprender y mejorar, estoy comprometido a hacer software de
@@ -22,21 +27,26 @@ const {} = Astro.props;
       target="_blank"
       class="hover:scale-105 transition ease-out"
     >
-      <Image src={githubIcon} alt="GitHub icon" class="w-7" />
+      <Image src={githubIcon} loading="eager" alt="GitHub icon" class="w-7" />
     </a>
     <a
       href="mailto:jgh2748@gmail.com"
       target="_blank"
       class="hover:scale-105 transition ease-out"
     >
-      <Image src={emailIcon} alt="Email icon" class="w-7" />
+      <Image src={emailIcon} loading="eager" alt="Email icon" class="w-7" />
     </a>
     <a
       href="https://www.linkedin.com/in/juan-hedderich-00778825b/"
       target="_blank"
       class="hover:scale-105 transition ease-out"
     >
-      <Image src={linkedInIcon} alt="LinkedIn icon" class="w-7" />
+      <Image
+        src={linkedInIcon}
+        loading="eager"
+        alt="LinkedIn icon"
+        class="w-7"
+      />
     </a>
   </div>
 </section>
