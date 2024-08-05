@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import type { Repo } from '../../types/repo';
 import { skills } from '../../data';
+import Badge from '../common/Badge.astro';
 
 interface Props {
   repo: Repo;
@@ -10,19 +11,33 @@ interface Props {
 const { repo } = Astro.props;
 ---
 
-<div
-  class="flex-auto shadow bg-gray-50 rounded-md flex flex-col gap-3 p-6 w-fit"
->
-  <h2 class="text-4xl">{repo.name}</h2>
-  <p>{repo.description}</p>
-  <div class="flex gap-2 items-center">
-    <Image
-      src={skills.find(
-        (skill) => skill.name.toLowerCase() === repo.language?.toLowerCase()
-      )?.image ?? skills[0].image}
-      alt="whatever"
-      class="h-5 w-fit"
-    />
-    <p>{repo.language}</p>
+{
+  repo.language === null ? <></> : (
+    <div class="flex-auto shadow bg-white rounded-md flex flex-col justify-between gap-3 p-4 w-fit"
+  >
+    <section class="flex flex-col gap-2">
+      <div class="flex gap-3 items-center">
+      <a href={repo.html_url} target="_blank" class="hover:text-blue-500 transition ease-out text-3xl w-fit">{repo.name}</a>
+        <p class="text-lg w-max">☆ {repo.stargazers_count}</p>
+      </div>
+      <p>{repo.description ? repo.description : 'Sin descripción'}</p>
+    </section>
+      <section class="flex flex-col gap-3 mt-5 ">
+        <div class="flex flex-wrap gap-2">
+          {repo.topics.map((topic: string) => <Badge label={topic} />)}
+        </div>
+        <div class="flex gap-2 items-center">
+          <Image
+            src={skills.find(
+              (skill) => skill.name.toLowerCase() === repo.language?.toLowerCase()
+            )?.image ?? skills[0].image}
+            alt="whatever"
+            class="h-5 w-fit"
+          />
+          <p>{repo.language}</p>
+        </div>
+      </section>
+    </div>
   </div>
-</div>
+  )
+}
