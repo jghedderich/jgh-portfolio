@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import type { Repo } from '../../types/repo';
 import { skills } from '../../data';
 import Badge from '../common/Badge.astro';
+import starIcon from '../../assets/ui/star.svg';
 
 interface Props {
   repo: Repo;
@@ -16,9 +17,14 @@ const { repo } = Astro.props;
     <div class="flex-auto shadow bg-white rounded-md flex flex-col justify-between gap-3 p-4 w-fit"
   >
     <section class="flex flex-col gap-2">
-      <div class="flex gap-3 items-center">
-      <a href={repo.html_url} target="_blank" class="hover:text-blue-500 transition ease-out text-3xl w-fit">{repo.name}</a>
-        <p class="text-lg w-max">☆ {repo.stargazers_count}</p>
+      <div class="flex gap-3 items-end">
+      <a href={repo.html_url} target="_blank" class="hover:text-blue-500 transition ease-out text-2xl w-fit">{repo.name}</a>
+      {repo.stargazers_count > 0 && (
+        <div class="flex items-center" >
+            <Image src={starIcon} alt="star" class="h-4"/>
+            <p class="text-lg w-max">{repo.stargazers_count}</p>
+          </div>
+       )}
       </div>
       <p>{repo.description ? repo.description : 'Sin descripción'}</p>
     </section>

@@ -1,17 +1,39 @@
 ---
 import { Image } from 'astro:assets';
-import arrowIcon from '../../assets/ui/arrow.svg';
+import GithubIcon from '../../assets/ui/github-mark.svg';
+import DownloadIcon from '../../assets/ui/download.svg';
 ---
 
 <section
-  class="relative flex flex-col justify-between items-center text-center h-[100vh] py-5"
+  class="relative flex flex-col md:flex-row max-w-screen-lg justify-center gap-16 items-center px-10 my-24 mx-auto"
 >
-  <div></div>
-  <div>
-    <h1 class="text-7xl">Juan Hedderich</h1>
-    <h3 class="text-2xl">Ingeniero de Software</h3>
+  <div class="flex flex-col items-start gap-4">
+    <h1 class="text-5xl leading-snug">Hola! soy Juan Hedderich</h1>
+    <h3 class="text-2xl">desarrollador frontend de Venezuela</h3>
+    <h4 class="text-lg">trabajando actualmente en Avilatek ⛰️</h4>
+    <div class="flex gap-3 mt-2">
+      <a
+        href="#"
+        class="shadow bg-blue-100 hover:bg-blue-200 text-white transition ease-out rounded-md p-2 flex items-center"
+      >
+        <Image src={GithubIcon} alt="the github logo" class="w-7" />
+      </a>
+      <a
+        href="#"
+        class="shadow bg-blue-100 hover:bg-blue-200 transition ease-out flex gap-3 items-center rounded-md h-fit px-4 py-2 text-2xl"
+      >
+        mi cv
+        <Image src={DownloadIcon} alt="download button" class="h-7" />
+      </a>
+    </div>
   </div>
-  <div class="flex flex-col gap-2 justify-center items-center">
+  <div class="flex flex-col gap-1 text-center">
+    <h2 class="text-[200px] years -mt-20">3</h2>
+    <h3 class="text-2xl -mt-7">Años de experiencia</h3>
+    <p>desde junio de 2023</p>
+  </div>
+
+  <!-- <div class="flex flex-col gap-2 justify-center items-center">
     <p class="text-lg">my work</p>
     <Image
       src={arrowIcon}
@@ -19,5 +41,11 @@ import arrowIcon from '../../assets/ui/arrow.svg';
       alt="arrow icon"
       class="h-6 animate-bounce"
     />
-  </div>
+  </div> -->
 </section>
+
+<style>
+  .years {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+</style>
