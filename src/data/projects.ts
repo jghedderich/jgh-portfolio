@@ -14,6 +14,7 @@ import type { Project } from '../types/project';
 export const projects: Project[] = [
   {
     name: 'Inmobilia Caracas',
+    slug: 'inmobilia-caracas',
     description: 'Real state landing page',
     thumbnail: inmobiliaThumbnail,
     hero: {
