@@ -3,6 +3,21 @@ import GithubIcon from '../icons/github-mark.astro';
 import DownloadIcon from '../icons/download.astro';
 ---
 
+<script>
+  const today = new Date();
+  const firstJune2023 = new Date('2023-06-01');
+
+  const yearsPassed = Math.floor(
+    (today.getTime() - firstJune2023.getTime()) / (1000 * 60 * 60 * 24 * 365)
+  );
+  document.getElementById('years-experience').innerHTML = yearsPassed;
+  let yearsText = 'Años de experiencia';
+  if (yearsPassed < 2) {
+    yearsText = 'Año de experiencia';
+  }
+  document.getElementById('years-text').innerHTML = yearsText;
+</script>
+
 <section
   class="relative flex flex-col md:flex-row max-w-screen-lg justify-center gap-16 items-center px-10 my-24 mx-auto"
 >
@@ -15,14 +30,14 @@ import DownloadIcon from '../icons/download.astro';
     <div class="flex gap-3 mt-2">
       <a
         href="#"
-        class="shadow hover:rotate-3 hover:scale-105 bg-blue-500 rounded-full text-white transition ease-out gap-3 font-bold px-4 flex items-center text-lg"
+        class="shadow hover:rotate-3 hover:scale-105 bg-blue-500 rounded-full text-white transition ease-out gap-3 font-bold px-4 flex items-center text-lg will-change-transform"
       >
         GitHub
         <GithubIcon />
       </a>
       <a
         href="#"
-        class="shadow hover:rotate-3 hover:scale-105 bg-blue-500 rounded-full text-white transition ease-out flex font-bold gap-3 items-center h-fit px-4 py-2 text-lg"
+        class="shadow hover:rotate-3 hover:scale-105 bg-blue-500 rounded-full text-white transition ease-out flex font-bold gap-3 items-center h-fit px-4 py-2 text-lg will-change-transform"
       >
         CV
         <DownloadIcon />
@@ -30,8 +45,8 @@ import DownloadIcon from '../icons/download.astro';
     </div>
   </div>
   <div class="flex flex-col gap-1 text-center">
-    <h2 class="text-[200px] font-serif -mt-20">3</h2>
-    <h3 class="text-2xl -mt-7 font-sans">Años de experiencia</h3>
+    <h2 class="text-[200px] font-serif -mt-20" id="years-experience"></h2>
+    <h3 class="text-2xl -mt-7 font-sans" id="years-text"></h3>
     <p>desde junio de 2023</p>
   </div>
 </section>

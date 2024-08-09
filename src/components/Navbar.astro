@@ -6,10 +6,13 @@ import ArrowIcon from '../components/icons/arrow.astro';
 const currentPath = Astro.url.pathname;
 ---
 
-<nav class="flex items-center bg-white relative h-20">
+<nav class="flex items-center relative h-20">
   {
     currentPath.includes('projects') && (
-      <a href="/" class="flex gap-2 text-lg items-center px-3">
+      <a
+        href="/"
+        class="flex gap-2 text-lg items-center px-3 hover:text-blue-500 transition ease-out"
+      >
         <div class="rotate-90">
           <ArrowIcon />
         </div>

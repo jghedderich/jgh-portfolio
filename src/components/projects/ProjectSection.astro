@@ -1,11 +1,11 @@
 ---
-import { projects } from '../../data/projects';
-import ProjectCard from './ProjectCard.astro';
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
 ---
 
-<section class="flex flex-col gap-5 max-w-screen-lg mx-auto p-6">
-  <h2 class="text-2xl font-serif">Algunos de mis proyectos</h2>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-    {projects.map((project) => <ProjectCard {project} />)}
-  </div>
+<section class="max-w-screen-lg mx-auto p-5">
+  <h2 class="text-4xl mb-3 font-serif">{title}</h2>
+  <slot />
 </section>
