@@ -1,51 +1,37 @@
 ---
-import { Image } from 'astro:assets';
-import GithubIcon from '../../assets/ui/github-mark.svg';
-import DownloadIcon from '../../assets/ui/download.svg';
+import GithubIcon from '../icons/github-mark.astro';
+import DownloadIcon from '../icons/download.astro';
 ---
 
 <section
   class="relative flex flex-col md:flex-row max-w-screen-lg justify-center gap-16 items-center px-10 my-24 mx-auto"
 >
   <div class="flex flex-col items-start gap-4">
-    <h1 class="text-5xl leading-snug">Hola! soy Juan Hedderich</h1>
+    <h1 class="text-5xl font-bold leading-snug font-serif">
+      Hola! soy Juan Hedderich
+    </h1>
     <h3 class="text-2xl">desarrollador frontend de Venezuela</h3>
     <h4 class="text-lg">trabajando actualmente en Avilatek ⛰️</h4>
     <div class="flex gap-3 mt-2">
       <a
         href="#"
-        class="shadow bg-blue-100 hover:bg-blue-200 text-white transition ease-out rounded-md p-2 flex items-center"
+        class="shadow hover:rotate-3 hover:scale-105 bg-blue-500 rounded-full text-white transition ease-out gap-3 font-bold px-4 flex items-center text-lg"
       >
-        <Image src={GithubIcon} alt="the github logo" class="w-7" />
+        GitHub
+        <GithubIcon />
       </a>
       <a
         href="#"
-        class="shadow bg-blue-100 hover:bg-blue-200 transition ease-out flex gap-3 items-center rounded-md h-fit px-4 py-2 text-2xl"
+        class="shadow hover:rotate-3 hover:scale-105 bg-blue-500 rounded-full text-white transition ease-out flex font-bold gap-3 items-center h-fit px-4 py-2 text-lg"
       >
-        mi
-        <Image src={DownloadIcon} alt="download button" class="h-7" />
+        CV
+        <DownloadIcon />
       </a>
     </div>
   </div>
   <div class="flex flex-col gap-1 text-center">
-    <h2 class="text-[200px] years -mt-20">3</h2>
-    <h3 class="text-2xl -mt-7">Años de experiencia</h3>
+    <h2 class="text-[200px] font-serif -mt-20">3</h2>
+    <h3 class="text-2xl -mt-7 font-sans">Años de experiencia</h3>
     <p>desde junio de 2023</p>
   </div>
-
-  <!-- <div class="flex flex-col gap-2 justify-center items-center">
-    <p class="text-lg">my work</p>
-    <Image
-      src={arrowIcon}
-      loading="eager"
-      alt="arrow icon"
-      class="h-6 animate-bounce"
-    />
-  </div> -->
 </section>
-
-<style>
-  .years {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-  }
-</style>

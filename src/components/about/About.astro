@@ -1,9 +1,9 @@
 ---
 import { Image } from 'astro:assets';
 import juanImage from '../../assets/Juan.JPG';
-import githubIcon from '../../assets/ui/github-mark.svg';
-import linkedInIcon from '../../assets/ui/linkedin.svg';
-import emailIcon from '../../assets/ui/email.svg';
+import GithubIcon from '../icons/github-mark.astro';
+import LinkedInIcon from '../icons/linkedin.astro';
+import EmailIcon from '../icons/email.astro';
 const {} = Astro.props;
 ---
 
@@ -14,7 +14,7 @@ const {} = Astro.props;
     src={juanImage}
     loading="eager"
     alt="Juan Hedderich"
-    class="rounded-full h-40 w-fit"
+    class="rounded-full w-56"
   />
 
   <p class="text-lg">
@@ -25,28 +25,23 @@ const {} = Astro.props;
     <a
       href="https://github.com/Robbyro10"
       target="_blank"
-      class="hover:scale-105 transition ease-out"
+      class="hover:scale-105 hover:rotate-6 transition ease-out"
     >
-      <Image src={githubIcon} loading="eager" alt="GitHub icon" class="w-7" />
+      <GithubIcon class="h-10 w-10" />
     </a>
     <a
       href="mailto:jgh2748@gmail.com"
       target="_blank"
-      class="hover:scale-105 transition ease-out"
+      class="hover:scale-105 hover:-rotate-6 transition ease-out"
     >
-      <Image src={emailIcon} loading="eager" alt="Email icon" class="w-7" />
+      <EmailIcon class="h-10 w-10" />
     </a>
     <a
       href="https://www.linkedin.com/in/juan-hedderich-00778825b/"
       target="_blank"
-      class="hover:scale-105 transition ease-out"
+      class="hover:scale-105 hover:rotate-6 transition ease-out"
     >
-      <Image
-        src={linkedInIcon}
-        loading="eager"
-        alt="LinkedIn icon"
-        class="w-7"
-      />
+      <LinkedInIcon class="h-10 w-10" />
     </a>
   </div>
 </section>

@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import type { Repo } from '../../types/repo';
 import { skills } from '../../data/skills';
 import Badge from '../common/Badge.astro';
-import starIcon from '../../assets/ui/star.svg';
+import StarIcon from '../icons/star.astro';
 
 interface Props {
   repo: Repo;
@@ -14,14 +14,14 @@ const { repo } = Astro.props;
 
 {
   repo.language === null ? <></> : (
-    <div class="flex-auto shadow bg-white rounded-md flex flex-col justify-between gap-3 p-4 w-fit"
+    <div class="flex-auto shadow bg-white rounded-md flex flex-col justify-between gap-3 p-4 w-fit font-mono"
   >
     <section class="flex flex-col gap-2">
       <div class="flex gap-3 items-end">
       <a href={repo.html_url} target="_blank" class="hover:text-blue-500 transition ease-out text-2xl w-fit">{repo.name}</a>
       {repo.stargazers_count > 0 && (
         <div class="flex items-center" >
-            <Image src={starIcon} alt="star" class="h-4"/>
+            <StarIcon />
             <p class="text-lg w-max">{repo.stargazers_count}</p>
           </div>
        )}

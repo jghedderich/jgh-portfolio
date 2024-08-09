@@ -1,8 +1,26 @@
 ---
 import { Image } from 'astro:assets';
 import HeddLogo from '../assets/hedd-logo.png';
+import ArrowIcon from '../components/icons/arrow.astro';
+
+const currentPath = Astro.url.pathname;
 ---
 
-<nav class="flex justify-center">
-  <Image src={HeddLogo} alt="a penguin icon" class="w-20" />
+<nav class="flex items-center bg-white relative h-20">
+  {
+    currentPath.includes('projects') && (
+      <a href="/" class="flex gap-2 text-lg items-center px-3">
+        <div class="rotate-90">
+          <ArrowIcon />
+        </div>
+        Volver
+      </a>
+    )
+  }
+
+  <Image
+    src={HeddLogo}
+    alt="a penguin icon"
+    class="absolute w-20 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+  />
 </nav>

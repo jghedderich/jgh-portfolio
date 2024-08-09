@@ -3,10 +3,7 @@ export type Project = {
   slug: string;
   description: string;
   thumbnail: ImageMetadata;
-  hero: {
-    mobile: ImageMetadata;
-    desktop: ImageMetadata;
-  };
+  hero: ImageMetadata;
   repoLinks: { title: string; href: string }[];
   history: string[];
   summary: string;

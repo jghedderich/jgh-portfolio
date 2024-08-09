@@ -6,8 +6,7 @@ import {
   reactIcon,
   tailwindIcon,
 } from './icons';
-import inmobiliaMobile from '../assets/inmobilia/mobile.png';
-import inmobiliaDesktop from '../assets/inmobilia/desktop.png';
+import inmobiliaHero from '../assets/inmobilia/hero.png';
 import inmobiliaThumbnail from '../assets/inmobilia/thumbnail.png';
 import type { Project } from '../types/project';
 
@@ -17,13 +16,10 @@ export const projects: Project[] = [
     slug: 'inmobilia-caracas',
     description: 'Real state landing page',
     thumbnail: inmobiliaThumbnail,
-    hero: {
-      mobile: inmobiliaMobile,
-      desktop: inmobiliaDesktop,
-    },
+    hero: inmobiliaHero,
     repoLinks: [
       { title: 'frontend', href: 'https://github.com/Robbyro10/Inmobilia-app' },
-      { title: 'backed', href: 'https://github.com/Robbyro10/Inmobilia-db' },
+      { title: 'backend', href: 'https://github.com/Robbyro10/Inmobilia-db' },
     ],
     history: [
       'Mi madre había empezado a trabajar como asesoría inmobiliaria en Caracas. Maneja muchas propiedades y clientes conectándola constantemente. Ella necesitaba un lugar donde pudiera gestionar y mantener la información de todas sus propiedades y presentarla adecuadamente a sus clientes. Yo necesitaba practica y experiencia desarrollando aplicaciones, asi que nos pusimos manos a la obra.',
