@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import { projects } from '../../data/projects';
 import Layout from '../../layouts/Layout.astro';
 import ProjectSection from '../../components/projects/ProjectSection.astro';
+import ProjectFlowCarousel from '../../components/projects/ProjectFlowCarousel.astro';
 
 export function getStaticPaths() {
   return projects.map((project) => {
@@ -41,13 +42,7 @@ const { project } = Astro.props;
   </ProjectSection>
   <ProjectSection title="Un vistazo a la app">
     <p>{project.summary}</p>
-    <div class="flex gap-10 my-10">
-      {
-        project.summaryImages.map((img) => (
-          <Image src={img} alt="summary image" class="rounded-md" />
-        ))
-      }
-    </div>
+    <ProjectFlowCarousel images={project.summaryImages} />
   </ProjectSection>
 
   {
