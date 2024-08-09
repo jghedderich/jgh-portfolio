@@ -16,6 +16,7 @@ const { project } = Astro.props;
   <Image
     src={project.thumbnail}
     alt={project.name}
+    loading="eager"
     class="w-full object-cover group-hover:scale-105 group-hover:rotate-1 transtion ease-out duration-500 z-0"
   />
   <div class="absolute bottom-0 bg-white p-3 min-w-full z-10">
