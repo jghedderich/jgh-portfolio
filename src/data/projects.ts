@@ -8,6 +8,14 @@ import {
 } from './icons';
 import inmobiliaHero from '../assets/inmobilia/hero.png';
 import inmobiliaThumbnail from '../assets/inmobilia/thumbnail.png';
+import teamInmobilia from '../assets/inmobilia/team.png';
+import contactInmobilia from '../assets/inmobilia/contact.png';
+import propertyInmobilia from '../assets/inmobilia/propiedad.png';
+import propertiesInmobilia from '../assets/inmobilia/propiedades.png';
+import loginInmobilia from '../assets/inmobilia/login.png';
+import admin1Inmobilia from '../assets/inmobilia/admin1.png';
+import admin2Inmobilia from '../assets/inmobilia/admin2.png';
+import admin3Inmobilia from '../assets/inmobilia/admin3.png';
 import type { Project } from '../types/project';
 
 export const projects: Project[] = [
@@ -27,12 +35,22 @@ export const projects: Project[] = [
     ],
     summary:
       'Los usuarios pueden revisar información de contacto sobre la empresa (Inmobilia Caracas) ademas de revisar las multiples propiedades disponibles.',
-    summaryImages: [],
+    summaryImages: [
+      propertiesInmobilia,
+      propertyInmobilia,
+      teamInmobilia,
+      contactInmobilia,
+    ],
     info: [
       {
         title: 'Plataforma administrador',
         body: 'Al ingresar con credenciales administrativas, se pueden gestionar las propiedades de la plataforma.',
-        images: [],
+        images: [
+          loginInmobilia,
+          admin1Inmobilia,
+          admin2Inmobilia,
+          admin3Inmobilia,
+        ],
       },
     ],
     technologies: {
