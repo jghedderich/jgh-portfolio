@@ -1,0 +1,36 @@
+---
+import { experience } from '../../data/experience';
+import BriefcaseIcon from '../icons/briefcase.astro';
+---
+
+<section class="max-w-screen-lg p-5 mx-auto my-10">
+  <div class="flex gap-2 items-center mb-6">
+    <BriefcaseIcon class="size-7" />
+    <h2 class="text-3xl font-semibold">Experiencia laboral</h2>
+  </div>
+  <ol class="relative border-s border-blue-200 dark:border-gray-700">
+    {
+      experience.map((ex) => (
+        <li class="mb-10 ms-6">
+          <div class="absolute size-3 bg-blue-500 rounded-full mt-2 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700" />
+          <time class="mb-1 text-sm font-normal leading-none text-gray-500 dark:text-gray-500">
+            {ex.startDate} -{' '}
+            {ex.endDate === undefined ? 'Actualidad' : ex.endDate}
+          </time>
+          <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">
+            {ex.title}
+          </h3>
+          <a
+            href={ex.companyHref}
+            class="hover:underline text-xl text-blue-500"
+          >
+            {ex.company}
+          </a>
+          <p class="mb-4 mt-2 text-lg font-normal text-gray-500 dark:text-gray-400">
+            {ex.description}
+          </p>
+        </li>
+      ))
+    }
+  </ol>
+</section>
