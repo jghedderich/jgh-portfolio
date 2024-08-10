@@ -4,46 +4,59 @@ import juanImage from '../../assets/Juan.JPG';
 import GithubIcon from '../icons/github-mark.astro';
 import LinkedInIcon from '../icons/linkedin.astro';
 import EmailIcon from '../icons/email.astro';
-const {} = Astro.props;
+import UserIcon from '../icons/user.astro';
 ---
 
-<section
-  class="flex flex-col justify-start items-center gap-5 w-full p-6 mt-6 max-w-3xl mx-auto"
->
-  <Image
-    src={juanImage}
-    loading="eager"
-    alt="Juan Hedderich"
-    class="rounded-full w-56"
-  />
-
-  <p class="text-lg">
-    Enfocado en aprender y mejorar, estoy comprometido a hacer software de
-    calidad que cumpla con los requisitos y sea un placer de utilizar.
-  </p>
-  <div class="flex items-center gap-5">
-    <a
-      href="https://github.com/Robbyro10"
-      target="_blank"
-      aria-label="Juan Hedderich GitHub profile link"
-      class="hover:scale-105 hover:rotate-6 transition ease-out"
-    >
-      <GithubIcon class="size-10" />
-    </a>
-    <a
-      href="mailto:jgh2748@gmail.com"
-      target="_blank"
-      aria-label="email link"
-      class="hover:scale-105 hover:-rotate-6 transition ease-out"
-    >
-      <EmailIcon class="size-10" />
-    </a>
-    <a
-      href="https://www.linkedin.com/in/juan-hedderich-00778825b/"
-      target="_blank"
-      class="hover:scale-105 hover:rotate-6 transition ease-out"
-    >
-      <LinkedInIcon class="size-10" />
-    </a>
+<section class="p-6 mt-6 max-w-screen-lg mx-auto">
+  <div class="flex gap-3 items-center mb-6">
+    <UserIcon class="size-9" />
+    <h2 class="text-3xl font-semibold">Sobre mí</h2>
+  </div>
+  <div class="flex md:flex-row flex-col-reverse items-center gap-10">
+    <div class="text-gray-600">
+      <p class="mb-2">
+        Mi nombre es Juan Guillermo Hedderich. Empecé a programar desde los 16
+        años, un poco antes de entrar a la universidad. Actualmente soy
+        estudiante de ingeniería informática en la Universidad Católica Andres
+        Bello.
+      </p>
+      <p>
+        He realizado varios cursos sobre desarrollo frontend y UX. Me gusta
+        porque puedo expresar mi pasión por el arte y el diseño a través de las
+        aplicaciones que construyo. También me gusta la música, el deporte y los
+        videojuegos.
+      </p>
+      <div class="flex items-center gap-5 mt-5 text-black">
+        <a
+          href="https://github.com/Robbyro10"
+          target="_blank"
+          aria-label="Juan Hedderich GitHub profile link"
+          class="hover:scale-105 hover:rotate-6 transition ease-out"
+        >
+          <GithubIcon class="size-10" />
+        </a>
+        <a
+          href="mailto:jgh2748@gmail.com"
+          target="_blank"
+          aria-label="email link"
+          class="hover:scale-105 hover:-rotate-6 transition ease-out"
+        >
+          <EmailIcon class="size-10" />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/juan-hedderich-00778825b/"
+          target="_blank"
+          class="hover:scale-105 hover:rotate-6 transition ease-out"
+        >
+          <LinkedInIcon class="size-10" />
+        </a>
+      </div>
+    </div>
+    <Image
+      src={juanImage}
+      loading="eager"
+      alt="Juan Hedderich"
+      class="rounded-lg w-56 h-full rotate-3 shadow-md"
+    />
   </div>
 </section>

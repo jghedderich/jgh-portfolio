@@ -58,8 +58,16 @@ export const projects: Project[] = [
         'La aplicacion esta conformada en dos partes (frontend y backend). En el frontend se usa Next.js, un framework de React para manejar la logica y armar todos los interfaces de usuario, en conjunto de Tailwind para los estilos.',
         'Para el backend, se usa Express y Nest.js, un framework de express para crear servidores escalables y seguros.',
       ],
-      frontend: [nextIcon, reactIcon, tailwindIcon],
-      backend: [nestIcon, mongoIcon, expressIcon],
+      frontend: [
+        { name: 'Next.js', image: nextIcon },
+        { name: 'React.js', image: reactIcon },
+        { name: 'Tailwind.css', image: tailwindIcon },
+      ],
+      backend: [
+        { name: 'Nest.js', image: nestIcon },
+        { name: 'MongoDB', image: mongoIcon },
+        { name: 'Express', image: expressIcon },
+      ],
     },
   },
 ];

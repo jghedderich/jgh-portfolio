@@ -1,10 +1,14 @@
 ---
 import { projects } from '../../data/projects';
 import ProjectCard from './ProjectCard.astro';
+import CodeBacketIcon from '../icons/codeBracket.astro';
 ---
 
-<section class="flex flex-col gap-5 max-w-screen-lg mx-auto p-6">
-  <h2 class="text-3xl font-semibold">Algunos de mis proyectos</h2>
+<section class="flex flex-col gap-5 max-w-screen-lg mx-auto px-5">
+  <div class="flex gap-3 items-center mb-6">
+    <CodeBacketIcon class="size-7" />
+    <h2 class="text-3xl font-semibold">Proyectos</h2>
+  </div>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
     {projects.map((project) => <ProjectCard {project} />)}
   </div>

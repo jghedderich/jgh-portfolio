@@ -1,3 +1,8 @@
+export type Technology = {
+  name: string;
+  image: ImageMetadata;
+};
+
 export type Project = {
   name: string;
   slug: string;
@@ -11,7 +16,7 @@ export type Project = {
   info: [{ title: string; body: string; images: ImageMetadata[] }];
   technologies: {
     summary: string[];
-    frontend: ImageMetadata[];
-    backend: ImageMetadata[];
+    frontend: Technology[];
+    backend: Technology[];
   };
 };

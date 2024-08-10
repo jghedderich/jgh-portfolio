@@ -1,6 +1,8 @@
 ---
 import GithubIcon from '../icons/github-mark.astro';
-import DownloadIcon from '../icons/download.astro';
+import DownloadDocumentIcon from '../icons/downloadDocument.astro';
+import { Image } from 'astro:assets';
+import juanImage from '../../assets/Juan.JPG';
 ---
 
 <script>
@@ -19,13 +21,13 @@ import DownloadIcon from '../icons/download.astro';
 </script>
 
 <section
-  class="flex flex-col md:flex-row max-w-screen-lg items-center px-10 my-24 mx-auto"
+  class="flex flex-col-reverse md:flex-row max-w-screen-lg gap-10 items-center px-10 my-24 mx-auto"
 >
   <div class="flex flex-col items-start gap-2">
-    <h1 class="text-6xl font-semibold leading-snug">
+    <h1 class="text-5xl md:text-6xl font-semibold leading-snug">
       Hola, soy Juan Hedderich
     </h1>
-    <h3 class="text-2xl">
+    <h3 class="text-xl md:text-2xl text-balance">
       Desarrollador front-end de Venezuela con <span id="years-experience"
       ></span>
       <span id="years-text"></span>. Trabajando actualmente en Avilatek ⛰️.
@@ -38,20 +40,21 @@ import DownloadIcon from '../icons/download.astro';
         class="shadow hover:rotate-3 hover:scale-105 bg-blue-500 rounded-full text-white transition ease-out gap-3 px-4 flex items-center text-lg will-change-transform font-bold"
       >
         Mi GitHub
-        <GithubIcon />
+        <GithubIcon class="size-6" />
       </a>
       <a
         href="#"
         class="shadow hover:rotate-3 hover:scale-105 bg-blue-500 rounded-full text-white transition ease-out flex gap-3 items-center h-fit px-4 py-2 text-lg will-change-transform font-bold"
       >
         Descargar CV
-        <DownloadIcon />
+        <DownloadDocumentIcon class="size-6" />
       </a>
     </div>
   </div>
-  <!-- <div class="flex flex-col gap-1 text-center">
-    <h2 class="text-[200px] -mb-10" id="years-experience"></h2>
-    <h3 class="text-2xl -mt-7 font-sans" id="years-text"></h3>
-    <p>desde junio de 2023</p>
-  </div> -->
+  <Image
+    src={juanImage}
+    loading="eager"
+    alt="Juan Hedderich"
+    class="rounded-full size-56"
+  />
 </section>

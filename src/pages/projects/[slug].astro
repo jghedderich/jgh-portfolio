@@ -18,71 +18,81 @@ const { project } = Astro.props;
 ---
 
 <Layout title={project.name} description={project.description}>
-  <div class="flex flex-col gap-2 justify-center items-center p-6 text-center">
-    <h1 class="text-2xl font-semibold">{project.name}</h1>
-    <h2 class="text-5xl font-semibold">{project.description}</h2>
-    <div class="mt-10 mx-6">
-      <Image src={project.hero} alt="desktop" />
-    </div>
-    <h5 class="text-xl mt-5">Revisa el código:</h5>
-    <div class="flex gap-3">
-      {
-        project.repoLinks.map((link) => (
-          <button class="bg-blue-500 hover:rotate-3 font-semibold transition ease-out text-white rounded-full px-4 py-1">
-            {link.title}
-          </button>
-        ))
-      }
-    </div>
-  </div>
-  <ProjectSection title="La historia">
-    <div class="grid gap-3 text-lg">
-      {project.history.map((p) => <p>{p}</p>)}
-    </div>
-  </ProjectSection>
-  <ProjectSection title="Un vistazo a la app">
-    <p>{project.summary}</p>
-    <ProjectFlowCarousel images={project.summaryImages} />
-  </ProjectSection>
-
-  {
-    project.info.map((info) => (
-      <ProjectSection title={info.title}>
-        <p>{info.body}</p>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-10">
-          {info.images.map((image) => (
-            <Image src={image} alt={info.title} class="rounded-md" />
-          ))}
-        </div>
-      </ProjectSection>
-    ))
-  }
-
-  <ProjectSection title="Tecnologías usadas">
-    <div class="flex items-center gap-6 justify-center my-10">
-      <div class="shadow rounded-md px-5 py-3 bg-white">
-        <h3 class="text-3xl mb-6">Frontend</h3>
-        <div class="grid gap-3 justify-center">
-          {
-            project.technologies.frontend.map((tech) => (
-              <Image src={tech} alt="icon" class="h-24 w-24" />
-            ))
-          }
-        </div>
+  <main class="flex flex-col gap-10">
+    <div
+      class="flex flex-col gap-2 justify-center items-center p-6 text-center"
+    >
+      <h1 class="text-2xl font-semibold">{project.name}</h1>
+      <h2 class="text-5xl font-semibold">{project.description}</h2>
+      <div class="mt-10 mx-6">
+        <Image src={project.hero} alt="desktop" />
       </div>
-      <div class="shadow rounded-md px-5 py-3 bg-white">
-        <h3 class="text-3xl mb-6">Backend</h3>
-        <div class="grid gap-3 justify-center">
-          {
-            project.technologies.backend.map((tech) => (
-              <Image src={tech} alt="icon" class="h-24 w-24" />
-            ))
-          }
-        </div>
+      <h5 class="text-xl mt-5">Revisa el código:</h5>
+      <div class="flex gap-3">
+        {
+          project.repoLinks.map((link) => (
+            <button class="bg-blue-500 hover:rotate-3 font-semibold transition ease-out text-white rounded-full px-4 py-1">
+              {link.title}
+            </button>
+          ))
+        }
       </div>
     </div>
-    <div class="grid gap-2">
-      {project.technologies.summary.map((p) => <p>{p}</p>)}
-    </div>
-  </ProjectSection>
+    <ProjectSection title="La historia">
+      <div class="grid gap-3 text-lg">
+        {project.history.map((p) => <p>{p}</p>)}
+      </div>
+    </ProjectSection>
+    <ProjectSection title="Un vistazo a la app">
+      <p>{project.summary}</p>
+      <ProjectFlowCarousel images={project.summaryImages} />
+    </ProjectSection>
+
+    {
+      project.info.map((info) => (
+        <ProjectSection title={info.title}>
+          <p>{info.body}</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-10">
+            {info.images.map((image) => (
+              <Image src={image} alt={info.title} class="rounded-md" />
+            ))}
+          </div>
+        </ProjectSection>
+      ))
+    }
+
+    <ProjectSection title="Tecnologías usadas">
+      <div class="flex items-center gap-6 justify-center my-10">
+        <div class="shadow rounded-md px-5 py-3 bg-white">
+          <h3 class="text-3xl mb-6">Frontend</h3>
+          <div class="grid gap-3 justify-center">
+            {
+              project.technologies.frontend.map((tech) => (
+                <div class="flex flex-col items-center gap-1">
+                  <Image src={tech.image} alt="icon" class="size-24" />
+                  <span>{tech.name}</span>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+        <div class="shadow rounded-md px-5 py-3 bg-white">
+          <h3 class="text-3xl mb-6">Backend</h3>
+          <div class="grid gap-3 justify-center">
+            {
+              project.technologies.backend.map((tech) => (
+                <div class="flex flex-col items-center gap-1">
+                  <Image src={tech.image} alt="icon" class="size-24" />
+                  <span>{tech.name}</span>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+      <div class="grid gap-2">
+        {project.technologies.summary.map((p) => <p>{p}</p>)}
+      </div>
+    </ProjectSection>
+  </main>
 </Layout>
