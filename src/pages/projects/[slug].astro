@@ -19,16 +19,16 @@ const { project } = Astro.props;
 
 <Layout title={project.name} description={project.description}>
   <div class="flex flex-col gap-2 justify-center items-center p-6 text-center">
-    <h1 class="text-2xl">{project.name}</h1>
-    <h2 class="text-5xl font-serif">{project.description}</h2>
+    <h1 class="text-2xl font-semibold">{project.name}</h1>
+    <h2 class="text-5xl font-semibold">{project.description}</h2>
     <div class="mt-10 mx-6">
       <Image src={project.hero} alt="desktop" />
     </div>
-    <h5>Revisa el código:</h5>
+    <h5 class="text-xl mt-5">Revisa el código:</h5>
     <div class="flex gap-3">
       {
         project.repoLinks.map((link) => (
-          <button class="bg-blue-500 hover:bg-blue-400 transition ease-out text-white rounded-full px-3 py-1">
+          <button class="bg-blue-500 hover:rotate-3 font-semibold transition ease-out text-white rounded-full px-4 py-1">
             {link.title}
           </button>
         ))
@@ -60,7 +60,7 @@ const { project } = Astro.props;
 
   <ProjectSection title="Tecnologías usadas">
     <div class="flex items-center gap-6 justify-center my-10">
-      <div class="shadow rounded-md px-5 py-3">
+      <div class="shadow rounded-md px-5 py-3 bg-white">
         <h3 class="text-3xl mb-6">Frontend</h3>
         <div class="grid gap-3 justify-center">
           {
@@ -70,7 +70,7 @@ const { project } = Astro.props;
           }
         </div>
       </div>
-      <div class="shadow rounded-md px-5 py-3">
+      <div class="shadow rounded-md px-5 py-3 bg-white">
         <h3 class="text-3xl mb-6">Backend</h3>
         <div class="grid gap-3 justify-center">
           {
@@ -85,16 +85,4 @@ const { project } = Astro.props;
       {project.technologies.summary.map((p) => <p>{p}</p>)}
     </div>
   </ProjectSection>
-  <div class="mt-6 flex flex-col gap-2 items-center justify-center mb-24">
-    <h5>Revisa el código:</h5>
-    <div class="flex gap-3">
-      {
-        project.repoLinks.map((link) => (
-          <button class="bg-blue-500 hover:bg-blue-400 transition ease-out text-white rounded-full px-3 py-1">
-            {link.title}
-          </button>
-        ))
-      }
-    </div>
-  </div>
 </Layout>
