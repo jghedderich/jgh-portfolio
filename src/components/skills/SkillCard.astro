@@ -9,11 +9,11 @@ interface Props {
 const { skill } = Astro.props;
 ---
 
-<li class="relative group rounded p-3 transition ease-out shrink-0">
+<div class="relative group rounded p-3 transition ease-out shrink-0">
   <Image
     src={skill.image}
     loading="eager"
     alt=`${skill.name} icon`
     class="w-full h-24"
   />
-</li>
+</div>
