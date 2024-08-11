@@ -9,6 +9,7 @@ import {
   reduxIcon,
   nodeIcon,
 } from './icons';
+// inmobilia images
 import inmobiliaHero from '../assets/inmobilia/hero.png';
 import inmobiliaThumbnail from '../assets/inmobilia/thumbnail.png';
 import teamInmobilia from '../assets/inmobilia/team.png';
@@ -19,6 +20,18 @@ import loginInmobilia from '../assets/inmobilia/login.png';
 import admin1Inmobilia from '../assets/inmobilia/admin1.png';
 import admin2Inmobilia from '../assets/inmobilia/admin2.png';
 import admin3Inmobilia from '../assets/inmobilia/admin3.png';
+// UcabGo images
+import ucabGoHero from '../assets/ucabgo/ucabgo-hero.png';
+import ucabGoThumbnail from '../assets/ucabgo/ucabgo-thumbnail.png';
+import loginUcabGo from '../assets/ucabgo/login.png';
+import homeUcabGo from '../assets/ucabgo/home.png';
+import clientMenuUcabGo from '../assets/ucabgo/client-menu.png';
+import makeOrderUcabGo from '../assets/ucabgo/make-order.png';
+import admin1UcabGo from '../assets/ucabgo/admin-signin.png';
+import admin2UcabGo from '../assets/ucabgo/admin-orders.jpg';
+import admin3UcabGo from '../assets/ucabgo/admin-menu.png';
+import admin4UcabGo from '../assets/ucabgo/admin-profile.jpg';
+
 import type { Project } from '../types/project';
 
 export const projects: Project[] = [
@@ -77,8 +90,8 @@ export const projects: Project[] = [
     name: 'UcabGo',
     slug: 'ucabgo',
     description: 'Plataforma de delivery dentro de la universidad',
-    thumbnail: inmobiliaThumbnail,
-    hero: inmobiliaHero,
+    thumbnail: ucabGoThumbnail,
+    hero: ucabGoHero,
     repoLinks: [
       { title: 'frontend', href: 'https://github.com/Robbyro10/UcabGo' },
       { title: 'backend', href: 'https://github.com/Robbyro10/UcabGo-MongoDB' },
@@ -88,23 +101,13 @@ export const projects: Project[] = [
       'Con la popularidad de los servicios de delivery recientemente implementados en Venezuela, en equipo, pensamos en crear una plataforma de delivery para la universidad, donde los estudiantes pueden hacer pedidos a cualquier local de la universidad y que otro estudiante se encargue del envío.',
     ],
     summary:
-      'Los usuarios pueden revisar información de contacto sobre la empresa (Inmobilia Caracas) ademas de revisar las multiples propiedades disponibles.',
-    summaryImages: [
-      propertiesInmobilia,
-      propertyInmobilia,
-      teamInmobilia,
-      contactInmobilia,
-    ],
+      'Los usuarios pueden ingresar a la plataforma, revisar locales, sus productos y hacer pedidos.',
+    summaryImages: [loginUcabGo, homeUcabGo, clientMenuUcabGo, makeOrderUcabGo],
     info: [
       {
         title: 'Plataforma administrador',
-        body: 'Al ingresar con credenciales administrativas, se pueden gestionar las propiedades de la plataforma.',
-        images: [
-          loginInmobilia,
-          admin1Inmobilia,
-          admin2Inmobilia,
-          admin3Inmobilia,
-        ],
+        body: 'Los dueños de locales pueden ingresar a la aplicación, gestionar sus órdenes y catálogo de productos.',
+        images: [admin1UcabGo, admin2UcabGo, admin3UcabGo, admin4UcabGo],
       },
     ],
     technologies: {

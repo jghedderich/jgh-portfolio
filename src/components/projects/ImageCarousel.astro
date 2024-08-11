@@ -12,9 +12,9 @@ const { images } = Astro.props;
           <div class="swiper-slide">
             <Image
               src={img}
-    '          loading="eager"'
+              loading="eager"
               alt="ui section of the proyect"
-              class="rounded-md h-[300px] md:h-[600px] object-cover object-top"
+              class="rounded-md border w-full h-[300px] md:h-[600px] object-cover object-top"
             />
           </div>
         ))
@@ -41,6 +41,7 @@ const { images } = Astro.props;
       modifier: 2,
       slideShadows: true,
     },
+    pagination: true,
     pagination: {
       el: '.swiper-pagination',
     },

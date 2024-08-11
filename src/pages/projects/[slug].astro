@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import { projects } from '../../data/projects';
 import Layout from '../../layouts/Layout.astro';
 import ProjectSection from '../../components/projects/ProjectSection.astro';
-import ProjectFlowCarousel from '../../components/projects/ProjectFlowCarousel.astro';
+import ImageCarousel from '../../components/projects/ImageCarousel.astro';
 
 export function getStaticPaths() {
   return projects.map((project) => {
@@ -45,62 +45,66 @@ const { project } = Astro.props;
         }
       </div>
     </div>
+
     <ProjectSection title="La historia">
       <div class="grid gap-3 text-lg">
         {project.history.map((p) => <p>{p}</p>)}
       </div>
     </ProjectSection>
+
     <ProjectSection title="Un vistazo a la app">
       <p>{project.summary}</p>
-      <div class="">
-        <ProjectFlowCarousel images={project.summaryImages} />
-      </div>
-    </ProjectSection>
-
-    {
-      project.info.map((info) => (
-        <ProjectSection title={info.title}>
-          <p>{info.body}</p>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-10 ">
-            {info.images.map((image) => (
-              <Image src={image} alt={info.title} class="rounded-md" />
-            ))}
-          </div>
-        </ProjectSection>
-      ))
-    }
-
-    <ProjectSection title="Tecnologías usadas">
-      <div
-        class="grid grid-cols-1 md:grid-cols-2 items-start gap-6 justify-evenly min-h-[400px] my-10"
-      >
-        <div class="shadow rounded-md p-6 bg-white">
-          <h3 class="text-3xl mb-6 text-center font-semibold">Frontend</h3>
-          <div class="grid grid-cols-3 gap-10 justify-center items-end">
-            {
-              project.technologies.frontend.map((tech) => (
-                <div class="flex flex-col items-center gap-1">
-                  <Image src={tech.image} alt="icon" class="" />
-                  <span class="text-gray-500">{tech.name}</span>
-                </div>
-              ))
-            }
-          </div>
-        </div>
-        <div class="shadow rounded-md p-6 bg-white">
-          <h3 class="text-3xl mb-6 text-center font-semibold">Backend</h3>
-          <div class="grid grid-cols-3 gap-10 justify-center items-end">
-            {
-              project.technologies.backend.map((tech) => (
-                <div class="flex flex-col items-center gap-1">
-                  <Image src={tech.image} alt="icon" class="" />
-                  <span class="text-gray-500">{tech.name}</span>
-                </div>
-              ))
-            }
-          </div>
-        </div>
-      </div>
+      <ImageCarousel images={project.summaryImages} />
     </ProjectSection>
   </main>
+
+  {
+    project.info.map((info) => (
+      <ProjectSection title={info.title}>
+        <p>{info.body}</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-10 ">
+          {info.images.map((image) => (
+            <Image
+              src={image}
+              alt={info.title}
+              class="rounded-md border object-cover h-full"
+            />
+          ))}
+        </div>
+      </ProjectSection>
+    ))
+  }
+
+  <ProjectSection title="Tecnologías usadas">
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 items-start gap-6 justify-evenly min-h-[400px] my-10"
+    >
+      <div class="shadow rounded-md p-6 bg-white">
+        <h3 class="text-3xl mb-6 text-center font-semibold">Frontend</h3>
+        <div class="grid grid-cols-3 gap-10 justify-center items-end">
+          {
+            project.technologies.frontend.map((tech) => (
+              <div class="flex flex-col items-center gap-1">
+                <Image src={tech.image} alt="icon" class="" />
+                <span class="text-gray-500">{tech.name}</span>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+      <div class="shadow rounded-md p-6 bg-white">
+        <h3 class="text-3xl mb-6 text-center font-semibold">Backend</h3>
+        <div class="grid grid-cols-3 gap-10 justify-center items-end">
+          {
+            project.technologies.backend.map((tech) => (
+              <div class="flex flex-col items-center gap-1">
+                <Image src={tech.image} alt="icon" class="" />
+                <span class="text-gray-500">{tech.name}</span>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </ProjectSection>
 </Layout>
