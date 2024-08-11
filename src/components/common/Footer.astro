@@ -1,7 +1,13 @@
 ---
+import { Image } from 'astro:assets';
+import juanLogo from '../../assets/hedd-logo.png';
+
 const {} = Astro.props;
 ---
 
-<footer class="bottom-0 z-10 flex justify-center gap-3 w-full p-3 mt-24">
+<footer
+  class="bottom-0 z-10 flex items-center justify-center gap-3 w-full p-3 mt-24"
+>
+  <Image src={juanLogo} alt="Juan Hedderich Logo" class="size-6" />
   <small>Hecho en Venezuela</small>
 </footer>
