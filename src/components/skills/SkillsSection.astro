@@ -25,13 +25,15 @@ import SkillCard from './SkillCard.astro';
   }
 </script>
 
-<section class="flex flex-col max-w-screen-lg mx-auto">
+<section
+  class="hidden md:flex flex-col w-full items-start max-w-screen-lg mx-auto"
+>
   <h2 class="text-3xl mx-5 font-semibold">Mis habilidades</h2>
-  <section class="py-10 scroller max-w-[380px] md:max-w-screen-lg">
+  <div class="py-10 scroller max-w-screen-lg">
     <div class="skill-list scroller__inner">
       {skills.map((skill) => <SkillCard {skill} />)}
     </div>
-  </section>
+  </div>
 </section>
 
 <style>

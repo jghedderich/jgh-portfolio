@@ -32,7 +32,7 @@ const { project } = Astro.props;
         {project.description}
       </h2>
       <div class="mt-10 mx-6">
-        <Image src={project.hero} alt="desktop" />
+        <Image src={project.hero} loading="eager" alt="desktop" />
       </div>
       <h5 class="text-xl mt-5">Revisa el código:</h5>
       <div class="flex gap-3">
@@ -74,10 +74,10 @@ const { project } = Astro.props;
       >
         <div class="shadow rounded-md p-6 bg-white">
           <h3 class="text-3xl mb-6 text-center font-semibold">Frontend</h3>
-          <div class="flex gap-10 justify-center items-end">
+          <div class="grid grid-cols-3 gap-10 justify-center items-end">
             {
               project.technologies.frontend.map((tech) => (
-                <div class="flex flex-col items-center gap-1 basis-full">
+                <div class="flex flex-col items-center gap-1">
                   <Image src={tech.image} alt="icon" class="" />
                   <span class="text-gray-500">{tech.name}</span>
                 </div>
@@ -87,10 +87,10 @@ const { project } = Astro.props;
         </div>
         <div class="shadow rounded-md p-6 bg-white">
           <h3 class="text-3xl mb-6 text-center font-semibold">Backend</h3>
-          <div class="flex gap-10 justify-center items-end">
+          <div class="grid grid-cols-3 gap-10 justify-center items-end">
             {
               project.technologies.backend.map((tech) => (
-                <div class="flex flex-col items-center gap-1 basis-full">
+                <div class="flex flex-col items-center gap-1">
                   <Image src={tech.image} alt="icon" class="" />
                   <span class="text-gray-500">{tech.name}</span>
                 </div>
