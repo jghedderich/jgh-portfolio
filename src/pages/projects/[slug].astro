@@ -23,7 +23,11 @@ const { project } = Astro.props;
       class="flex flex-col gap-2 justify-center items-center p-6 text-center"
     >
       <h1 class="text-2xl font-semibold">{project.name}</h1>
-      <h2 class="text-5xl font-semibold">{project.description}</h2>
+      <h2
+        class="text-4xl md:text-5xl font-semibold text-balance max-w-screen-md leading-tight"
+      >
+        {project.description}
+      </h2>
       <div class="mt-10 mx-6">
         <Image src={project.hero} alt="desktop" />
       </div>
@@ -62,36 +66,35 @@ const { project } = Astro.props;
     }
 
     <ProjectSection title="Tecnologías usadas">
-      <div class="flex items-center gap-6 justify-center my-10">
-        <div class="shadow rounded-md px-5 py-3 bg-white">
-          <h3 class="text-3xl mb-6">Frontend</h3>
-          <div class="grid gap-3 justify-center">
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 items-center gap-6 justify-evenly my-10"
+      >
+        <div class="shadow rounded-md p-6 bg-white">
+          <h3 class="text-3xl mb-6 text-center font-semibold">Frontend</h3>
+          <div class="flex gap-10 justify-center items-end">
             {
               project.technologies.frontend.map((tech) => (
-                <div class="flex flex-col items-center gap-1">
-                  <Image src={tech.image} alt="icon" class="size-24" />
-                  <span>{tech.name}</span>
+                <div class="flex flex-col items-center gap-1 basis-full">
+                  <Image src={tech.image} alt="icon" class="" />
+                  <span class="text-gray-500">{tech.name}</span>
                 </div>
               ))
             }
           </div>
         </div>
-        <div class="shadow rounded-md px-5 py-3 bg-white">
-          <h3 class="text-3xl mb-6">Backend</h3>
-          <div class="grid gap-3 justify-center">
+        <div class="shadow rounded-md p-6 bg-white">
+          <h3 class="text-3xl mb-6 text-center font-semibold">Backend</h3>
+          <div class="flex gap-10 justify-center items-end">
             {
               project.technologies.backend.map((tech) => (
-                <div class="flex flex-col items-center gap-1">
-                  <Image src={tech.image} alt="icon" class="size-24" />
-                  <span>{tech.name}</span>
+                <div class="flex flex-col items-center gap-1 basis-full">
+                  <Image src={tech.image} alt="icon" class="" />
+                  <span class="text-gray-500">{tech.name}</span>
                 </div>
               ))
             }
           </div>
         </div>
-      </div>
-      <div class="grid gap-2">
-        {project.technologies.summary.map((p) => <p>{p}</p>)}
       </div>
     </ProjectSection>
   </main>

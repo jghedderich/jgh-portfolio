@@ -2,7 +2,7 @@
 import GithubIcon from '../icons/github-mark.astro';
 import DownloadDocumentIcon from '../icons/downloadDocument.astro';
 import { Image } from 'astro:assets';
-import juanImage from '../../assets/Juan.JPG';
+import juanImage from '../../assets/juan-photo.jpg';
 ---
 
 <script>
@@ -12,12 +12,18 @@ import juanImage from '../../assets/Juan.JPG';
   const yearsPassed = Math.floor(
     (today.getTime() - firstJune2023.getTime()) / (1000 * 60 * 60 * 24 * 365)
   );
-  document.getElementById('years-experience').innerHTML = yearsPassed;
+  const yearsPassedNumber = document.getElementById('years-experience');
+  if (yearsPassedNumber) {
+    yearsPassedNumber.innerHTML = yearsPassed.toString();
+  }
   let yearsText = 'años de experiencia';
   if (yearsPassed < 2) {
     yearsText = 'año de experiencia';
   }
-  document.getElementById('years-text').innerHTML = yearsText;
+  const yearsTextElement = document.getElementById('years-text');
+  if (yearsTextElement) {
+    yearsTextElement.innerHTML = yearsText;
+  }
 </script>
 
 <section

@@ -5,6 +5,9 @@ import {
   nextIcon,
   reactIcon,
   tailwindIcon,
+  bootstrapIcon,
+  reduxIcon,
+  nodeIcon,
 } from './icons';
 import inmobiliaHero from '../assets/inmobilia/hero.png';
 import inmobiliaThumbnail from '../assets/inmobilia/thumbnail.png';
@@ -65,6 +68,57 @@ export const projects: Project[] = [
       ],
       backend: [
         { name: 'Nest.js', image: nestIcon },
+        { name: 'MongoDB', image: mongoIcon },
+        { name: 'Express', image: expressIcon },
+      ],
+    },
+  },
+  {
+    name: 'UcabGo',
+    slug: 'ucabgo',
+    description: 'Plataforma de delivery dentro de la universidad',
+    thumbnail: inmobiliaThumbnail,
+    hero: inmobiliaHero,
+    repoLinks: [
+      { title: 'frontend', href: 'https://github.com/Robbyro10/UcabGo' },
+      { title: 'backend', href: 'https://github.com/Robbyro10/UcabGo-MongoDB' },
+    ],
+    history: [
+      'Durante mi segundo año de universidad, cursé una materia llamada Ingeniería de software donde aprendimos a trabajar con metodologías de trabajo (Scrum) y como realizar la arquitectura y documentación de una aplicación profesional.',
+      'Con la popularidad de los servicios de delivery recientemente implementados en Venezuela, en equipo, pensamos en crear una plataforma de delivery para la universidad, donde los estudiantes pueden hacer pedidos a cualquier local de la universidad y que otro estudiante se encargue del envío.',
+    ],
+    summary:
+      'Los usuarios pueden revisar información de contacto sobre la empresa (Inmobilia Caracas) ademas de revisar las multiples propiedades disponibles.',
+    summaryImages: [
+      propertiesInmobilia,
+      propertyInmobilia,
+      teamInmobilia,
+      contactInmobilia,
+    ],
+    info: [
+      {
+        title: 'Plataforma administrador',
+        body: 'Al ingresar con credenciales administrativas, se pueden gestionar las propiedades de la plataforma.',
+        images: [
+          loginInmobilia,
+          admin1Inmobilia,
+          admin2Inmobilia,
+          admin3Inmobilia,
+        ],
+      },
+    ],
+    technologies: {
+      summary: [
+        'La aplicación esta conformada en dos partes (frontend y backend). En el frontend se usa React.js, una librería de JavaScript para construir interfaces de usuario y Bootstrap para los estilos. Finalmente se usó Redux para manejar el estado global de la aplicacion',
+        'Para el backend, se usa Express y Nest.js, un framework de express para crear servidores escalables y seguros.',
+      ],
+      frontend: [
+        { name: 'React.js', image: reactIcon },
+        { name: 'Redux', image: reduxIcon },
+        { name: 'Bootstrap', image: bootstrapIcon },
+      ],
+      backend: [
+        { name: 'Node.js', image: nodeIcon },
         { name: 'MongoDB', image: mongoIcon },
         { name: 'Express', image: expressIcon },
       ],

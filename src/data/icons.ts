@@ -20,6 +20,7 @@ import nest from '../assets/nest.svg';
 import node from '../assets/node.svg';
 import postgres from '../assets/postgresql.svg';
 import express from '../assets/express.svg';
+import redux from '../assets/redux.svg';
 
 export const reactIcon = react;
 export const nextIcon = next;
@@ -43,3 +44,4 @@ export const nestIcon = nest;
 export const nodeIcon = node;
 export const postgresIcon = postgres;
 export const expressIcon = express;
+export const reduxIcon = redux;
