@@ -5,7 +5,7 @@ const { images } = Astro.props;
 ---
 
 <div class="relative pb-8">
-  <div class="swiper my-6">
+  <div class="swiper my-6 w-[90vw] max-w-screen-lg">
     <div class="swiper-wrapper">
       {
         images.map((img: ImageMetadata) => (
@@ -13,7 +13,7 @@ const { images } = Astro.props;
             <Image
               src={img}
               alt="summary image"
-              class="rounded-md h-[600px] object-cover object-top"
+              class="rounded-md h-[300px] md:h-[600px] object-cover object-top"
             />
           </div>
         ))

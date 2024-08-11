@@ -2,8 +2,6 @@
 import Layout from '../layouts/Layout.astro';
 import About from '../components/about/About.astro';
 import SkillsSection from '../components/skills/SkillsSection.astro';
-import ReposSection from '../components/repositories/ReposSection.astro';
-import Penguin from '../components/penguin/Penguin.astro';
 import HeroSection from '../components/hero/HeroSection.astro';
 import ProjectList from '../components/projects/ProjectList.astro';
 import ExperienceSection from '../components/experience/ExperienceSection.astro';
@@ -19,15 +17,7 @@ import ExperienceSection from '../components/experience/ExperienceSection.astro'
     <ProjectList />
     <!-- <ReposSection /> -->
     <SkillsSection />
-    <div class="relative">
-      <About />
-      <div class="absolute bottom-20 -right-20 -rotate-45">
-        <Penguin />
-      </div>
-    </div>
-    <div class="absolute bottom-20 -left-20 rotate-45">
-      <Penguin />
-    </div>
+    <About />
   </main>
 </Layout>
 
