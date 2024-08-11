@@ -11,14 +11,17 @@ import ExperienceSection from '../components/experience/ExperienceSection.astro'
   title="Portafolio de Juan Hedderich - Desarrollador y Programador Web"
   description="Conoce el portafolio de Juan Hedderich, un desarrollador frontend especializado en aplicaciones web y diseño de interfaces de usuario."
 >
-  <main class="flex flex-col gap-10">
+  <div class="flex flex-col gap-10">
     <HeroSection />
+
     <ExperienceSection />
+
     <ProjectList />
-    <!-- <ReposSection /> -->
+
     <SkillsSection />
+
     <About />
-  </main>
+  </div>
 </Layout>
 
 <style>
@@ -26,4 +29,20 @@ import ExperienceSection from '../components/experience/ExperienceSection.astro'
     overflow-x: hidden;
     background: #fefefe;
   }
+  /* @media (prefers-reduced-motion: no-preference) {
+    .fadein {
+      scale: 0.9;
+      opacity: 0;
+      animation: fade-in linear forwards;
+      animation-timeline: view();
+      animation-range: 250px 500px;
+    }
+
+    @keyframes fade-in {
+      to {
+        scale: 1;
+        opacity: 1;
+      }
+    }
+  } */
 </style>

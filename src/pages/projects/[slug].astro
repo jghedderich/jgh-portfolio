@@ -52,14 +52,16 @@ const { project } = Astro.props;
     </ProjectSection>
     <ProjectSection title="Un vistazo a la app">
       <p>{project.summary}</p>
-      <ProjectFlowCarousel images={project.summaryImages} />
+      <div class="fadein">
+        <ProjectFlowCarousel images={project.summaryImages} />
+      </div>
     </ProjectSection>
 
     {
       project.info.map((info) => (
         <ProjectSection title={info.title}>
           <p>{info.body}</p>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-10">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-10 fadein">
             {info.images.map((image) => (
               <Image src={image} alt={info.title} class="rounded-md" />
             ))}
@@ -70,7 +72,7 @@ const { project } = Astro.props;
 
     <ProjectSection title="Tecnologías usadas">
       <div
-        class="grid grid-cols-1 md:grid-cols-2 items-center gap-6 justify-evenly my-10"
+        class="grid grid-cols-1 md:grid-cols-2 items-start gap-6 justify-evenly min-h-[400px] my-10 fadein"
       >
         <div class="shadow rounded-md p-6 bg-white">
           <h3 class="text-3xl mb-6 text-center font-semibold">Frontend</h3>
@@ -102,3 +104,22 @@ const { project } = Astro.props;
     </ProjectSection>
   </main>
 </Layout>
+
+<style>
+  @media (prefers-reduced-motion: no-preference) {
+    .fadein {
+      scale: 0.9;
+      opacity: 0;
+      animation: fade-in linear forwards;
+      animation-timeline: view();
+      animation-range: 250px 500px;
+    }
+
+    @keyframes fade-in {
+      to {
+        scale: 1;
+        opacity: 1;
+      }
+    }
+  }
+</style>
