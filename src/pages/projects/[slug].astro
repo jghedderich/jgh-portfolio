@@ -32,7 +32,12 @@ const { project } = Astro.props;
         {project.description}
       </h2>
       <div class="mt-10 mx-6">
-        <Image src={project.hero} loading="eager" alt="desktop" />
+        <Image
+          src={project.hero}
+          loading="eager"
+          alt="desktop"
+          class="max-h-[600px] w-full"
+        />
       </div>
       <h5 class="text-xl mt-5">Revisa el código:</h5>
       <div class="flex gap-3">

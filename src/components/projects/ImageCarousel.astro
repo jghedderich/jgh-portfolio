@@ -9,12 +9,12 @@ const { images } = Astro.props;
     <div class="swiper-wrapper">
       {
         images.map((img: ImageMetadata) => (
-          <div class="swiper-slide">
+          <div class="swiper-slide w-fit my-auto">
             <Image
               src={img}
               loading="eager"
               alt="ui section of the proyect"
-              class="rounded-md border w-full h-[300px] md:h-[600px] object-cover object-top"
+              class="rounded-md w-fit mx-auto border h-full max-h-[800px] object-contain object-center"
             />
           </div>
         ))
@@ -31,16 +31,8 @@ const { images } = Astro.props;
   new Swiper('.swiper', {
     spaceBetween: 30,
     speed: 500,
-    effect: 'coverflow',
     centeredSlides: true,
     slidesPerView: 1.1,
-    coverflowEffect: {
-      rotate: 0,
-      stretch: 0,
-      depth: 100,
-      modifier: 2,
-      slideShadows: true,
-    },
     pagination: true,
     pagination: {
       el: '.swiper-pagination',
