@@ -12,6 +12,7 @@ export type Project = {
   name: string;
   slug: string;
   description: string;
+  url?: string;
   thumbnail: ImageMetadata;
   hero: ImageMetadata;
   repoLinks: { title: string; href: string }[];

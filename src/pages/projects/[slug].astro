@@ -4,6 +4,7 @@ import { projects } from '../../data/projects';
 import Layout from '../../layouts/Layout.astro';
 import ProjectSection from '../../components/projects/ProjectSection.astro';
 import ImageCarousel from '../../components/projects/ImageCarousel.astro';
+import HyperLinkIcon from '../../components/icons/hyperLink.astro';
 
 export function getStaticPaths() {
   return projects.map((project) => {
@@ -21,7 +22,7 @@ const { project } = Astro.props;
   title={`${project.name} - Juan Hedderich`}
   description={project.description}
 >
-  <main class="flex flex-col gap-10">
+  <main class="flex flex-col gap-16">
     <div
       class="flex flex-col gap-2 justify-center items-center p-6 text-center"
     >
@@ -39,14 +40,26 @@ const { project } = Astro.props;
           class="max-h-[600px] w-full"
         />
       </div>
-      <h5 class="text-xl mt-5">Revisa el código:</h5>
-      <div class="flex gap-3">
+      <div class="mt-6">
+        <h4 class="text-lg mb-2">Revisa el código:</h4>
+        <div class="flex gap-3 mb-6">
+          {
+            project.repoLinks.map((link) => (
+              <button class="bg-blue-500 hover:rotate-3 font-semibold transition ease-out text-white rounded-full px-4 py-1">
+                {link.title}
+              </button>
+            ))
+          }
+        </div>
         {
-          project.repoLinks.map((link) => (
-            <button class="bg-blue-500 hover:rotate-3 font-semibold transition ease-out text-white rounded-full px-4 py-1">
-              {link.title}
-            </button>
-          ))
+          project.url && (
+            <a
+              href={project.url}
+              class="flex gap-2 items-center justify-center text-lg text-blue-500 hover:underline"
+            >
+              Visita la página <HyperLinkIcon class="size-5" />
+            </a>
+          )
         }
       </div>
     </div>

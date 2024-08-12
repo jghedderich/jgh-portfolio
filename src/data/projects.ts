@@ -89,7 +89,7 @@ export const projects: Project[] = [
         body: [
           'Para garantizar la calidad de nuestro software, el profesor nos puso un requerimiento a nuestros backend. El backend de un equipo debe ser compatible con el front de otro, es decir, los backend deben ser intercambiables. Esto nos obligo a crear un API estándar y cada equipo debe seguirlo. Entonces el dia de la entrega, debemos poder cambiarnos al backend de otro equipo rápidamente.',
           'Los otros equipos lo que hacían era tumbar la aplicación, cambiar el url del backend y volver a correr la app. Nosotros queríamos hacer que este cambio sea una funcionalidad más de la app.',
-          'Lo que hicimos fue guardar el url del API en el estado global de la aplicación, y la podías cambiar desde la pantalla de inicio de sesión para ingresar en la app y ver el contenido del equipo que desees (nosotros eramos Omega). ',
+          'Lo que hicimos fue guardar el url del API en el estado global de la aplicación, y cambiarla desde la pantalla de inicio de sesión para ingresar en la app y ver el contenido del equipo que quisiéramos (nosotros eramos Omega). ',
         ],
       },
     ],
@@ -113,8 +113,11 @@ export const projects: Project[] = [
     thumbnail: ucabGoThumbnail,
     hero: ucabGoHero,
     repoLinks: [
-      { title: 'frontend', href: 'https://github.com/Robbyro10/UcabGo' },
-      { title: 'backend', href: 'https://github.com/Robbyro10/UcabGo-MongoDB' },
+      { title: 'Frontend', href: 'https://github.com/Robbyro10/UcabGo' },
+      {
+        title: 'Backend',
+        href: 'https://github.com/Robbyro10/UcabGo-MongoDB',
+      },
     ],
     history: [
       'Durante mi segundo año de universidad, cursé una materia llamada Ingeniería de software donde aprendimos a trabajar con metodologías de trabajo (Scrum) y como realizar la arquitectura y documentación de una aplicación profesional.',
@@ -158,11 +161,19 @@ export const projects: Project[] = [
     name: 'Inmobilia Caracas',
     slug: 'inmobilia-caracas',
     description: 'Real state landing page',
+    url: 'https://inmobilia-caracas.vercel.app/',
+
     thumbnail: inmobiliaThumbnail,
     hero: inmobiliaHero,
     repoLinks: [
-      { title: 'frontend', href: 'https://github.com/Robbyro10/Inmobilia-app' },
-      { title: 'backend', href: 'https://github.com/Robbyro10/Inmobilia-db' },
+      {
+        title: 'Frontend',
+        href: 'https://github.com/Robbyro10/Inmobilia-app',
+      },
+      {
+        title: 'Backend',
+        href: 'https://github.com/Robbyro10/Inmobilia-db',
+      },
     ],
     history: [
       'Mi madre había empezado a trabajar como asesoría inmobiliaria en Caracas. Maneja muchas propiedades y clientes conectándola constantemente. Ella necesitaba un lugar donde pudiera gestionar y mantener la información de todas sus propiedades y presentarla adecuadamente a sus clientes. Yo necesitaba practica y experiencia desarrollando aplicaciones, asi que nos pusimos manos a la obra.',
