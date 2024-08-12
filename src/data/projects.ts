@@ -41,6 +41,8 @@ import searchGymnastic from '../assets/gymnastic/search.png';
 import blogGymnastic from '../assets/gymnastic/blog.png';
 import courseInfoGymnastic from '../assets/gymnastic/course-info.png';
 import courseVideoGymnastic from '../assets/gymnastic/course-video.png';
+import gymnasticDemo from '../assets/gymnastic/gymnastic-demo.mp4';
+import gymnasticApiSelector from '../assets/gymnastic/api-selector.jpeg';
 
 import type { Project } from '../types/project';
 
@@ -56,33 +58,45 @@ export const projects: Project[] = [
       { title: 'backend', href: 'https://github.com/Robbyro10/Inmobilia-db' },
     ],
     history: [
-      'Mi madre había empezado a trabajar como asesoría inmobiliaria en Caracas. Maneja muchas propiedades y clientes conectándola constantemente. Ella necesitaba un lugar donde pudiera gestionar y mantener la información de todas sus propiedades y presentarla adecuadamente a sus clientes. Yo necesitaba practica y experiencia desarrollando aplicaciones, asi que nos pusimos manos a la obra.',
-      'Con el desarrollo de esta aplicación, tuve mis primeras experiencias diseñando interfaces de usuario. Aprendí sobre la importancia de la constante comunicación con el cliente y desplegué mi primera aplicación.',
+      'En la universidad cursé una materia fascinante llamada Desarrollo de Software. En este curso, se estudian patrones de diseño y arquitecturas limpias para la construcción de software limpio, mantenible y testeable. Específicamente, aprendimos sobre la arquitectura hexagonal, Domain Driven Design (DDD) y Aspect Oriented Programming (AOP).',
+      'Para aplicar los conceptos aprendidos, nos asignaron a realizar una aplicación móvil de fitness. Los requerimientos eran vagos e incompletos, era nuestro trabajo diseñar y construir una solución de software que cumpla con los requerimientos del cliente (el profesor) y que siga las buenas prácticas mencionadas anteriormente.',
+      'Eran 4 equipos de 12 personas en promedio. Naturalmente se creó un ambiente competitivo para ver cual equipo construiría la mejor aplicación. Al final, gracias a nuestro enfoque al UX y a proveer un producto real y usable, ganamos la competencia.',
     ],
     summary:
-      'Los usuarios pueden revisar información de contacto sobre la empresa (Inmobilia Caracas) ademas de revisar las multiples propiedades disponibles.',
+      'Los usuarios pueden ingresar y ver cursos y blogs relacionados a fitness. Pueden filtrar por categoría o instructor. Pueden hacer comentarios y preguntas, dejar likes/dislikes y traquear su progreso en cada curso.',
     summaryImages: [
       loginGymnastic,
       homeGymnastic,
       courseInfoGymnastic,
+      courseVideoGymnastic,
       blogGymnastic,
+      searchGymnastic,
     ],
     info: [
       {
-        title: 'Plataforma administrador',
-        body: 'Al ingresar con credenciales administrativas, se pueden gestionar las propiedades de la plataforma.',
-        images: [
-          loginInmobilia,
-          admin1Inmobilia,
-          admin2Inmobilia,
-          admin3Inmobilia,
+        title: 'Veamos un demo',
+        body: [''],
+        media: [
+          {
+            src: gymnasticDemo,
+            type: 'video',
+          },
+        ],
+      },
+      {
+        title: 'Selector de APIs',
+        media: [{ src: gymnasticApiSelector, type: 'image' }],
+        body: [
+          'Para garantizar la calidad de nuestro software, el profesor nos puso un requerimiento a nuestros backend. El backend de un equipo debe ser compatible con el front de otro, es decir, los backend deben ser intercambiables. Esto nos obligo a crear un API estándar y cada equipo debe seguirlo. Entonces el dia de la entrega, debemos poder cambiarnos al backend de otro equipo rápidamente.',
+          'Los otros equipos lo que hacían era tumbar la aplicación, cambiar el url del backend y volver a correr la app. Nosotros queríamos hacer que este cambio sea una funcionalidad más de la app.',
+          'Lo que hicimos fue guardar el url del API en el estado global de la aplicación, y la podías cambiar desde la pantalla de inicio de sesión para ingresar en la app y ver el contenido del equipo que desees (nosotros eramos Omega). ',
         ],
       },
     ],
     technologies: {
       summary: [
-        'La aplicacion esta conformada en dos partes (frontend y backend). En el frontend se usa Next.js, un framework de React para manejar la logica y armar todos los interfaces de usuario, en conjunto de Tailwind para los estilos.',
-        'Para el backend, se usa Express y Nest.js, un framework de express para crear servidores escalables y seguros.',
+        'La aplicación esta conformada en dos partes (frontend y backend). En el frontend se usa Flutter, un framework de Dart creado por Google para construir aplicaciones nativas a distintas plataformas con un solo codebase, ahorrando mucho tiempo de desarrollo.',
+        'Para el backend, se usa Nest.js, un framework de Express para crear servidores escalables y seguros.',
       ],
       frontend: [{ name: 'Flutter', image: flutterIcon }],
       backend: [
@@ -112,14 +126,21 @@ export const projects: Project[] = [
     info: [
       {
         title: 'Plataforma administrador',
-        body: 'Los dueños de locales pueden ingresar a la aplicación, gestionar sus órdenes y catálogo de productos.',
-        images: [admin1UcabGo, admin2UcabGo, admin3UcabGo, admin4UcabGo],
+        body: [
+          'Los dueños de locales pueden ingresar a la aplicación, gestionar sus órdenes y catálogo de productos.',
+        ],
+        media: [
+          { src: admin1UcabGo, type: 'image' },
+          { src: admin2UcabGo, type: 'image' },
+          { src: admin3UcabGo, type: 'image' },
+          { src: admin4UcabGo, type: 'image' },
+        ],
       },
     ],
     technologies: {
       summary: [
-        'La aplicación esta conformada en dos partes (frontend y backend). En el frontend se usa React.js, una librería de JavaScript para construir interfaces de usuario y Bootstrap para los estilos. Finalmente se usó Redux para manejar el estado global de la aplicacion',
-        'Para el backend, se usa Express y Nest.js, un framework de express para crear servidores escalables y seguros.',
+        'La aplicación esta conformada en dos partes (frontend y backend). En el frontend se usa React.js, una librería de JavaScript para construir interfaces de usuario y Bootstrap para los estilos. Finalmente se usó Redux para manejar el estado global de la aplicación',
+        'Para el backend, se usa Nest.js, un framework de Express para crear servidores escalables y seguros.',
       ],
       frontend: [
         { name: 'React.js', image: reactIcon },
@@ -158,19 +179,21 @@ export const projects: Project[] = [
     info: [
       {
         title: 'Plataforma administrador',
-        body: 'Al ingresar con credenciales administrativas, se pueden gestionar las propiedades de la plataforma.',
-        images: [
-          loginInmobilia,
-          admin1Inmobilia,
-          admin2Inmobilia,
-          admin3Inmobilia,
+        body: [
+          'Al ingresar con credenciales administrativas, se pueden gestionar las propiedades de la plataforma.',
+        ],
+        media: [
+          { src: loginInmobilia, type: 'image' },
+          { src: admin1Inmobilia, type: 'image' },
+          { src: admin2Inmobilia, type: 'image' },
+          { src: admin3Inmobilia, type: 'image' },
         ],
       },
     ],
     technologies: {
       summary: [
-        'La aplicacion esta conformada en dos partes (frontend y backend). En el frontend se usa Next.js, un framework de React para manejar la logica y armar todos los interfaces de usuario, en conjunto de Tailwind para los estilos.',
-        'Para el backend, se usa Express y Nest.js, un framework de express para crear servidores escalables y seguros.',
+        'La aplicación esta conformada en dos partes (frontend y backend). En el frontend se usa Next.js, un framework de React para manejar la lógica y armar todos los interfaces de usuario, en conjunto de Tailwind para los estilos.',
+        'Para el backend, se usa Nest.js, un framework de Express para crear servidores escalables y seguros.',
       ],
       frontend: [
         { name: 'Next.js', image: nextIcon },

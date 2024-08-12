@@ -3,6 +3,11 @@ export type Technology = {
   image: ImageMetadata;
 };
 
+export type Multimedia = {
+  src: any;
+  type: 'video' | 'image';
+};
+
 export type Project = {
   name: string;
   slug: string;
@@ -13,7 +18,7 @@ export type Project = {
   history: string[];
   summary: string;
   summaryImages: ImageMetadata[];
-  info: [{ title: string; body: string; images: ImageMetadata[] }];
+  info: { title: string; body: string[]; media?: Multimedia[] }[];
   technologies: {
     summary: string[];
     frontend: Technology[];
