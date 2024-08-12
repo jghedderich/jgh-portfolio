@@ -95,7 +95,7 @@ const { project } = Astro.props;
                 />
               );
             return (
-              <video muted autoplay loop class="rounded-md border">
+              <video controls autoplay muted class="rounded-md border">
                 <source src={media.src} />
               </video>
             );

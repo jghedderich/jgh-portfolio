@@ -96,13 +96,13 @@ export const projects: Project[] = [
     technologies: {
       summary: [
         'La aplicación esta conformada en dos partes (frontend y backend). En el frontend se usa Flutter, un framework de Dart creado por Google para construir aplicaciones nativas a distintas plataformas con un solo codebase, ahorrando mucho tiempo de desarrollo.',
-        'Para el backend, se usa Nest.js, un framework de Express para crear servidores escalables y seguros.',
+        'Para el backend, se usa NestJS un framework de Node para crear servidores escalables y seguros. Para la base de datos, mongoDB, una cola de RabbitMQ para la sincronización de los read models, se desarrollo un sistema de búsquedas y recomendaciones con Algolia y se aplicaron patrones arquitectónicos como DDD, Arq Hexagonal, CQRS y Event Sourcing.',
       ],
       frontend: [{ name: 'Flutter', image: flutterIcon }],
       backend: [
         { name: 'Nest.js', image: nestIcon },
         { name: 'MongoDB', image: mongoIcon },
-        { name: 'Express', image: expressIcon },
+        { name: 'Node.js', image: nodeIcon },
       ],
     },
   },
@@ -143,7 +143,7 @@ export const projects: Project[] = [
     technologies: {
       summary: [
         'La aplicación esta conformada en dos partes (frontend y backend). En el frontend se usa React.js, una librería de JavaScript para construir interfaces de usuario y Bootstrap para los estilos. Finalmente se usó Redux para manejar el estado global de la aplicación',
-        'Para el backend, se usa Nest.js, un framework de Express para crear servidores escalables y seguros.',
+        'Para el backend, se usa Nest.js, un framework de Node.js para crear servidores escalables y seguros. Para la base de datos, se usó MongoDB.',
       ],
       frontend: [
         { name: 'React.js', image: reactIcon },
@@ -151,9 +151,9 @@ export const projects: Project[] = [
         { name: 'Bootstrap', image: bootstrapIcon },
       ],
       backend: [
-        { name: 'Node.js', image: nodeIcon },
+        { name: 'Express.js', image: expressIcon },
         { name: 'MongoDB', image: mongoIcon },
-        { name: 'Express', image: expressIcon },
+        { name: 'Node.js', image: nodeIcon },
       ],
     },
   },
@@ -214,7 +214,7 @@ export const projects: Project[] = [
       backend: [
         { name: 'Nest.js', image: nestIcon },
         { name: 'MongoDB', image: mongoIcon },
-        { name: 'Express', image: expressIcon },
+        { name: 'Node.js', image: nodeIcon },
       ],
     },
   },
