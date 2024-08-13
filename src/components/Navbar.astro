@@ -7,14 +7,15 @@ const currentPath = Astro.url.pathname;
 ---
 
 <nav
-  class="fixed flex items-center h-20 max-w-screen-xl border-b w-full bg-white mx-auto z-30"
+  class="border-b bg-white flex items-center h-16 max-w-screen-xl w-full mx-auto z-30 transition ease-out"
+  id="navbar"
 >
   <div class="relative w-full">
     {
       currentPath.includes('projects') && (
         <a
           href="/"
-          class="flex gap-1 items-center px-3 hover:text-blue-500 transition ease-out"
+          class="flex gap-1 items-center pl-9 hover:text-blue-500 transition ease-out"
         >
           <div class="rotate-90">
             <ArrowIcon class="size-4" />
@@ -34,3 +35,31 @@ const currentPath = Astro.url.pathname;
     </a>
   </div>
 </nav>
+
+<script>
+  let prevScrollPosition = 0;
+  let navbar = document.getElementById('navbar');
+  function checkScrollDirection() {
+    const scrollPosition = window.scrollY;
+    if (scrollPosition > prevScrollPosition) {
+      navbar!.classList.add('hide');
+    } else {
+      navbar!.classList.remove('hide');
+    }
+    prevScrollPosition = scrollPosition;
+  }
+
+  window.addEventListener('scroll', checkScrollDirection);
+</script>
+
+<style>
+  #navbar {
+    position: fixed;
+    top: 0;
+    transition: transform 0.3s ease-out;
+  }
+
+  #navbar.hide {
+    transform: translateY(-100%);
+  }
+</style>

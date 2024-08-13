@@ -1,5 +1,6 @@
 ---
 import { skills } from '../../data/skills';
+import AcademicCapIcon from '../icons/academicCap.astro';
 import SkillCard from './SkillCard.astro';
 ---
 
@@ -28,7 +29,10 @@ import SkillCard from './SkillCard.astro';
 <section
   class="hidden md:flex flex-col w-full items-start max-w-screen-lg mx-auto"
 >
-  <h2 class="text-3xl mx-5 font-semibold">Mis habilidades</h2>
+  <h2 class="flex items-center gap-4 text-3xl mx-5 font-semibold">
+    <AcademicCapIcon class="size-8" /> Mis habilidades
+  </h2>
+
   <div class="py-10 scroller max-w-screen-lg">
     <div class="skill-list scroller__inner">
       {skills.map((skill) => <SkillCard {skill} />)}
