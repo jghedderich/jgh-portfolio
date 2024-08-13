@@ -23,7 +23,7 @@ const { project } = Astro.props;
   description={project.description}
 >
   <main class="flex flex-col gap-16">
-    <div
+    <header
       class="flex flex-col gap-2 justify-center items-center p-6 text-center"
     >
       <h1 class="text-2xl font-semibold">{project.name}</h1>
@@ -45,9 +45,13 @@ const { project } = Astro.props;
         <div class="flex gap-3 mb-6">
           {
             project.repoLinks.map((link) => (
-              <button class="bg-blue-500 hover:rotate-3 font-semibold transition ease-out text-white rounded-full px-4 py-1">
+              <a
+                href={link.href}
+                target="_blank"
+                class="bg-blue-500 hover:rotate-3 font-semibold transition ease-out text-white rounded-full px-4 py-1"
+              >
                 {link.title}
-              </button>
+              </a>
             ))
           }
         </div>
@@ -62,7 +66,7 @@ const { project } = Astro.props;
           )
         }
       </div>
-    </div>
+    </header>
 
     <ProjectSection title="La historia">
       <div class="grid gap-3 text-lg">
