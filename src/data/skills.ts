@@ -3,18 +3,14 @@ import {
   astroIcon,
   bootstrapIcon,
   cssIcon,
-  dockerIcon,
-  elixirIcon,
   expressIcon,
   flutterIcon,
   graphqlIcon,
   htmlIcon,
   jestIcon,
-  mongoIcon,
   nestIcon,
   nextIcon,
   nodeIcon,
-  postgresIcon,
   reactIcon,
   tailwindIcon,
   typescriptIcon,
@@ -47,19 +43,9 @@ export const skills: Skill[] = [
     type: 'learning',
   },
   {
-    name: 'Docker',
-    image: dockerIcon,
-    type: 'learning',
-  },
-  {
     name: 'Flutter',
     image: flutterIcon,
     type: 'frontend',
-  },
-  {
-    name: 'Elixir',
-    image: elixirIcon,
-    type: 'learning',
   },
   {
     name: 'GraphQL',
@@ -94,16 +80,6 @@ export const skills: Skill[] = [
   {
     name: 'Nest',
     image: nestIcon,
-    type: 'backend',
-  },
-  {
-    name: 'MongoDB',
-    image: mongoIcon,
-    type: 'backend',
-  },
-  {
-    name: 'PostgreSQL',
-    image: postgresIcon,
     type: 'backend',
   },
   {
