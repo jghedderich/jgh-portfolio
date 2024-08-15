@@ -7,10 +7,10 @@ const currentPath = Astro.url.pathname;
 ---
 
 <nav
-  class="border-b bg-white flex items-center h-16 max-w-screen-xl w-full mx-auto z-30 transition ease-out"
+  class="border-b bg-white flex justify-center items-center h-16 w-full z-30 transition ease-out"
   id="navbar"
 >
-  <div class="relative w-full">
+  <div class="relative w-full max-w-screen-xl">
     {
       currentPath.includes('projects') && (
         <a
