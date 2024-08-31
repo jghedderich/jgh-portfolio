@@ -5,6 +5,7 @@ import Layout from '../../layouts/Layout.astro';
 import ProjectSection from '../../components/projects/ProjectSection.astro';
 import ImageCarousel from '../../components/projects/ImageCarousel.astro';
 import HyperLinkIcon from '../../components/icons/hyperLink.astro';
+import Arrow from '../../components/icons/arrow.astro';
 
 export function getStaticPaths() {
   return projects.map((project) => {
@@ -144,4 +145,37 @@ const { project } = Astro.props;
       </div>
     </div>
   </ProjectSection>
+  <section class="flex flex-col items-center gap-10 justify-center">
+    <h4 class="text-3xl font-semibold">Mis otros proyectos</h4>
+    {
+      projects.length > 1 && (
+        <div class="flex gap-10 justify-center">
+          {projects.indexOf(project) > 0 && (
+            <div class="flex flex-col gap-3 items-center">
+              <a
+                href={`/projects/${projects[projects.indexOf(project) - 1].slug}`}
+                aria-label="Previous project"
+                class="rounded-full shadow hover:scale-105 transition ease-out bg-blue-500 text-white p-3 w-fit"
+              >
+                <Arrow class="size-7 rotate-90" />
+              </a>
+              <span>{projects[projects.indexOf(project) - 1].name}</span>
+            </div>
+          )}
+          {projects.indexOf(project) < projects.length - 1 && (
+            <div class="flex flex-col gap-3 items-center">
+              <a
+                href={`/projects/${projects[projects.indexOf(project) + 1].slug}`}
+                aria-label="Next project"
+                class="rounded-full shadow hover:scale-105 transition ease-out bg-blue-500 text-white p-3 w-fit"
+              >
+                <Arrow class="size-7 -rotate-90" />
+              </a>
+              <span>{projects[projects.indexOf(project) + 1].name}</span>
+            </div>
+          )}
+        </div>
+      )
+    }
+  </section>
 </Layout>

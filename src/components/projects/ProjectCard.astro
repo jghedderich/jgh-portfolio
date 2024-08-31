@@ -10,7 +10,10 @@ interface Props {
 const { project } = Astro.props;
 ---
 
-<div class="flex flex-col border rounded-md shadow-md overflow-hidden bg-white">
+<a
+  href={'/projects/' + project.slug}
+  class="flex flex-col border rounded-md shadow hover:shadow-lg transition ease-out overflow-hidden bg-white"
+>
   <div class="bg-blue-50">
     <Image
       src={project.thumbnail}
@@ -20,18 +23,14 @@ const { project } = Astro.props;
     />
   </div>
   <section class="p-4 min-w-full border-t">
-    <a
-      href={'/projects/' + project.slug}
-      class="text-blue-500 text-2xl hover:underline font-semibold"
-      >{project.name}</a
-    >
+    <h4 class="w-fit text-2xl font-semibold">{project.name}</h4>
     <p class="text-gray-500 mb-3">{project.description}</p>
 
     <div class="flex gap-3">
       {project.technologies.frontend.map((tech) => <Badge label={tech.name} />)}
     </div>
   </section>
-</div>
+</a>
 
 <style>
   .mask {
