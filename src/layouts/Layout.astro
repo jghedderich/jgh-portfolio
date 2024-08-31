@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
 import Footer from '../components/common/Footer.astro';
 import Navbar from '../components/Navbar.astro';
 interface Props {
@@ -22,6 +23,7 @@ import '@fontsource-variable/inter';
     />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <ViewTransitions />
   </head>
   <Navbar />
   <body>
@@ -42,5 +44,4 @@ import '@fontsource-variable/inter';
       font-family: 'Inter Variable', sans-serif;
     }
   </style>
-
 </html>

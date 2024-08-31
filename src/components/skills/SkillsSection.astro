@@ -26,17 +26,21 @@ import SkillCard from './SkillCard.astro';
   }
 </script>
 
-<section
-  class="hidden md:flex flex-col w-full items-start max-w-screen-lg mx-auto"
->
+<section class="flex flex-col w-full items-start max-w-screen-lg mx-auto">
   <h2 class="flex items-center gap-4 text-3xl mx-5 font-semibold">
     <AcademicCapIcon class="size-8" /> Mis habilidades
   </h2>
 
-  <div class="py-10 scroller max-w-screen-lg">
+  <!-- <div class="py-10 scroller max-w-screen-lg">
     <div class="skill-list scroller__inner">
       {skills.map((skill) => <SkillCard {skill} />)}
     </div>
+  </div> -->
+
+  <div
+    class="py-10 max-w-screen-lg grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 mx-auto gap-3"
+  >
+    {skills.map((skill) => <SkillCard {skill} />)}
   </div>
 </section>
 
