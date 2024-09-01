@@ -100,11 +100,11 @@ const { project } = Astro.props;
                 <Image
                   src={media.src}
                   alt={info.title}
-                  class="rounded-md border object-cover h-full"
+                  class="rounded-md object-cover h-full"
                 />
               );
             return (
-              <video controls autoplay muted class="rounded-md border">
+              <video controls autoplay muted class="rounded-md">
                 <source src={media.src} />
               </video>
             );

@@ -12,9 +12,11 @@ const { project } = Astro.props;
 
 <a
   href={'/projects/' + project.slug}
-  class="flex flex-col border dark:border-none rounded-md shadow hover:shadow-lg transition ease-out overflow-hidden bg-white dark:bg-slate-800"
+  class="flex flex-col border dark:border-none rounded-md shadow hover:shadow-lg transition ease-out overflow-hidden bg-white dark:bg-slate-800 dark:hover:bg-slate-700 group duration-500"
 >
-  <div class="bg-blue-50 dark:bg-slate-900">
+  <div
+    class="bg-blue-50 transition ease-out duration-500 dark:bg-slate-900 dark:group-hover:bg-slate-800"
+  >
     <Image
       src={project.thumbnail}
       alt={project.name}
