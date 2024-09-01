@@ -16,7 +16,7 @@ const { skill } = Astro.props;
 >
   <Image
     src={skill.image}
-    loading="eager"
+    loading="lazy"
     alt=`${skill.name} icon`
     class="w-full h-20 md:h-24"
   />
