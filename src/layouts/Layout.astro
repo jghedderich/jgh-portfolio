@@ -25,8 +25,8 @@ import '@fontsource-variable/inter';
     <title>{title}</title>
     <ViewTransitions />
   </head>
-  <Navbar />
   <body>
+    <Navbar />
     <div class="dark:block hidden relative h-full w-full">
       <div
         class="fixed -z-10 bottom-0 bg-slate-950 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]"
@@ -43,9 +43,7 @@ import '@fontsource-variable/inter';
       <slot />
     </div>
     <Footer />
-  </body>
-
-  <style is:global>
+  </body><style is:global>
     html {
       font-family: 'Inter Variable', sans-serif;
       color-scheme: dark light;
