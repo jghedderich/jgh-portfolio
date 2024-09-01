@@ -11,6 +11,7 @@ import {
   nestIcon,
   nextIcon,
   nodeIcon,
+  playWrightIcon,
   reactIcon,
   tailwindIcon,
   typescriptIcon,
@@ -34,6 +35,12 @@ export const skills: Skill[] = [
     image: jestIcon,
     type: 'learning',
     url: 'https://jestjs.io/',
+  },
+  {
+    name: 'Playwright',
+    image: playWrightIcon,
+    type: 'learning',
+    url: 'https://playwright.dev/',
   },
   {
     name: 'Tailwind',

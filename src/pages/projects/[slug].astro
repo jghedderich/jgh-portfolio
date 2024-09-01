@@ -71,12 +71,16 @@ const { project } = Astro.props;
 
     <ProjectSection title="La historia">
       <div class="grid gap-3 text-lg">
-        {project.history.map((p) => <p>{p}</p>)}
+        {
+          project.history.map((p) => (
+            <p class="text-gray-500 dark:text-gray-400">{p}</p>
+          ))
+        }
       </div>
     </ProjectSection>
 
     <ProjectSection title="Un vistazo a la app">
-      <p>{project.summary}</p>
+      <p class="text-gray-500 dark:text-gray-400">{project.summary}</p>
       <ImageCarousel images={project.summaryImages} />
     </ProjectSection>
   </main>
@@ -86,7 +90,7 @@ const { project } = Astro.props;
       <ProjectSection title={info.title}>
         <div class="grid gap-3 text-lg">
           {info.body.map((p) => (
-            <p>{p}</p>
+            <p class="text-gray-500 dark:text-gray-400">{p}</p>
           ))}
         </div>
         <div class="flex flex-wrap justify-center gap-6 my-10 ">
@@ -112,32 +116,40 @@ const { project } = Astro.props;
 
   <ProjectSection title="Tecnologías usadas">
     <div class="grid gap-3 text-lg">
-      {project.technologies.summary.map((p) => <p>{p}</p>)}
+      {
+        project.technologies.summary.map((p) => (
+          <p class="text-gray-500 dark:text-gray-400">{p}</p>
+        ))
+      }
     </div>
     <div
       class="grid grid-cols-1 md:grid-cols-2 items-start gap-6 justify-evenly min-h-[400px] my-10"
     >
-      <div class="shadow rounded-md p-6 bg-white">
+      <div class="shadow rounded-md p-6 bg-white dark:bg-slate-900">
         <h3 class="text-3xl mb-6 text-center font-semibold">Frontend</h3>
         <div class="flex gap-10 justify-center items-end">
           {
             project.technologies.frontend.map((tech) => (
               <div class="flex flex-col items-center gap-1">
                 <Image src={tech.image} alt="icon" class="size-24" />
-                <span class="text-gray-500">{tech.name}</span>
+                <span class="text-gray-500 dark:text-gray-400">
+                  {tech.name}
+                </span>
               </div>
             ))
           }
         </div>
       </div>
-      <div class="shadow rounded-md p-6 bg-white">
+      <div class="shadow rounded-md p-6 bg-white dark:bg-slate-900">
         <h3 class="text-3xl mb-6 text-center font-semibold">Backend</h3>
         <div class="flex gap-10 justify-center items-end">
           {
             project.technologies.backend.map((tech) => (
               <div class="flex flex-col items-center gap-1">
                 <Image src={tech.image} alt="icon" class="size-24" />
-                <span class="text-gray-500">{tech.name}</span>
+                <span class="text-gray-500 dark:text-gray-400">
+                  {tech.name}
+                </span>
               </div>
             ))
           }

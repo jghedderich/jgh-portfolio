@@ -27,9 +27,15 @@ import '@fontsource-variable/inter';
   </head>
   <Navbar />
   <body>
-    <div class="relative h-full w-full bg-white">
+    <div class="dark:block hidden relative h-full w-full">
       <div
-        class="fixed inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"
+        class="fixed -z-10 bottom-0 bg-slate-950 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]"
+      >
+      </div>
+    </div>
+    <div class="dark:hidden block relative h-full w-full bg-white">
+      <div
+        class="fixed inset-0 -z-10 h-full w-full bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"
       >
       </div>
     </div>
@@ -42,6 +48,7 @@ import '@fontsource-variable/inter';
   <style is:global>
     html {
       font-family: 'Inter Variable', sans-serif;
+      color-scheme: dark light;
     }
   </style>
 </html>

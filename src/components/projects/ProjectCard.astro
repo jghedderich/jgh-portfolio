@@ -12,9 +12,9 @@ const { project } = Astro.props;
 
 <a
   href={'/projects/' + project.slug}
-  class="flex flex-col border rounded-md shadow hover:shadow-lg transition ease-out overflow-hidden bg-white"
+  class="flex flex-col border dark:border-none rounded-md shadow hover:shadow-lg transition ease-out overflow-hidden bg-white dark:bg-slate-800"
 >
-  <div class="bg-blue-50">
+  <div class="bg-blue-50 dark:bg-slate-900">
     <Image
       src={project.thumbnail}
       alt={project.name}
@@ -22,9 +22,9 @@ const { project } = Astro.props;
       class="h-64 object-cover w-full"
     />
   </div>
-  <section class="p-4 min-w-full border-t">
+  <section class="p-4 min-w-full border-t dark:border-none">
     <h4 class="w-fit text-2xl font-semibold">{project.name}</h4>
-    <p class="text-gray-500 mb-3">{project.description}</p>
+    <p class="text-gray-500 dark:text-gray-400 mb-3">{project.description}</p>
 
     <div class="flex gap-3">
       {project.technologies.frontend.map((tech) => <Badge label={tech.name} />)}
