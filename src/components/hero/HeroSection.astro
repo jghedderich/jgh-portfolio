@@ -3,28 +3,15 @@ import GithubIcon from '../icons/github-mark.astro';
 import DownloadDocumentIcon from '../icons/downloadDocument.astro';
 import { Image } from 'astro:assets';
 import juanImage from '../../assets/juan-photo.jpg';
+
+const today = new Date();
+const firstJune2023 = new Date('2023-06-01');
+
+const yearsPassed = Math.floor(
+  (today.getTime() - firstJune2023.getTime()) / (1000 * 60 * 60 * 24 * 365)
+);
+const yearsText = `${yearsPassed} ${yearsPassed > 1 ? 'años' : 'año'} de experiencia`;
 ---
-
-<script>
-  const today = new Date();
-  const firstJune2023 = new Date('2023-06-01');
-
-  const yearsPassed = Math.floor(
-    (today.getTime() - firstJune2023.getTime()) / (1000 * 60 * 60 * 24 * 365)
-  );
-  const yearsPassedNumber = document.getElementById('years-experience');
-  if (yearsPassedNumber) {
-    yearsPassedNumber.innerHTML = yearsPassed.toString();
-  }
-  let yearsText = 'años de experiencia';
-  if (yearsPassed < 2) {
-    yearsText = 'año de experiencia';
-  }
-  const yearsTextElement = document.getElementById('years-text');
-  if (yearsTextElement) {
-    yearsTextElement.innerHTML = yearsText;
-  }
-</script>
 
 <section
   class="flex flex-col-reverse md:flex-row max-w-screen-lg gap-10 items-center px-5 my-24 mx-auto"
@@ -34,9 +21,8 @@ import juanImage from '../../assets/juan-photo.jpg';
       Hola, soy <span class="text-blue-500">Juan</span>
     </h1>
     <p class="text-xl text-balance mt-2 text-gray-500 dark:text-gray-400">
-      Desarrollador front-end de Venezuela con <span id="years-experience"
-      ></span>
-      <span id="years-text"></span>. Trabajando actualmente en Avilatek ⛰️.
+      Desarrollador front-end de Venezuela con <span>{yearsText}</span>
+      . Trabajando actualmente en Avilatek ⛰️.
     </p>
     <div class="flex gap-3 mt-5">
       <a
