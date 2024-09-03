@@ -7,20 +7,22 @@ import EmailIcon from '../icons/email.astro';
 import UserIcon from '../icons/user.astro';
 ---
 
-<section class="p-6 mt-6 max-w-screen-lg mx-auto">
+<section class="p-6 mt-6 max-w-screen-lg mx-auto w-full">
   <div class="flex gap-3 items-center mb-6">
     <UserIcon class="size-9" />
     <h2 class="text-3xl font-semibold">Sobre mí</h2>
   </div>
-  <div class="flex md:flex-row flex-col-reverse items-center gap-10">
+  <div
+    class="flex justify-between md:flex-row flex-col-reverse items-center gap-10"
+  >
     <div class="text-gray-600 dark:text-gray-400">
-      <p class="mb-2">
+      <p class="mb-2 max-w-lg">
         Mi nombre es Juan Guillermo Hedderich. Empecé a programar desde los 17
         años, un poco antes de entrar a la universidad. Actualmente soy
         estudiante de ingeniería informática en la Universidad Católica Andres
         Bello.
       </p>
-      <p>
+      <p class="max-w-lg">
         He realizado varios cursos sobre desarrollo frontend y UX. Me gusta
         porque puedo expresar mi pasión por el arte y el diseño a través de las
         aplicaciones que construyo. También me gusta la música, el deporte y los
@@ -39,6 +41,7 @@ import UserIcon from '../icons/user.astro';
           href="https://www.linkedin.com/in/juan-hedderich-00778825b/"
           target="_blank"
           class="hover:scale-105 hover:rotate-6 transition ease-out"
+          aria-label="Juan Hedderich LinkedIn profile link"
         >
           <LinkedInIcon class="size-10 dark:text-white" />
         </a>
@@ -55,7 +58,7 @@ import UserIcon from '../icons/user.astro';
     <Image
       src={juanImage}
       alt="Juan Hedderich"
-      class="rounded-lg p-1 bg-gray-200 w-56 h-full rotate-3 shadow-md"
+      class="rounded-lg p-1 bg-gray-200 w-72 h-full rotate-3 shadow-md"
     />
   </div>
 </section>
