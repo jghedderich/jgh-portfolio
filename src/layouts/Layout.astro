@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 import Footer from '../components/common/Footer.astro';
 import Navbar from '../components/Navbar.astro';
 interface Props {
@@ -23,7 +23,7 @@ import '@fontsource-variable/inter';
     />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   <body>
     <Navbar />
