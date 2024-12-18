@@ -75,7 +75,9 @@ export const projects: Project[] = [
     info: [
       {
         title: 'Veamos un demo',
-        body: [''],
+        body: [
+          'Aquí puedes ver un demo de la aplicación en un dispositivo iOS.',
+        ],
         media: [
           {
             src: gymnasticDemo,

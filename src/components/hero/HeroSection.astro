@@ -17,12 +17,14 @@ const yearsText = `${yearsPassed} ${yearsPassed > 1 ? 'años' : 'año'} de exper
   class="flex flex-col-reverse md:flex-row max-w-screen-lg gap-10 items-center px-5 my-24 mx-auto"
 >
   <div class="flex flex-col items-start gap-2">
-    <h1 class="text-7xl font-semibold leading-tight text-balance">
+    <h1 class="text-3xl md:text-7xl font-semibold leading-tight text-balance">
       Hola, soy <span class="text-blue-500">Juan</span>
     </h1>
-    <p class="text-xl text-balance mt-2 text-gray-500 dark:text-gray-400">
-      Desarrollador front-end de Venezuela con <span>{yearsText}</span>
-      . Trabajando actualmente en Avilatek ⛰️.
+    <p
+      class="text-base md:text-xl text-balance mt-2 text-gray-500 dark:text-gray-400"
+    >
+      Desarrollador front-end de Venezuela con <span>{yearsText}</span>.
+      Trabajando actualmente en Avilatek ⛰️.
     </p>
     <div class="flex gap-3 mt-5">
       <a
@@ -47,6 +49,6 @@ const yearsText = `${yearsPassed} ${yearsPassed > 1 ? 'años' : 'año'} de exper
     src={juanImage}
     loading="eager"
     alt="Juan Hedderich"
-    class="rounded-full size-72 shadow-md border dark:border-none"
+    class="rounded-full size-52 md:size-72 shadow-md border dark:border-none"
   />
 </section>
