@@ -6,6 +6,6 @@ export const experience = [
     company: 'Avilatek',
     companyHref: 'https://www.avilatek.com/',
     startDate: 'Junio 2023',
-    endDate: undefined,
+    endDate: 'Enero 2025',
   },
 ];
