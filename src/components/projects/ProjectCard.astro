@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import type { Project } from '../../types/project';
 import Badge from '../common/Badge.astro';
+import Arrow from '../icons/arrow.astro';
 
 interface Props {
   project: Project;
@@ -10,32 +11,48 @@ interface Props {
 const { project } = Astro.props;
 ---
 
-<a
-  href={'/projects/' + project.slug}
-  class="flex flex-col border dark:border-none rounded-md shadow hover:shadow-lg transition ease-out overflow-hidden bg-white dark:bg-slate-800 dark:hover:bg-slate-700 group duration-500"
+<article
+  class="border dark:border-none rounded-md shadow hover:shadow-lg transition ease-out overflow-hidden bg-white dark:bg-slate-800 dark:hover:bg-slate-700 group duration-500"
 >
-  <div
-    class="bg-blue-50 transition ease-out duration-500 dark:bg-slate-900 dark:group-hover:bg-slate-800"
-  >
-    <Image
-      src={project.thumbnail}
-      alt={project.name}
-      loading="eager"
-      class="h-64 object-cover w-full"
-    />
-  </div>
-  <section class="p-4 min-w-full border-t dark:border-none">
-    <h4 class="w-fit text-2xl font-semibold">{project.name}</h4>
-    <p class="text-gray-500 dark:text-gray-400 mb-3">{project.description}</p>
-
-    <div class="flex gap-3">
-      {project.technologies.frontend.map((tech) => <Badge label={tech.name} />)}
+  <a href={'/projects/' + project.slug} class="flex flex-col">
+    <div
+      class="bg-blue-50 transition ease-out duration-500 dark:bg-slate-900 dark:group-hover:bg-slate-800 group"
+    >
+      <Image
+        src={project.thumbnail}
+        alt={project.name}
+        loading="eager"
+        class="h-64 object-cover w-full"
+      />
     </div>
-  </section>
-</a>
+    <section class="p-4 min-w-full border-t dark:border-none">
+      <div class="flex items-center gap-2">
+        <h4 class="w-fit text-2xl font-semibold">{project.name}</h4>
+        <Arrow
+          class="size-4 -rotate-90 group-hover:translate-x-1 transition ease-out text-blue-500"
+          stroke-width="3"
+        />
+      </div>
+      <p class="text-gray-500 dark:text-gray-400 mb-3">{project.description}</p>
 
-<style>
-  .mask {
-    mask-image: linear-gradient(white, transparent);
-  }
-</style>
+      <div class="flex gap-3">
+        {
+          project.technologies.frontend.map((tech) => (
+            <Badge label={tech.name} />
+          ))
+        }
+        {
+          project.technologies.backend.map((tech) => (
+            <Badge label={tech.name} />
+          ))
+        }
+      </div>
+    </section>
+  </a>
+
+  <style>
+    .mask {
+      mask-image: linear-gradient(white, transparent);
+    }
+  </style>
+</article>

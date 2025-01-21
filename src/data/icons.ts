@@ -20,6 +20,8 @@ import postgres from '../assets/postgresql.svg';
 import express from '../assets/express.svg';
 import redux from '../assets/redux.svg';
 import playWright from '../assets/playwright.svg';
+import expo from '../assets/expo.svg';
+import dotNet from '../assets/dotnet.svg';
 
 export const reactIcon = react;
 export const nextIcon = next;
@@ -43,3 +45,5 @@ export const postgresIcon = postgres;
 export const expressIcon = express;
 export const reduxIcon = redux;
 export const playWrightIcon = playWright;
+export const expoIcon = expo;
+export const dotNetIcon = dotNet;

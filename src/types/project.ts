@@ -17,8 +17,8 @@ export type Project = {
   hero: ImageMetadata;
   repoLinks: { title: string; href: string }[];
   history: string[];
-  summary: string;
-  summaryImages: ImageMetadata[];
+  summary?: string;
+  summaryImages?: ImageMetadata[];
   info: { title: string; body: string[]; media?: Multimedia[] }[];
   technologies: {
     summary: string[];

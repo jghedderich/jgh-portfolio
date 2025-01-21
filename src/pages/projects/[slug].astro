@@ -68,23 +68,25 @@ const { project } = Astro.props;
         }
       </div>
     </header>
-
-    <ProjectSection title="La historia">
-      <div class="grid gap-3">
-        {
-          project.history.map((p) => (
-            <p class="text-gray-500 dark:text-gray-400">{p}</p>
-          ))
-        }
-      </div>
-    </ProjectSection>
-
-    <ProjectSection title="Un vistazo a la app">
-      <p class="text-gray-500 dark:text-gray-400">{project.summary}</p>
-      <ImageCarousel images={project.summaryImages} />
-    </ProjectSection>
   </main>
 
+  <ProjectSection title="La historia">
+    <div class="grid gap-3 mb-6">
+      {
+        project.history.map((p) => (
+          <p class="text-gray-500 dark:text-gray-400">{p}</p>
+        ))
+      }
+    </div>
+  </ProjectSection>
+  {
+    project.summary && (
+      <ProjectSection title="Un vistazo a la app">
+        <p class="text-gray-500 dark:text-gray-400">{project.summary}</p>
+        <ImageCarousel images={project.summaryImages} />
+      </ProjectSection>
+    )
+  }
   {
     project.info.map((info) => (
       <ProjectSection title={info.title}>
@@ -100,11 +102,11 @@ const { project } = Astro.props;
                 <Image
                   src={media.src}
                   alt={info.title}
-                  class="rounded-md object-cover h-full"
+                  class="rounded-md object-cover h-full shadow"
                 />
               );
             return (
-              <video controls autoplay muted class="rounded-md">
+              <video controls autoplay muted class="rounded-md shadow">
                 <source src={media.src} />
               </video>
             );
