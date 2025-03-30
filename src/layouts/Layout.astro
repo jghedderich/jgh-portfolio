@@ -12,17 +12,47 @@ import '@fontsource-variable/inter';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+
+    <meta property="og:url" content="https://juan-hedderich.netlify.app/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_ES" />
+    <meta
+      property="og:title"
+      content="Portafolio de Juan Hedderich - Desarrollador y Programador Web"
+    />
+    <meta
+      property="og:description"
+      content="Conoce el portafolio de Juan Hedderich, un desarrollador frontend especializado en aplicaciones web y diseño de interfaces de usuario."
+    />
+    <meta
+      property="og:image"
+      content="https://juan-hedderich.netlify.app/og.jpg"
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https://juan-hedderich.netlify.app/"
+    />
+    <meta
+      name="twitter:title"
+      content="Portafolio de Juan Hedderich - Desarrollador y Programador Web"
+    />
+    <meta
+      name="twitter:description"
+      content="Conoce el portafolio de Juan Hedderich, un desarrollador frontend especializado en aplicaciones web y diseño de interfaces de usuario."
+    />
     <ClientRouter />
   </head>
   <body>
