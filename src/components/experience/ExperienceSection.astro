@@ -12,7 +12,7 @@ import BriefcaseIcon from '../icons/briefcase.astro';
     {
       experience.map((ex) => (
         <li class="mb-10 ms-6">
-          <div class="absolute size-3 bg-blue-500 rounded-full mt-2 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700" />
+          <div class="absolute size-3 bg-blue-600 rounded-full mt-2 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700" />
           <time class="mb-1 text-sm font-normal leading-none  text-gray-700 dark:text-gray-300">
             {ex.startDate} -{' '}
             {ex.endDate === undefined ? 'Actualidad' : ex.endDate}
@@ -22,7 +22,7 @@ import BriefcaseIcon from '../icons/briefcase.astro';
           </h3>
           <a
             href={ex.companyHref}
-            class="hover:underline text-xl text-blue-500"
+            class="hover:underline text-xl text-blue-600"
           >
             {ex.company}
           </a>

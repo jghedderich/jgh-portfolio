@@ -23,7 +23,7 @@ const { project } = Astro.props;
   title={`${project.name} - Juan Hedderich`}
   description={project.description}
 >
-  <main class="flex flex-col gap-16">
+  <div class="flex flex-col gap-16">
     <header
       class="flex flex-col gap-2 justify-center items-center p-6 text-center"
     >
@@ -37,19 +37,19 @@ const { project } = Astro.props;
         <Image
           src={project.hero}
           loading="eager"
-          alt="desktop"
+          alt=""
           class="max-h-[600px] w-full rounded-md"
         />
       </div>
       <div class="mt-6">
-        <h4 class="text-lg mb-2">Revisa el código:</h4>
+        <span class="text-lg mb-2 block">Revisa el código:</span>
         <div class="flex gap-3 mb-6">
           {
             project.repoLinks.map((link) => (
               <a
                 href={link.href}
                 target="_blank"
-                class="bg-blue-500 hover:rotate-3 font-semibold transition ease-out text-white rounded-full px-4 py-1"
+                class="bg-blue-600 hover:rotate-3 font-semibold transition ease-out text-white rounded-full px-4 py-1"
               >
                 {link.title}
               </a>
@@ -60,7 +60,7 @@ const { project } = Astro.props;
           project.url && (
             <a
               href={project.url}
-              class="flex gap-2 items-center justify-center text-lg text-blue-500 hover:underline"
+              class="flex gap-2 items-center justify-center text-lg text-blue-600 hover:underline"
             >
               Visita la página <HyperLinkIcon class="size-5" />
             </a>
@@ -68,7 +68,7 @@ const { project } = Astro.props;
         }
       </div>
     </header>
-  </main>
+  </div>
 
   <ProjectSection title="La historia">
     <div class="grid gap-3 mb-6">
@@ -125,7 +125,7 @@ const { project } = Astro.props;
           {
             project.technologies.frontend.map((tech) => (
               <div class="flex flex-col items-center gap-1">
-                <Image src={tech.image} alt="icon" class="size-24" />
+                <Image src={tech.image} alt="" class="size-24" />
                 <span>{tech.name}</span>
               </div>
             ))
@@ -138,7 +138,7 @@ const { project } = Astro.props;
           {
             project.technologies.backend.map((tech) => (
               <div class="flex flex-col items-center gap-1">
-                <Image src={tech.image} alt="icon" class="size-24" />
+                <Image src={tech.image} alt="" class="size-24" />
                 <span>{tech.name}</span>
               </div>
             ))
@@ -157,7 +157,7 @@ const { project } = Astro.props;
               <a
                 href={`/projects/${projects[projects.indexOf(project) - 1].slug}`}
                 aria-label="Previous project"
-                class="rounded-full shadow hover:scale-105 transition ease-out bg-blue-500 text-white p-3 w-fit"
+                class="rounded-full shadow hover:scale-105 transition ease-out bg-blue-600 text-white p-3 w-fit"
               >
                 <Arrow class="size-7 rotate-90" />
               </a>
@@ -169,7 +169,7 @@ const { project } = Astro.props;
               <a
                 href={`/projects/${projects[projects.indexOf(project) + 1].slug}`}
                 aria-label="Next project"
-                class="rounded-full shadow hover:scale-105 transition ease-out bg-blue-500 text-white p-3 w-fit"
+                class="rounded-full shadow hover:scale-105 transition ease-out bg-blue-600 text-white p-3 w-fit"
               >
                 <Arrow class="size-7 -rotate-90" />
               </a>

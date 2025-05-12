@@ -1,7 +1,6 @@
 ---
 import ArrowIcon from '../components/icons/arrow.astro';
 import Logo from '../components/icons/logo.astro';
-import ThemeSwitcher from './common/ThemeSwitcher.astro';
 
 const currentPath = Astro.url.pathname;
 ---
@@ -15,7 +14,7 @@ const currentPath = Astro.url.pathname;
       currentPath.includes('projects') && (
         <a
           href="/"
-          class="flex gap-1 items-center pl-9 hover:text-blue-500 transition ease-out w-fit"
+          class="flex gap-1 items-center pl-9 hover:text-blue-600 transition ease-out w-fit"
         >
           <div class="rotate-90">
             <ArrowIcon class="size-5" />
@@ -34,7 +33,6 @@ const currentPath = Astro.url.pathname;
       />
     </a>
   </div>
-  <!-- <ThemeSwitcher /> -->
 </nav>
 
 <script>

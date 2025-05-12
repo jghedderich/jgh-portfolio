@@ -20,16 +20,16 @@ const { project } = Astro.props;
     >
       <Image
         src={project.thumbnail}
-        alt={project.name}
-        loading="eager"
+        alt=""
+        loading="lazy"
         class="h-64 object-cover w-full"
       />
     </div>
     <section class="p-4 min-w-full border-t dark:border-none">
       <div class="flex items-center gap-2">
-        <h4 class="w-fit text-2xl font-semibold">{project.name}</h4>
+        <h3 class="w-fit text-2xl font-semibold">{project.name}</h3>
         <Arrow
-          class="size-4 -rotate-90 group-hover:translate-x-1 transition ease-out text-blue-500"
+          class="size-4 -rotate-90 group-hover:translate-x-1 transition ease-out text-blue-600"
           stroke-width="3"
         />
       </div>
