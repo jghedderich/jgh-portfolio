@@ -33,12 +33,14 @@ const { project } = Astro.props;
       >
         {project.description}
       </h2>
-      <div class="mt-10 mx-6">
+      <div class="mt-10 mx-6 min-h-[300px]">
         <Image
           src={project.hero}
           loading="eager"
           alt=""
-          class="max-h-[600px] w-full rounded-md"
+          width={800}
+          height={450}
+          class="rounded-md object-contain aspect-video"
         />
       </div>
       <div class="mt-6">
