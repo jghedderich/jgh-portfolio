@@ -44,11 +44,9 @@ const { project } = Astro.props;
         />
       </div>
       <div class="mt-6">
-        {
-          project.repoLinks.length > 0 && (
+      {
+        project.repoLinks.length > 0 && (
             <span class="text-lg mb-2 block">Revisa el código en:</span>
-          )
-        }
         <div class="flex gap-3 mb-6">
           {
             project.repoLinks.map((link) => (
@@ -62,6 +60,8 @@ const { project } = Astro.props;
             ))
           }
         </div>
+          )
+        }
         {
           project.url && (
             <a
@@ -77,7 +77,7 @@ const { project } = Astro.props;
   </div>
 
   <ProjectSection title="La historia">
-    <div class="grid gap-3 mb-6">
+    <div class="grid gap-3">
       {project.history.map((p) => <p>{p}</p>)}
     </div>
   </ProjectSection>
