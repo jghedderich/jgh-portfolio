@@ -1,27 +1,25 @@
-import {
-  astroIcon,
-  nestIcon,
-  reactIcon,
-  tailwindIcon,
-  nodeIcon,
-  mongoIcon,
-} from '../icons';
-
-import heroImage from '../../assets/agroshow/hero.png';
-import thumbnailImage from '../../assets/agroshow/thumbnail.png';
-import searchImage from '../../assets/agroshow/search.png';
-import productsImage from '../../assets/agroshow/products.png';
 import adminImage from '../../assets/agroshow/admin.png';
 import chatImage from '../../assets/agroshow/chat.png';
+import heroImage from '../../assets/agroshow/hero.png';
 import mapImage from '../../assets/agroshow/map.png';
-
+import productsImage from '../../assets/agroshow/products.png';
+import searchImage from '../../assets/agroshow/search.png';
+import thumbnailImage from '../../assets/agroshow/thumbnail.png';
 import type { Project } from '../../types/project';
+import {
+  astroIcon,
+  mongoIcon,
+  nestIcon,
+  nodeIcon,
+  reactIcon,
+  tailwindIcon,
+} from '../icons';
 
 export const agroshowData: Project = {
   name: 'Agroshow',
   slug: 'agroshow',
   description: 'Directorio agrícola moderno y optimizado',
-  url: 'https://agroshow.com',
+  url: 'https://agroshow.info',
 
   // TODO: Replace with actual images when available
   thumbnail: thumbnailImage,
