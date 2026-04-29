@@ -24,6 +24,9 @@ import expo from '../assets/expo.svg';
 import dotNet from '../assets/dotnet.svg';
 import angular from '../assets/angular.svg';
 import query from '../assets/query.svg';
+import langchain from '../assets/langchain.svg';
+import cloudflare from '../assets/cloudflare.svg';
+import fastapi from '../assets/FastAPI.svg';
 
 export const reactIcon = react;
 export const nextIcon = next;
@@ -51,3 +54,6 @@ export const expoIcon = expo;
 export const dotNetIcon = dotNet;
 export const angularIcon = angular;
 export const queryIcon = query;
+export const langchainIcon = langchain;
+export const cloudflareIcon = cloudflare;
+export const fastapiIcon = fastapi;

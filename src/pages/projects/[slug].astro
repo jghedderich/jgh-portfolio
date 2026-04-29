@@ -77,9 +77,13 @@ const next = idx < allProjects.length - 1 ? allProjects[idx + 1] : null;
   </div>
 
   <article
-    class="project-mdx max-w-screen-lg mx-auto px-5 pb-16 text-gray-800 dark:text-gray-200"
+    class="max-w-screen-lg mx-auto px-5 pb-16 text-gray-800 dark:text-gray-200"
   >
-    <Content />
+    <div
+      class="prose prose-slate max-w-none dark:prose-invert prose-a:text-blue-600 hover:prose-a:text-blue-700 dark:prose-a:text-blue-400 dark:hover:prose-a:text-blue-300"
+    >
+      <Content />
+    </div>
   </article>
 
   <ProjectSection title="Technologies">
@@ -168,42 +172,4 @@ const next = idx < allProjects.length - 1 ? allProjects[idx + 1] : null;
   </section>
 </Layout>
 
-<style is:global>
-  /* Tailwind Typography plugin not installed — minimal MDX defaults */
-  .project-mdx > :not([hidden]) ~ :not([hidden]) {
-    margin-top: 1rem;
-  }
-  .project-mdx h2 {
-    font-size: 1.5rem;
-    line-height: 2rem;
-    margin-top: 2.5rem;
-    margin-bottom: 0.75rem;
-  }
-  .project-mdx h3 {
-    font-size: 1.25rem;
-    margin-top: 1.5rem;
-  }
-  .project-mdx p {
-    line-height: 1.625;
-  }
-  .project-mdx a {
-    color: rgb(37 99 235);
-    text-decoration: underline;
-  }
-  .project-mdx a:hover {
-    color: rgb(29 78 216);
-  }
-  .project-mdx ul {
-    list-style-type: disc;
-    padding-left: 1.25rem;
-  }
-  .project-mdx blockquote {
-    border-left: 4px solid rgb(37 99 235);
-    padding-left: 1rem;
-    font-style: italic;
-    color: rgb(82 82 91);
-  }
-  :global(.dark) .project-mdx blockquote {
-    color: rgb(161 161 170);
-  }
-</style>
+

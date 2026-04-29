@@ -21,6 +21,9 @@ import {
   typescriptIcon,
   angularIcon,
   queryIcon,
+  langchainIcon,
+  cloudflareIcon,
+  fastapiIcon,
 } from '../data/icons';
 
 /** Map display names (as used in project frontmatter) to icon assets */
@@ -51,6 +54,9 @@ const TECH_ICONS: Record<string, ImageMetadata> = {
   Postgres: postgresIcon,
   GraphQL: graphqlIcon,
   Elixir: elixirIcon,
+  LangChain: langchainIcon,
+  'Cloudflare Vectorize': cloudflareIcon,
+  FastAPI: fastapiIcon,
 };
 
 export function getTechIcon(name: string): ImageMetadata | undefined {
