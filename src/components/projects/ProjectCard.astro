@@ -13,7 +13,7 @@ const { title, description, thumbnail, tech } = project.data;
 ---
 
 <article
-  class="border dark:border-none rounded-md shadow hover:shadow-lg transition ease-out overflow-hidden bg-white dark:bg-slate-800 dark:hover:bg-slate-700 group duration-500"
+  class="border border-gray-200 dark:border-none rounded-md shadow hover:shadow-lg transition ease-out overflow-hidden bg-white dark:bg-slate-800 dark:hover:bg-slate-700 group duration-500"
 >
   <a href={'/projects/' + project.data.slug} class="flex flex-col">
     <div
@@ -26,7 +26,7 @@ const { title, description, thumbnail, tech } = project.data;
         class="h-64 object-cover w-full"
       />
     </div>
-    <section class="p-4 min-w-full border-t dark:border-none">
+    <section class="p-4 min-w-full border-t border-gray-200 dark:border-none">
       <div class="flex items-center gap-2">
         <h3 class="w-fit text-2xl font-semibold">{title}</h3>
         <Icon
