@@ -1,15 +1,18 @@
 ---
-import { projects } from '../../data/projects';
+import { getCollection } from 'astro:content';
 import ProjectCard from './ProjectCard.astro';
 import CodeBracketIcon from '../icons/codeBracket.astro';
+import { sortedProjects } from '../../lib/sortedProjects';
+
+const projects = sortedProjects(await getCollection('projects'));
 ---
 
 <section class="flex flex-col gap-5 max-w-screen-lg mx-auto px-5 w-full">
   <div class="flex gap-3 items-center mb-6">
     <CodeBracketIcon class="size-7" />
-    <h2 class="text-3xl font-semibold">Proyectos</h2>
+    <h2 class="text-3xl font-semibold">Projects</h2>
   </div>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-    {projects.map((project) => <ProjectCard {project} />)}
+    {projects.map((project) => <ProjectCard project={project} />)}
   </div>
 </section>

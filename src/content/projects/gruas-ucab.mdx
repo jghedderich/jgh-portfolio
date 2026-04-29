@@ -1,0 +1,73 @@
+---
+title: Grúas UCAB
+slug: gruas-ucab
+description: UCAB towing service — web, mobile, and API
+order: 50
+thumbnail: ../../assets/gruas-ucab/order-summary.png
+hero: ../../assets/gruas-ucab/detalle-orden.png
+repoLinks:
+  - title: Web app
+    href: https://github.com/jghedderich/gruas-ucab-web
+  - title: Mobile app
+    href: https://github.com/jghedderich/gruas-ucab-mobile
+  - title: Backend
+    href: https://github.com/jghedderich/gruas-ucab-backend
+tech:
+  frontend:
+    - Next.js
+    - Expo
+    - Tailwind
+  backend:
+    - .NET Core
+    - Docker
+---
+
+import { Image } from 'astro:assets';
+
+import gruasVideo from '../../assets/gruas-ucab/gruas.webm?url';
+import createOrder from '../../assets/gruas-ucab/crear-orden.png';
+import orderDetail from '../../assets/gruas-ucab/detalle-orden.png';
+import vehicles from '../../assets/gruas-ucab/vehiculos.png';
+import deploy from '../../assets/gruas-ucab/deploy-diagram.png';
+
+## Context
+
+In my second time taking Software Development, we were assigned to build an application to manage data for a towing company. The course focused on the backend: **.NET Core**, microservices, hexagonal architecture, **DDD**, and **CQRS**.
+
+We delivered three applications: a **web** admin platform, a **mobile** app for drivers, and a **web API**.
+
+Our team of three split responsibilities: I led architecture and technical decisions, worked across backend and web, and focused primarily on the web application while teammates owned backend and mobile interfaces.
+
+## Admin platform overview
+
+There are four user roles—**Provider**, **Driver**, **Operator**, and **Administrator**—each with different permissions. Providers register cranes and drivers; drivers accept and complete orders; operators create and assign orders; administrators manage users and platform data.
+
+<video controls muted playsinline class="rounded-md shadow max-w-3xl mx-auto my-8">
+  <source src={gruasVideo} type="video/webm" />
+</video>
+
+## Creating and assigning orders
+
+The web app is the operational hub: it manages provider, driver, and operator data, creates service orders, and coordinates assignments. When an order is created, the assigned driver gets a notification and can accept or reject from the mobile app.
+
+<Image src={createOrder} alt="Creating a towing order in the admin UI" class="rounded-md shadow mx-auto my-6 max-w-4xl" />
+
+## Service orders
+
+Order cost is calculated automatically from distance. Drivers can request additional charges for complications (tolls, restricted zones, etc.). Depending on the client’s policy, the service may be free (as in the screenshot). The company operates different crane types; the system selects an appropriate crane for the customer’s vehicle.
+
+<Image src={orderDetail} alt="Towing order detail and pricing" class="rounded-md shadow mx-auto my-6 max-w-4xl" />
+
+## Providers
+
+Providers own the shops that offer towing services. They manage company information, drivers, and vehicles. There are **internal** and **external** providers; when assigning orders, internal drivers are preferred when it does not hurt customer satisfaction.
+
+<Image src={vehicles} alt="Provider vehicles management" class="rounded-md shadow mx-auto my-6 max-w-4xl" />
+
+## Microservices backend
+
+The backend follows a microservice style: separate deployable modules (**Orders**, **Providers**, **Admin**) with an **API gateway** as the entry point. Each service was containerized for development and deployment.
+
+We used **JWT** authentication, **RabbitMQ** queues, **Redis** caching, **Firebase Cloud Messaging** for notifications, **MailerSend** for email, and structured logging. Microservices add operational complexity—we hit real deployment issues and temporarily exposed services from our machines with **Ngrok** while stabilizing the stack.
+
+<Image src={deploy} alt="Deployment architecture diagram" class="rounded-md shadow mx-auto my-6 max-w-4xl" />

@@ -1,0 +1,69 @@
+---
+title: Multi-tenant RAG Agent
+slug: multi-tenant-rag-agent
+description: Multi-tenant RAG agent with AI triage chat, human handoff, multimodal ingestion and metrics
+order: 95
+thumbnail: ../../assets/rag-agent/agent-dashboard.png
+hero: ../../assets/rag-agent/agent-dashboard.png
+repoLinks: []
+tech:
+  frontend:
+    - React
+    - Astro
+    - Tailwind CSS
+  backend:
+    - FastAPI
+    - LangChain
+    - Cloudflare Vectorize
+    - MongoDB
+---
+
+import { Image } from 'astro:assets';
+
+import dashboardImage from '../../assets/rag-agent/agent-dashboard.png';
+import ingestKnowledgeImage from '../../assets/rag-agent/ingest-knowledge.png';
+import langgraphLogicImage from '../../assets/rag-agent/langgraph-logic.png';
+import metrics2Image from '../../assets/rag-agent/metrics-2.png';
+import metricsImage from '../../assets/rag-agent/metrics.png';
+import chatImage from '../../assets/rag-agent/chat-ui.png';
+
+## Background
+
+This project is my **undergraduate thesis** for my Software Engineering degree at **Universidad Católica Andrés Bello**. Building upon the original **Agroshow** platform, I developed an advanced **Retrieval-Augmented Generation (RAG)** ecosystem designed to transform the directory into an automated service hub.
+
+The goal was to let AI handle the bulk of customer inquiries, significantly reducing response times for agricultural businesses—while still preserving a **human-in-the-loop** path for complex sales and consulting.
+
+## Micro-frontend & chat evolution
+
+A major part of the work was migrating to a **micro-frontend architecture**, separating:
+
+- The **public-facing directory**
+- A high-complexity **administrative dashboard**
+
+Crucially, I refactored the platform’s original custom chat module. What started as a peer-to-peer messaging system was re-engineered into an intelligent interface capable of **triaging conversations**: the AI assistant intercepts queries, provides instant technical answers, and maintains context across the session.
+
+<Image src={ingestKnowledgeImage} alt="Micro-frontend architecture and the AI triage chat module" class="rounded-md shadow mx-auto my-6 max-w-5xl bg-white/70 dark:bg-white/5" />
+
+## Hybrid support: AI to human delegation
+
+Using **LangGraph**, I designed a stateful orchestration layer that manages the **human-in-the-loop** logic. The system is programmed to recognize intent: when the AI can’t resolve a query—or when a high-value lead requires negotiation—it triggers a delegation event.
+
+This seamlessly hands off the conversation to a human representative, keeping the experience smooth for the user while protecting the “human touch” for high-impact situations.
+
+<Image src={langgraphLogicImage} alt="Human handover flow: query, analysis, retrieval, and escalation to a human agent when needed" class="rounded-md shadow mx-auto my-6 max-w-5xl bg-white/70 dark:bg-white/5" />
+
+## Advanced stack & multimodal ingestion
+
+The backend leverages **FastAPI** for high-performance async processing and **Cloudflare Vectorize** for low-latency vector search, backed by **MongoDB** for tenant metadata and configuration.
+
+I implemented a **multimodal ingestion pipeline**, allowing companies to feed the RAG with data beyond plain text—such as technical datasheets and image-heavy manuals. To ensure reliability across complex chains, I used **LangSmith** for deep-trace debugging and performance monitoring.
+
+## Metrics & business insights
+
+To prove the value of automation, I built a metrics system that tracks key KPIs:
+
+- **Deflection Rate**: percentage of queries resolved without human intervention
+- **Retrieval Accuracy**: RAG performance improvements guided by user feedback
+- **Lead Identification**: signals to prioritize high-intent users for human agents
+
+<Image src={metricsImage} alt="Analytics dashboard: AI vs. Human intervention and top-performing documents" class="rounded-md shadow mx-auto my-6 max-w-5xl bg-white/70 dark:bg-white/5" />

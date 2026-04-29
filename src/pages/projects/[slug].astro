@@ -1,74 +1,74 @@
 ---
-import { Image } from 'astro:assets';
-import { projects } from '../../data/projects';
-import Layout from '../../layouts/Layout.astro';
-import ProjectSection from '../../components/projects/ProjectSection.astro';
-import ImageCarousel from '../../components/projects/ImageCarousel.astro';
-import HyperLinkIcon from '../../components/icons/hyperLink.astro';
-import Arrow from '../../components/icons/arrow.astro';
+import { Image } from "astro:assets";
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import ProjectSection from "../../components/projects/ProjectSection.astro";
+import HyperLinkIcon from "../../components/icons/hyperLink.astro";
+import Arrow from "../../components/icons/arrow.astro";
+import { getTechIcon } from "../../lib/techIcons";
+import { sortedProjects } from "../../lib/sortedProjects";
 
-export function getStaticPaths() {
-  return projects.map((project) => {
-    return {
-      params: { slug: project.slug },
-      props: { project },
-    };
-  });
+export async function getStaticPaths() {
+  const projects = await getCollection("projects");
+  return projects.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
 }
 
-const { project } = Astro.props;
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { title, description, url, hero, repoLinks, tech } = entry.data;
+
+const allProjects = sortedProjects(await getCollection("projects"));
+const idx = allProjects.findIndex((p) => p.id === entry.id);
+const prev = idx > 0 ? allProjects[idx - 1] : null;
+const next = idx < allProjects.length - 1 ? allProjects[idx + 1] : null;
 ---
 
-<Layout
-  title={`${project.name} - Juan Hedderich`}
-  description={project.description}
->
+<Layout title={`${title} - Juan Hedderich`} description={description}>
   <div class="flex flex-col gap-16">
     <header
       class="flex flex-col gap-2 justify-center items-center p-6 text-center"
     >
-      <h1 class="text-2xl font-semibold">{project.name}</h1>
+      <h1 class="text-2xl font-semibold">{title}</h1>
       <h2
         class="text-4xl md:text-5xl font-semibold text-balance max-w-screen-md leading-tight"
       >
-        {project.description}
+        {description}
       </h2>
-      <div class="mt-10 mx-6 min-h-[300px]">
-        <Image
-          src={project.hero}
-          loading="eager"
-          alt=""
-          width={800}
-          height={450}
-          class="rounded-md object-contain aspect-video"
-        />
+      <div class="mt-10 mx-6 max-w-xl">
+        <Image src={hero} loading="eager" alt="" class="rounded-md" />
       </div>
       <div class="mt-6">
-      {
-        project.repoLinks.length > 0 && (
-            <span class="text-lg mb-2 block">Revisa el código en:</span>
-        <div class="flex gap-3 mb-6">
-          {
-            project.repoLinks.map((link) => (
-              <a
-                href={link.href}
-                target="_blank"
-                class="bg-blue-600 hover:rotate-3 font-semibold transition ease-out text-white rounded-full px-4 py-1"
-              >
-                {link.title}
-              </a>
-            ))
-          }
-        </div>
+        {
+          repoLinks.length > 0 && (
+            <>
+              <span class="text-lg mb-2 block">View the code:</span>
+              <div class="flex flex-wrap gap-3 mb-6 justify-center">
+                {repoLinks.map((link) => (
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="bg-blue-600 hover:rotate-3 font-semibold transition ease-out text-white rounded-full px-4 py-1"
+                  >
+                    {link.title}
+                  </a>
+                ))}
+              </div>
+            </>
           )
         }
         {
-          project.url && (
+          url && (
             <a
-              href={project.url}
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
               class="flex gap-2 items-center justify-center text-lg text-blue-600 hover:underline"
             >
-              Visita la página <HyperLinkIcon class="size-5" />
+              Visit the site <HyperLinkIcon class="size-5" />
             </a>
           )
         }
@@ -76,110 +76,90 @@ const { project } = Astro.props;
     </header>
   </div>
 
-  <ProjectSection title="La historia">
-    <div class="grid gap-3">
-      {project.history.map((p) => <p>{p}</p>)}
-    </div>
-  </ProjectSection>
-  {
-    project.summary && (
-      <ProjectSection title="Un vistazo a la app">
-        <p>{project.summary}</p>
-        <ImageCarousel images={project.summaryImages} />
-      </ProjectSection>
-    )
-  }
-  {
-    project.info.map((info) => (
-      <ProjectSection title={info.title}>
-        <div class="grid gap-3">
-          {info.body.map((p) => (
-            <p>{p}</p>
-          ))}
-        </div>
-        <div class="flex flex-wrap justify-center gap-6 my-10 ">
-          {info.media?.map((media) => {
-            if (media.type === 'image')
-              return (
-                <Image
-                  src={media.src}
-                  alt={info.title}
-                  class="rounded-md object-cover h-full shadow"
-                />
-              );
-            return (
-              <video controls autoplay muted class="rounded-md shadow">
-                <source src={media.src} />
-              </video>
-            );
-          })}
-        </div>
-      </ProjectSection>
-    ))
-  }
+  <article
+    class="project-mdx max-w-screen-lg mx-auto px-5 pb-16 text-gray-800 dark:text-gray-200"
+  >
+    <Content />
+  </article>
 
-  <ProjectSection title="Tecnologías usadas">
-    <div class="grid gap-3">
-      {project.technologies.summary.map((p) => <p>{p}</p>)}
-    </div>
+  <ProjectSection title="Technologies">
     <div
-      class="grid grid-cols-1 md:grid-cols-2 items-start gap-6 justify-evenly min-h-[400px] my-10"
+      class="grid grid-cols-1 md:grid-cols-2 items-start gap-6 justify-evenly min-h-[200px] my-6"
     >
       <div class="shadow rounded-md p-6 bg-white dark:bg-slate-900">
-        <h3 class="text-3xl mb-6 text-center font-semibold">Frontend</h3>
-        <div class="flex gap-10 justify-center items-end">
+        <h3 class="text-2xl mb-6 text-center font-semibold">Frontend</h3>
+        <div class="flex flex-wrap gap-8 justify-center items-end">
           {
-            project.technologies.frontend.map((tech) => (
-              <div class="flex flex-col items-center gap-1">
-                <Image src={tech.image} alt="" class="size-24" />
-                <span>{tech.name}</span>
-              </div>
-            ))
+            tech.frontend.map((name) => {
+              const icon = getTechIcon(name);
+              return (
+                <div class="flex flex-col items-center gap-1 min-w-[5rem]">
+                  {icon ? (
+                    <Image src={icon} alt="" class="size-20 md:size-24" />
+                  ) : (
+                    <div class="size-20 md:size-24 rounded-md bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-xs font-medium text-center p-1">
+                      {name}
+                    </div>
+                  )}
+                  <span class="text-sm text-center">{name}</span>
+                </div>
+              );
+            })
           }
         </div>
       </div>
       <div class="shadow rounded-md p-6 bg-white dark:bg-slate-900">
-        <h3 class="text-3xl mb-6 text-center font-semibold">Backend</h3>
-        <div class="flex gap-10 justify-center items-end">
+        <h3 class="text-2xl mb-6 text-center font-semibold">Backend</h3>
+        <div class="flex flex-wrap gap-8 justify-center items-end">
           {
-            project.technologies.backend.map((tech) => (
-              <div class="flex flex-col items-center gap-1">
-                <Image src={tech.image} alt="" class="size-24" />
-                <span>{tech.name}</span>
-              </div>
-            ))
+            tech.backend.map((name) => {
+              const icon = getTechIcon(name);
+              return (
+                <div class="flex flex-col items-center gap-1 min-w-[5rem]">
+                  {icon ? (
+                    <Image src={icon} alt="" class="size-20 md:size-24" />
+                  ) : (
+                    <div class="size-20 md:size-24 rounded-md bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-xs font-medium text-center p-1">
+                      {name}
+                    </div>
+                  )}
+                  <span class="text-sm text-center">{name}</span>
+                </div>
+              );
+            })
           }
         </div>
       </div>
     </div>
   </ProjectSection>
-  <section class="flex flex-col items-center gap-10 justify-center">
-    <h4 class="text-3xl font-semibold">Mis otros proyectos</h4>
+
+  <section class="flex flex-col items-center gap-10 justify-center pb-16">
+    <h4 class="text-3xl font-semibold">Other projects</h4>
     {
-      projects.length > 1 && (
-        <div class="flex gap-10 justify-center">
-          {projects.indexOf(project) > 0 && (
+      allProjects.length > 1 && (
+        <div class="flex gap-10 justify-center flex-wrap">
+          {prev && (
             <div class="flex flex-col gap-3 items-center">
               <a
-                href={`/projects/${projects[projects.indexOf(project) - 1].slug}`}
+                href={`/projects/${prev.id}`}
                 aria-label="Previous project"
                 class="rounded-full shadow hover:scale-105 transition ease-out bg-blue-600 text-white p-3 w-fit"
               >
                 <Arrow class="size-7 rotate-90" />
               </a>
-              <span>{projects[projects.indexOf(project) - 1].name}</span>
+              <span class="max-w-[10rem] text-center">{prev.data.title}</span>
             </div>
           )}
-          {projects.indexOf(project) < projects.length - 1 && (
+          {next && (
             <div class="flex flex-col gap-3 items-center">
               <a
-                href={`/projects/${projects[projects.indexOf(project) + 1].slug}`}
+                href={`/projects/${next.id}`}
                 aria-label="Next project"
                 class="rounded-full shadow hover:scale-105 transition ease-out bg-blue-600 text-white p-3 w-fit"
               >
                 <Arrow class="size-7 -rotate-90" />
               </a>
-              <span>{projects[projects.indexOf(project) + 1].name}</span>
+              <span class="max-w-[10rem] text-center">{next.data.title}</span>
             </div>
           )}
         </div>
@@ -187,3 +167,43 @@ const { project } = Astro.props;
     }
   </section>
 </Layout>
+
+<style is:global>
+  /* Tailwind Typography plugin not installed — minimal MDX defaults */
+  .project-mdx > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 1rem;
+  }
+  .project-mdx h2 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
+  .project-mdx h3 {
+    font-size: 1.25rem;
+    margin-top: 1.5rem;
+  }
+  .project-mdx p {
+    line-height: 1.625;
+  }
+  .project-mdx a {
+    color: rgb(37 99 235);
+    text-decoration: underline;
+  }
+  .project-mdx a:hover {
+    color: rgb(29 78 216);
+  }
+  .project-mdx ul {
+    list-style-type: disc;
+    padding-left: 1.25rem;
+  }
+  .project-mdx blockquote {
+    border-left: 4px solid rgb(37 99 235);
+    padding-left: 1rem;
+    font-style: italic;
+    color: rgb(82 82 91);
+  }
+  :global(.dark) .project-mdx blockquote {
+    color: rgb(161 161 170);
+  }
+</style>

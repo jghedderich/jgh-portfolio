@@ -1,0 +1,66 @@
+---
+title: Gymnastic Center
+slug: gymnastic-center
+description: Fitness companion in your pocket
+order: 40
+thumbnail: ../../assets/gymnastic/thumbnail.png
+hero: ../../assets/gymnastic/hero.png
+repoLinks:
+  - title: Frontend
+    href: https://github.com/Robbyro10/Inmobilia-app
+  - title: Backend
+    href: https://github.com/Robbyro10/Inmobilia-db
+tech:
+  frontend:
+    - Flutter
+  backend:
+    - Nest.js
+    - MongoDB
+    - Node.js
+---
+
+import { Image } from 'astro:assets';
+
+import loginGymnastic from '../../assets/gymnastic/login.png';
+import homeGymnastic from '../../assets/gymnastic/home.png';
+import searchGymnastic from '../../assets/gymnastic/search.png';
+import blogGymnastic from '../../assets/gymnastic/blog.png';
+import courseInfoGymnastic from '../../assets/gymnastic/course-info.png';
+import courseVideoGymnastic from '../../assets/gymnastic/course-video.png';
+import gymnasticDemo from '../../assets/gymnastic/gymnastic-demo.mp4?url';
+import gymnasticApiSelector from '../../assets/gymnastic/api-selector.jpeg';
+
+## Course project
+
+In university I took a software development course focused on clean architecture, **hexagonal architecture**, **DDD**, and **AOP**. For the final assignment we built a **fitness mobile app** with intentionally vague requirements—we had to design the solution, justify trade-offs, and ship something real.
+
+Twelve teams competed on quality and usability. We leaned hard into **UX** and a polished, usable product—and won.
+
+## Product overview
+
+Users can browse **courses** and **blog** content about fitness, filter by category or instructor, comment, like/dislike, and track progress per course.
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8 max-w-5xl mx-auto">
+  <Image src={loginGymnastic} alt="Login screen" class="rounded-md shadow" />
+  <Image src={homeGymnastic} alt="Home screen" class="rounded-md shadow" />
+  <Image src={courseInfoGymnastic} alt="Course information" class="rounded-md shadow" />
+  <Image src={courseVideoGymnastic} alt="Course video player" class="rounded-md shadow" />
+  <Image src={blogGymnastic} alt="Blog listing" class="rounded-md shadow" />
+  <Image src={searchGymnastic} alt="Search" class="rounded-md shadow" />
+</div>
+
+## Demo
+
+<video controls muted playsinline class="rounded-md shadow max-w-md mx-auto my-8">
+  <source src={gymnasticDemo} type="video/mp4" />
+</video>
+
+## API swap (cross-team backends)
+
+The professor required **any frontend to run against any team’s backend**—backends had to be interchangeable. Other teams restarted the app and changed the API URL in code; we built an **API selector** on the login screen so we could switch backends at runtime (our team was “Omega”) without rebuilding.
+
+<Image src={gymnasticApiSelector} alt="API backend selector on login" class="rounded-md shadow mx-auto my-6 max-w-2xl" />
+
+## Stack
+
+**Flutter** on the client for cross-platform native UI. **NestJS** on the server with **MongoDB**, **RabbitMQ** for read-model sync, **Algolia** for search/recommendations, and patterns including **CQRS** and **event sourcing**.

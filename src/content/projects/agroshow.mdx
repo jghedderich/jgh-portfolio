@@ -1,0 +1,81 @@
+---
+title: Agroshow
+slug: agroshow
+description: Modern, optimized agricultural directory
+order: 70
+url: https://agroshow.info
+thumbnail: ../../assets/agroshow/thumbnail.png
+hero: ../../assets/agroshow/hero.png
+repoLinks: []
+tech:
+  frontend:
+    - Astro
+    - React
+    - Tailwind CSS
+  backend:
+    - Nest.js
+    - Node.js
+    - MongoDB
+---
+
+import { Image } from 'astro:assets';
+
+import productsImage from '../../assets/agroshow/products.png';
+import searchImage from '../../assets/agroshow/search.png';
+import adminImage from '../../assets/agroshow/admin.png';
+import chatImage from '../../assets/agroshow/chat.png';
+import mapImage from '../../assets/agroshow/map.png';
+
+## Background
+
+This was my first freelance project. A client had a WordPress site that was slow, hard to secure, and difficult to maintain. After several meetings we agreed to rebuild it with a modern stack.
+
+The new platform uses **Astro**, **Nest.js**, **React**, **Tailwind CSS**, and is deployed on **Netlify** with **Algolia** for search. The site is available in **Spanish and English** to reach a broader audience.
+
+Companies can publish products and services through subscriptions so other users can contact them for information or sales.
+
+## Agricultural directory
+
+Agroshow is a full digital platform that changes how agricultural businesses connect with potential customers. Instead of a static directory, it works as a dynamic marketplace where companies can showcase products and services professionally.
+
+The subscription model is designed to be fair so businesses of different sizes can participate. Registered companies get a dashboard to manage their profile, upload product images, describe services in detail, and update contact information in real time.
+
+Visitors can browse a structured catalog—from seeds and fertilizers to specialized machinery and consulting. Categories and subcategories were designed with domain input so users can navigate intuitively by inputs, equipment type, crop, or region.
+
+<Image src={productsImage} alt="Agroshow product catalog UI" class="rounded-md shadow mx-auto my-6 max-w-4xl" />
+
+## Search with Algolia
+
+Search is central to the experience: Algolia plus a custom autocomplete implementation. Results feel instant even as the catalog grows.
+
+The autocomplete goes beyond exact text matches, using relevance that considers synonyms, related terms, and historical search patterns. Advanced filters refine by category, geography, price range, shipping availability, and other criteria relevant to agriculture.
+
+<Image src={searchImage} alt="Agroshow search and autocomplete" class="rounded-md shadow mx-auto my-6 max-w-4xl" />
+
+## Admin panel
+
+The admin area covers subscription plans, content moderation (approval flows, duplicate detection, user reports, bulk edits), analytics (searches, popular products, navigation patterns), and promotional banners with scheduling and segmentation.
+
+<Image src={adminImage} alt="Agroshow admin dashboard" class="rounded-md shadow mx-auto my-6 max-w-4xl" />
+
+## Custom chat
+
+A custom chat system was built to connect companies and prospects. Instead of relying only on WebSockets, it uses optimized HTTP requests with **useSWR** for a near–real-time feel with less operational complexity.
+
+Polling frequency adapts to conversation activity so active threads update quickly while idle conversations back off to save resources.
+
+<Image src={chatImage} alt="Agroshow chat interface" class="rounded-md shadow mx-auto my-6 max-w-4xl" />
+
+## Maps with Mapbox
+
+Mapbox integration shows where businesses operate—especially important in agriculture where geography matters. Companies can register multiple locations: headquarters, distribution centers, stores, and authorized points of sale.
+
+<Image src={mapImage} alt="Agroshow map view" class="rounded-md shadow mx-auto my-6 max-w-4xl" />
+
+## Notifications
+
+When a company is contacted, notifications go out by **email** and **WhatsApp** according to user preferences so leads are not missed.
+
+## Performance and SEO
+
+The site uses **SSR** with **incremental static regeneration (ISR)** on Netlify, cache headers, and a webhook to revalidate when content changes—balancing CDN performance with fresh data. SEO was a priority for visibility after migrating away from a slow, insecure WordPress setup.

@@ -22,6 +22,8 @@ import redux from '../assets/redux.svg';
 import playWright from '../assets/playwright.svg';
 import expo from '../assets/expo.svg';
 import dotNet from '../assets/dotnet.svg';
+import angular from '../assets/angular.svg';
+import query from '../assets/query.svg';
 
 export const reactIcon = react;
 export const nextIcon = next;
@@ -47,3 +49,5 @@ export const reduxIcon = redux;
 export const playWrightIcon = playWright;
 export const expoIcon = expo;
 export const dotNetIcon = dotNet;
+export const angularIcon = angular;
+export const queryIcon = query;

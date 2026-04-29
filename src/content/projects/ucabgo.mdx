@@ -1,0 +1,63 @@
+---
+title: UcabGo
+slug: ucabgo
+description: On-campus delivery platform
+order: 30
+thumbnail: ../../assets/ucabgo/ucabgo-thumbnail.png
+hero: ../../assets/ucabgo/ucabgo-hero.png
+repoLinks:
+  - title: Frontend
+    href: https://github.com/Robbyro10/UcabGo
+  - title: Backend
+    href: https://github.com/Robbyro10/UcabGo-MongoDB
+tech:
+  frontend:
+    - React.js
+    - Redux
+    - Bootstrap
+  backend:
+    - Express.js
+    - MongoDB
+    - Node.js
+---
+
+import { Image } from 'astro:assets';
+
+import loginUcabGo from '../../assets/ucabgo/login.png';
+import homeUcabGo from '../../assets/ucabgo/home.png';
+import clientMenuUcabGo from '../../assets/ucabgo/client-menu.png';
+import makeOrderUcabGo from '../../assets/ucabgo/make-order.png';
+import admin1UcabGo from '../../assets/ucabgo/admin-signin.png';
+import admin2UcabGo from '../../assets/ucabgo/admin-orders.jpg';
+import admin3UcabGo from '../../assets/ucabgo/admin-menu.png';
+import admin4UcabGo from '../../assets/ucabgo/admin-profile.jpg';
+
+## Background
+
+In my second year I took Software Engineering, where we practiced **Scrum**, architecture, and professional documentation. Inspired by delivery apps in Venezuela, we designed **UcabGo**: students can order from campus vendors and other students handle delivery.
+
+## Customer experience
+
+Users sign in, browse venues and products, and place orders.
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8 max-w-5xl mx-auto">
+  <Image src={loginUcabGo} alt="UcabGo login" class="rounded-md shadow" />
+  <Image src={homeUcabGo} alt="UcabGo home" class="rounded-md shadow" />
+  <Image src={clientMenuUcabGo} alt="Vendor menu" class="rounded-md shadow" />
+  <Image src={makeOrderUcabGo} alt="Placing an order" class="rounded-md shadow" />
+</div>
+
+## Merchant admin
+
+Venue owners can manage orders and their product catalog from a dedicated admin experience.
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8 max-w-5xl mx-auto">
+  <Image src={admin1UcabGo} alt="Admin sign-in" class="rounded-md shadow" />
+  <Image src={admin2UcabGo} alt="Admin orders" class="rounded-md shadow" />
+  <Image src={admin3UcabGo} alt="Admin menu" class="rounded-md shadow" />
+  <Image src={admin4UcabGo} alt="Admin profile" class="rounded-md shadow" />
+</div>
+
+## Stack
+
+**React** with **Bootstrap** for UI and **Redux** for global state. **Express**-style API with **MongoDB** for persistence.

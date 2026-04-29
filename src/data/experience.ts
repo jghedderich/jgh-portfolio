@@ -2,27 +2,27 @@ export const experience = [
   {
     title: 'Software Engineer',
     description:
-      'Liderazgo del desarrollo frontend de un panel administrativo integral para la gestión inmobiliaria. Responsable de la automatización de flujos de trabajo operativos y la arquitectura de componentes reutilizables con Next.js.',
+      'Lead frontend development for a full admin dashboard for real-estate operations. I automate day-to-day workflows and own reusable UI architecture on Next.js.',
     company: 'Inmobiliaria Terepaima',
     companyHref: 'https://inmobiliariaterepaima.com/',
-    startDate: 'Septiembre 2025',
+    startDate: 'September 2025',
   },
   {
     title: 'Software Engineer',
     description:
-      'Desarrollo frontend de la plataforma Agroshow, incluyendo diseño de UI/UX e implementación de componentes. Responsable de traducir requisitos del cliente en soluciones técnicas y optimizar el rendimiento de búsqueda en grandes conjuntos de datos.',
+      'Frontend development for the Agroshow platform, including UI/UX and component implementation. I translate client requirements into technical solutions and optimize search performance over large datasets.',
     company: 'Agrotendencia',
     companyHref: 'https://agrotendencia.tv/',
-    startDate: 'Febrero 2025',
-    endDate: 'Agosto 2025',
+    startDate: 'February 2025',
+    endDate: 'August 2025',
   },
   {
     title: 'Frontend Engineer',
     description:
-      'Encargado del desarrollo de la plataforma, componentes e interfaces gráficas de aplicaciones web junto con pruebas unitarias y end-to-end utilizando Vitest y Playwright.',
+      'Built web platform features, UI components, and interfaces with unit and end-to-end tests using Vitest and Playwright.',
     company: 'Avilatek',
     companyHref: 'https://www.avilatek.com/',
-    startDate: 'Junio 2023',
-    endDate: 'Enero 2025',
+    startDate: 'June 2023',
+    endDate: 'January 2025',
   },
 ];

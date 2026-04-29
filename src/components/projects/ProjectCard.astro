@@ -1,25 +1,26 @@
 ---
 import { Image } from 'astro:assets';
-import type { Project } from '../../types/project';
+import type { CollectionEntry } from 'astro:content';
 import Badge from '../common/Badge.astro';
 import Arrow from '../icons/arrow.astro';
 
 interface Props {
-  project: Project;
+  project: CollectionEntry<'projects'>;
 }
 
 const { project } = Astro.props;
+const { title, description, thumbnail, tech } = project.data;
 ---
 
 <article
   class="border dark:border-none rounded-md shadow hover:shadow-lg transition ease-out overflow-hidden bg-white dark:bg-slate-800 dark:hover:bg-slate-700 group duration-500"
 >
-  <a href={'/projects/' + project.slug} class="flex flex-col">
+  <a href={'/projects/' + project.id} class="flex flex-col">
     <div
       class="bg-blue-50 transition ease-out duration-500 dark:bg-slate-900 dark:group-hover:bg-slate-800 group"
     >
       <Image
-        src={project.thumbnail}
+        src={thumbnail}
         alt=""
         loading="lazy"
         class="h-64 object-cover w-full"
@@ -27,32 +28,22 @@ const { project } = Astro.props;
     </div>
     <section class="p-4 min-w-full border-t dark:border-none">
       <div class="flex items-center gap-2">
-        <h3 class="w-fit text-2xl font-semibold">{project.name}</h3>
+        <h3 class="w-fit text-2xl font-semibold">{title}</h3>
         <Arrow
           class="size-4 -rotate-90 group-hover:translate-x-1 transition ease-out text-blue-600"
           stroke-width="3"
         />
       </div>
-      <p class="text-gray-700 dark:text-gray-300 mb-3">{project.description}</p>
+      <p class="text-gray-700 dark:text-gray-300 mb-3">{description}</p>
 
-      <div class="flex gap-3">
-        {
-          project.technologies.frontend.map((tech) => (
-            <Badge label={tech.name} />
-          ))
-        }
-        {
-          project.technologies.backend.map((tech) => (
-            <Badge label={tech.name} />
-          ))
-        }
+      <div class="flex flex-wrap gap-2">
+        {tech.frontend.map((label) => (
+          <Badge label={label} />
+        ))}
+        {tech.backend.map((label) => (
+          <Badge label={label} />
+        ))}
       </div>
     </section>
   </a>
-
-  <style>
-    .mask {
-      mask-image: linear-gradient(white, transparent);
-    }
-  </style>
 </article>

@@ -1,0 +1,66 @@
+---
+title: Inmobilia Caracas
+slug: inmobilia-caracas
+description: Real estate advisory landing and admin
+order: 60
+url: https://inmobilia-caracas.vercel.app/
+thumbnail: ../../assets/inmobilia/thumbnail.png
+hero: ../../assets/inmobilia/hero.png
+repoLinks:
+  - title: Frontend
+    href: https://github.com/Robbyro10/Inmobilia-app
+  - title: Backend
+    href: https://github.com/Robbyro10/Inmobilia-db
+tech:
+  frontend:
+    - Next.js
+    - React.js
+    - Tailwind.css
+  backend:
+    - Nest.js
+    - MongoDB
+    - Node.js
+---
+
+import { Image } from 'astro:assets';
+
+import propertiesInmobilia from '../../assets/inmobilia/propiedades.png';
+import propertyInmobilia from '../../assets/inmobilia/propiedad.png';
+import teamInmobilia from '../../assets/inmobilia/team.png';
+import contactInmobilia from '../../assets/inmobilia/contact.png';
+import loginInmobilia from '../../assets/inmobilia/login.png';
+import admin1Inmobilia from '../../assets/inmobilia/admin1.png';
+import admin2Inmobilia from '../../assets/inmobilia/admin2.png';
+import admin3Inmobilia from '../../assets/inmobilia/admin3.png';
+
+## Motivation
+
+My mother works as a real estate advisor in Caracas and juggles many properties and clients. She needed a place to manage listings and present them professionally to buyers. I needed real-world frontend practice—so we built **Inmobilia Caracas** together.
+
+It was my first serious **UI/UX** work, my first time keeping a tight feedback loop with a non-technical client, and my first production deployment.
+
+## Public site
+
+Visitors see **contact** information and browse **available properties** with a clean, marketing-focused layout.
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8 max-w-5xl mx-auto">
+  <Image src={propertiesInmobilia} alt="Properties listing" class="rounded-md shadow" />
+  <Image src={propertyInmobilia} alt="Property detail" class="rounded-md shadow" />
+  <Image src={teamInmobilia} alt="Team section" class="rounded-md shadow" />
+  <Image src={contactInmobilia} alt="Contact section" class="rounded-md shadow" />
+</div>
+
+## Admin
+
+Authenticated admins can manage the properties that appear on the site.
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8 max-w-5xl mx-auto">
+  <Image src={loginInmobilia} alt="Admin login" class="rounded-md shadow" />
+  <Image src={admin1Inmobilia} alt="Admin dashboard" class="rounded-md shadow" />
+  <Image src={admin2Inmobilia} alt="Admin property edit" class="rounded-md shadow" />
+  <Image src={admin3Inmobilia} alt="Admin UI" class="rounded-md shadow" />
+</div>
+
+## Stack
+
+**Next.js** and **React** for the frontend with **Tailwind** for styling. **NestJS** with **MongoDB** for the API and data layer.
