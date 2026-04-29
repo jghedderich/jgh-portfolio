@@ -2,6 +2,10 @@
 import { skills } from '../../data/skills';
 import Icon from '../icons/Icon.astro';
 import SkillCard from './SkillCard.astro';
+
+const frontendSkills = skills.filter((s) => s.type === 'frontend');
+const backendSkills = skills.filter((s) => s.type === 'backend');
+const toolSkills = skills.filter((s) => s.type === 'tools');
 ---
 
 <script>
@@ -31,16 +35,27 @@ import SkillCard from './SkillCard.astro';
     <Icon name="academicCap" class="size-8" /> Skills
   </h2>
 
-  <!-- <div class="py-10 scroller max-w-screen-lg">
-    <div class="skill-list scroller__inner">
-      {skills.map((skill) => <SkillCard {skill} />)}
+  <div class="w-full py-10 space-y-10">
+    <div class="w-full">
+      <h3 class="text-xl font-semibold mb-4">Frontend</h3>
+      <div class="max-w-screen-lg grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 mx-auto gap-3">
+        {frontendSkills.map((skill) => <SkillCard {skill} />)}
+      </div>
     </div>
-  </div> -->
 
-  <div
-    class="py-10 max-w-screen-lg grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 mx-auto gap-3"
-  >
-    {skills.map((skill) => <SkillCard {skill} />)}
+    <div class="w-full">
+      <h3 class="text-xl font-semibold mb-4">Backend</h3>
+      <div class="max-w-screen-lg grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 mx-auto gap-3">
+        {backendSkills.map((skill) => <SkillCard {skill} />)}
+      </div>
+    </div>
+
+    <div class="w-full">
+      <h3 class="text-xl font-semibold mb-4">Tools</h3>
+      <div class="max-w-screen-lg grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 mx-auto gap-3">
+        {toolSkills.map((skill) => <SkillCard {skill} />)}
+      </div>
+    </div>
   </div>
 </section>
 
