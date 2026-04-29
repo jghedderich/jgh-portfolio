@@ -1,15 +1,15 @@
 ---
-import Icon from '../icons/Icon.astro';
-import { Image } from 'astro:assets';
-import juanImage from '../../assets/juan-photo.jpg';
+import Icon from "../icons/Icon.astro";
+import { Image } from "astro:assets";
+import juanImage from "../../assets/juan-photo.jpg";
 
 const today = new Date();
-const firstJune2023 = new Date('2023-06-01');
+const firstJune2023 = new Date("2023-06-01");
 
-const yearsPassed = Math.floor(
-  (today.getTime() - firstJune2023.getTime()) / (1000 * 60 * 60 * 24 * 365)
+const yearsPassed = Math.round(
+  (today.getTime() - firstJune2023.getTime()) / (1000 * 60 * 60 * 24 * 365),
 );
-const yearsText = `${yearsPassed} ${yearsPassed === 1 ? 'year' : 'years'} of experience`;
+const yearsText = `${yearsPassed} ${yearsPassed === 1 ? "year" : "years"} of professional experience`;
 ---
 
 <section
@@ -17,14 +17,14 @@ const yearsText = `${yearsPassed} ${yearsPassed === 1 ? 'year' : 'years'} of exp
 >
   <div class="flex flex-col items-start gap-2">
     <h1 class="text-3xl md:text-7xl font-semibold leading-tight text-balance">
-      {'Hi, I’m '}
+      {"Hi, I’m "}
       <span class="text-blue-600">Juan</span>
     </h1>
     <p
       class="text-base md:text-xl text-balance mt-2 text-gray-700 dark:text-gray-300"
     >
-      Software engineer with <span>{yearsText}</span>. I focus on
-      React and AI (RAG). EU citizen. Currently at Inmobiliaria Terepaima 🏠.
+      Software engineer with <span>{yearsText}</span>. I focus on React and AI
+      (RAG). EU citizen. Currently at Inmobiliaria Terepaima 🏠.
     </p>
     <div class="flex gap-3 mt-5">
       <a
