@@ -1,15 +1,12 @@
 ---
 import { Image } from 'astro:assets';
 import juanImage from '../../assets/juan-restaurante.jpeg';
-import GithubIcon from '../icons/github-mark.astro';
-import LinkedInIcon from '../icons/linkedin.astro';
-import EmailIcon from '../icons/email.astro';
-import UserIcon from '../icons/user.astro';
+import Icon from '../icons/Icon.astro';
 ---
 
 <section class="p-6 mt-6 max-w-screen-lg mx-auto w-full">
   <div class="flex gap-3 items-center mb-6">
-    <UserIcon class="size-9" />
+    <Icon name="user" class="size-9" />
     <h2 class="text-3xl font-semibold">About me</h2>
   </div>
   <div
@@ -33,7 +30,7 @@ import UserIcon from '../icons/user.astro';
           aria-label="Juan Hedderich GitHub profile link"
           class="hover:scale-105 hover:rotate-6 transition ease-out"
         >
-          <GithubIcon class="size-10 dark:text-white" />
+          <Icon name="github-mark" class="size-10 dark:text-white" />
         </a>
         <a
           href="https://www.linkedin.com/in/juan-hedderich-00778825b/"
@@ -41,7 +38,7 @@ import UserIcon from '../icons/user.astro';
           aria-label="Juan Hedderich LinkedIn profile link"
           class="hover:scale-105 hover:rotate-6 transition ease-out"
         >
-          <LinkedInIcon class="size-10 dark:text-white" />
+          <Icon name="linkedin" class="size-10 dark:text-white" />
         </a>
         <a
           href="mailto:hedderich.dev@gmail.com"
@@ -49,7 +46,7 @@ import UserIcon from '../icons/user.astro';
           aria-label="email link"
           class="hover:scale-105 hover:-rotate-6 transition ease-out"
         >
-          <EmailIcon class="size-10 dark:text-white" />
+          <Icon name="email" class="size-10 dark:text-white" />
         </a>
       </div>
     </div>

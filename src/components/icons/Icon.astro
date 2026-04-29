@@ -1,0 +1,34 @@
+---
+export type Props = {
+  /** Icon name derived from filename in this folder (e.g. `arrow` for `arrow.astro`). */
+  name: string;
+  /** What to render if icon name is not found. */
+  fallback?: 'none' | 'placeholder';
+  /** Commonly passed-through attributes (Tailwind, accessibility, SVG attrs, etc.). */
+  class?: string;
+  [attr: string]: unknown;
+};
+
+const { name, fallback = 'none', ...props } = Astro.props as Props;
+
+const modules = import.meta.glob('./*.astro', { eager: true });
+const mod = modules[`./${name}.astro`];
+const Component = (mod as any)?.default;
+---
+
+{
+  Component ? (
+    <Component {...props} />
+  ) : fallback === 'placeholder' ? (
+    <span
+      aria-hidden="true"
+      class:list={[
+        'inline-flex items-center justify-center rounded bg-slate-200 text-slate-700 dark:bg-slate-700 dark:text-slate-100',
+        props.class as string | undefined,
+      ]}
+    >
+      ?
+    </span>
+  ) : null
+}
+

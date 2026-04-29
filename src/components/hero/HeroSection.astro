@@ -1,6 +1,5 @@
 ---
-import GithubIcon from '../icons/github-mark.astro';
-import DownloadDocumentIcon from '../icons/downloadDocument.astro';
+import Icon from '../icons/Icon.astro';
 import { Image } from 'astro:assets';
 import juanImage from '../../assets/juan-photo.jpg';
 
@@ -34,7 +33,7 @@ const yearsText = `${yearsPassed} ${yearsPassed === 1 ? 'year' : 'years'} of exp
         class="shadow hover:bg-blue-500 bg-blue-600 rounded-full text-white transition ease-out gap-3 px-4 flex items-center will-change-transform font-bold min-w-max"
       >
         GitHub
-        <GithubIcon class="size-6" />
+        <Icon name="github-mark" class="size-6" />
       </a>
       <a
         href="/JGH-CV.pdf"
@@ -42,7 +41,7 @@ const yearsText = `${yearsPassed} ${yearsPassed === 1 ? 'year' : 'years'} of exp
         class="shadow hover:bg-blue-500 bg-blue-600 rounded-full text-white transition ease-out flex gap-3 items-center h-fit px-4 py-2 will-change-transform font-bold min-w-max"
       >
         Download CV
-        <DownloadDocumentIcon class="size-6" />
+        <Icon name="downloadDocument" class="size-6" />
       </a>
     </div>
   </div>

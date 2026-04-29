@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import type { Repo } from '../../types/repo';
 import { skills } from '../../data/skills';
 import Badge from '../common/Badge.astro';
-import StarIcon from '../icons/star.astro';
+import Icon from '../icons/Icon.astro';
 
 interface Props {
   repo: Repo;
@@ -21,7 +21,7 @@ const { repo } = Astro.props;
       <a href={repo.html_url} target="_blank" class="hover:text-blue-600 transition ease-out text-2xl w-fit">{repo.name}</a>
       {repo.stargazers_count > 0 && (
         <div class="flex items-center" >
-            <StarIcon />
+            <Icon name="star" />
             <p class="text-lg w-max">{repo.stargazers_count}</p>
           </div>
        )}

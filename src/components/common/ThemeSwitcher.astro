@@ -1,12 +1,11 @@
 ---
-import SunIcon from '../icons/sun.astro';
-import MoonIcon from '../icons/moon.astro';
+import Icon from '../icons/Icon.astro';
 ---
 
 <button class="bg-gray-100 rounded-full p-2" id="themeToggle">
-  <SunIcon class="size-6 hover:scale-110 transition ease-out" />
+  <Icon name="sun" class="size-6 hover:scale-110 transition ease-out" />
 
-  <MoonIcon class="size-6 hover:scale-110 transition ease-out" />
+  <Icon name="moon" class="size-6 hover:scale-110 transition ease-out" />
 </button>
 
 <script is:inline>

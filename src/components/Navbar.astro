@@ -1,6 +1,5 @@
 ---
-import ArrowIcon from '../components/icons/arrow.astro';
-import Logo from '../components/icons/logo.astro';
+import Icon from '../components/icons/Icon.astro';
 
 const currentPath = Astro.url.pathname;
 ---
@@ -17,7 +16,7 @@ const currentPath = Astro.url.pathname;
           class="flex gap-1 items-center pl-9 hover:text-blue-600 transition ease-out w-fit"
         >
           <div class="rotate-90">
-            <ArrowIcon class="size-5" />
+            <Icon name="arrow" class="size-5" />
           </div>
         </a>
       )
@@ -28,7 +27,8 @@ const currentPath = Astro.url.pathname;
       aria-label="Home"
       class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
     >
-      <Logo
+      <Icon
+        name="logo"
         class="hover:scale-105 hover:-rotate-6 transition ease-out size-16"
       />
     </a>

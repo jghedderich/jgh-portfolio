@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import Badge from '../common/Badge.astro';
-import Arrow from '../icons/arrow.astro';
+import Icon from '../icons/Icon.astro';
 
 interface Props {
   project: CollectionEntry<'projects'>;
@@ -29,7 +29,8 @@ const { title, description, thumbnail, tech } = project.data;
     <section class="p-4 min-w-full border-t dark:border-none">
       <div class="flex items-center gap-2">
         <h3 class="w-fit text-2xl font-semibold">{title}</h3>
-        <Arrow
+        <Icon
+          name="arrow"
           class="size-4 -rotate-90 group-hover:translate-x-1 transition ease-out text-blue-600"
           stroke-width="3"
         />
