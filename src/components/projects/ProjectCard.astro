@@ -15,7 +15,7 @@ const { title, description, thumbnail, tech } = project.data;
 <article
   class="border dark:border-none rounded-md shadow hover:shadow-lg transition ease-out overflow-hidden bg-white dark:bg-slate-800 dark:hover:bg-slate-700 group duration-500"
 >
-  <a href={'/projects/' + project.id} class="flex flex-col">
+  <a href={'/projects/' + project.data.slug} class="flex flex-col">
     <div
       class="bg-blue-50 transition ease-out duration-500 dark:bg-slate-900 dark:group-hover:bg-slate-800 group"
     >

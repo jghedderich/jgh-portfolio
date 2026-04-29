@@ -1,0 +1,74 @@
+---
+title: Hola Condominio (Terepaima)
+slug: terepaima
+description: Web admin dashboard for condominium management (owners + admins)
+order: 90
+url: https://holacondominio.com
+thumbnail: ../../assets/terepaima/admin-dashboard.png
+hero: ../../assets/terepaima/admin-dashboard.png
+repoLinks: []
+tech:
+  frontend:
+    - Angular
+    - TypeScript
+    - Tailwind CSS
+    - TanStack Query
+  backend:
+    - Nest.js
+    - Node.js
+    - MongoDB
+---
+
+import { Image } from 'astro:assets';
+
+import terepaimaAdminDashboard from '../../assets/terepaima/admin-dashboard.png';
+import loginImage from '../../assets/terepaima/login.png';
+import ownerDashboardImage from '../../assets/terepaima/owner-dashboard.png';
+
+## Background
+
+This was my **second freelance project** as a web developer.
+After reaching out to **Inmobiliaria Terepaima** and walking through their day-to-day workflow, we proposed a replacement for their legacy system: a modern web platform that could scale with their operation and be extended over time.
+
+## The problem
+
+Their internal software had been built with **Microsoft Access**. As data grew, it became **slow**, increasingly **unreliable**, and hard to maintain. It also made collaboration painful (concurrency issues, fragile flows, and lots of implicit business rules).
+
+## The solution
+
+We delivered a **web admin dashboard** that centralizes the company’s condominium operations.
+
+The system supports two main user types:
+
+- **Owners**: sign in, report condominium payments, and review their current debt.
+- **Admins**: manage the full dataset and operational workflows.
+
+
+<Image src={terepaimaAdminDashboard} alt="Terepaima admin dashboard" class="rounded-md shadow mx-auto my-6 max-w-5xl bg-white/70 dark:bg-white/5" />
+
+## Why a SPA (Angular)
+
+Given the amount of authenticated interaction (forms, filtering, CRUD flows, and role-gated screens), I decided the frontend needed to be a **single-page application**.
+
+I chose **Angular** on purpose: it was a technology I wanted to learn deeply due to its evolution and popularity in enterprise SPAs. This project was where Angular “clicked” for me—routing, guards, forms, and a consistent structure that stays maintainable as features grow.
+
+## Server state with TanStack Query
+
+A key learning was how much **TanStack Query** improves the day-to-day experience in SPAs:
+
+- caching and background refresh to keep screens responsive
+- de-duplicated requests across routes
+- predictable loading/error states for CRUD forms
+
+It made the app feel fast even when moving between condos, owners, and payment records.
+
+## Roles and privileges
+
+Even though the product is mainly CRUD, the system includes a robust **roles + privileges** layer to prevent users from acting outside their jurisdiction (for example, restricting owners to their own units and limiting admin capabilities by role).
+
+<Image src={ownerDashboardImage} alt="Terepaima owner dashboard" class="rounded-md shadow mx-auto my-6 max-w-5xl bg-white/70 dark:bg-white/5" />
+
+## Backend collaboration
+
+The backend is built with **Nest.js** and **MongoDB** and was implemented by my business partner **Carlos**. My focus was the **Angular frontend**, UX flows, and integrating the API into a responsive admin experience.
+
