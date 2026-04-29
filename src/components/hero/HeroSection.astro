@@ -20,13 +20,11 @@ const yearsText = `${yearsPassed} ${yearsPassed === 1 ? "year" : "years"} of pro
       {"Hi, I’m "}
       <span class="text-blue-600">Juan</span>
     </h1>
-    <p
-      class="text-base md:text-xl text-balance mt-2 text-gray-700 dark:text-gray-300"
-    >
+    <p class="text-base text-balance mt-2 text-gray-700 dark:text-gray-300">
       Software engineer with <span>{yearsText}</span>. I focus on React and AI
       (RAG). EU citizen. Currently at Inmobiliaria Terepaima 🏠.
     </p>
-    <div class="flex gap-3 mt-5">
+    <div class="flex gap-3 mt-3">
       <a
         href="https://github.com/jghedderich"
         target="_blank"
@@ -44,6 +42,7 @@ const yearsText = `${yearsPassed} ${yearsPassed === 1 ? "year" : "years"} of pro
         <Icon name="downloadDocument" class="size-6" />
       </a>
     </div>
+    <p class="text-sm mt-3">Español (Native) - English (C1) - Deutsch (A2)</p>
   </div>
   <Image
     src={juanImage}
