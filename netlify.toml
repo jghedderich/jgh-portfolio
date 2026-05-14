@@ -1,0 +1,10 @@
+[build]
+  installCommand = "npm ci"
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[functions]
+  directory = "netlify/functions"
