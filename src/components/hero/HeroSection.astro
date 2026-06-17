@@ -10,6 +10,9 @@ const yearsPassed = Math.round(
   (today.getTime() - firstJune2023.getTime()) / (1000 * 60 * 60 * 24 * 365),
 );
 const yearsText = `${yearsPassed} ${yearsPassed === 1 ? "year" : "years"} of professional experience`;
+
+const buttonClass =
+  "shadow hover:bg-blue-500 bg-blue-600 rounded-full text-white transition ease-out gap-3 px-4 flex items-center will-change-transform font-bold min-w-max";
 ---
 
 <section
@@ -20,27 +23,69 @@ const yearsText = `${yearsPassed} ${yearsPassed === 1 ? "year" : "years"} of pro
       {"Hi, I’m "}
       <span class="text-blue-600">Juan</span>
     </h1>
-    <p class="text-base text-balance mt-2 text-gray-700 dark:text-gray-300">
+    <p class="text-base text-balance mt-2 text-black dark:text-gray-300">
       Software engineer with <span>{yearsText}</span>. I focus on React and AI
       (RAG). EU citizen. Currently at Inmobiliaria Terepaima 🏠.
     </p>
-    <div class="flex gap-3 mt-3">
+    <div class="flex flex-wrap gap-3 mt-3">
       <a
         href="https://github.com/jghedderich"
         target="_blank"
-        class="shadow hover:bg-blue-500 bg-blue-600 rounded-full text-white transition ease-out gap-3 px-4 flex items-center will-change-transform font-bold min-w-max"
+        rel="noopener noreferrer"
+        class={buttonClass}
       >
         GitHub
         <Icon name="github-mark" class="size-6" />
       </a>
       <a
-        href="/JGH-CV.pdf"
-        download="Juan-Hedderich-CV.pdf"
-        class="shadow hover:bg-blue-500 bg-blue-600 rounded-full text-white transition ease-out flex gap-3 items-center h-fit px-4 py-2 will-change-transform font-bold min-w-max"
+        href="https://www.linkedin.com/in/juan-hedderich-00778825b/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class={buttonClass}
       >
-        Download CV
-        <Icon name="downloadDocument" class="size-6" />
+        LinkedIn
+        <Icon name="linkedin" class="size-6" />
       </a>
+      <div class="relative" id="cv-download">
+        <button
+          type="button"
+          id="cv-download-toggle"
+          class:list={[buttonClass, "py-2"]}
+          aria-expanded="false"
+          aria-haspopup="menu"
+          aria-controls="cv-download-menu"
+        >
+          Download CV
+          <Icon name="downloadDocument" class="size-6" />
+          <Icon
+            name="chevronDown"
+            id="cv-chevron"
+            class="size-5 transition-transform duration-200"
+          />
+        </button>
+        <div
+          id="cv-download-menu"
+          role="menu"
+          class="hidden absolute left-0 top-full z-10 mt-2 min-w-full overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-lg dark:border-gray-700 dark:bg-slate-900"
+        >
+          <a
+            role="menuitem"
+            href="/Juan_Hedderich_CV_With_Foto.pdf"
+            download="Juan-Hedderich-CV-With-Photo.pdf"
+            class="block px-4 py-2.5 text-sm font-semibold text-gray-900 transition ease-out hover:bg-gray-100 dark:text-gray-100 dark:hover:bg-slate-800"
+          >
+            With Photo
+          </a>
+          <a
+            role="menuitem"
+            href="/JGH-CV.pdf"
+            download="Juan-Hedderich-CV.pdf"
+            class="block px-4 py-2.5 text-sm font-semibold text-gray-900 transition ease-out hover:bg-gray-100 dark:text-gray-100 dark:hover:bg-slate-800"
+          >
+            No Photo
+          </a>
+        </div>
+      </div>
     </div>
     <p class="text-sm mt-3">Español (Native) - English (C1) - Deutsch (A2)</p>
   </div>
@@ -51,3 +96,43 @@ const yearsText = `${yearsPassed} ${yearsPassed === 1 ? "year" : "years"} of pro
     class="rounded-full size-52 md:size-72 shadow-md border border-gray-200 dark:border-none"
   />
 </section>
+
+<script>
+  const container = document.getElementById("cv-download");
+  const toggle = document.getElementById("cv-download-toggle");
+  const menu = document.getElementById("cv-download-menu");
+  const chevron = document.getElementById("cv-chevron");
+
+  function setOpen(open: boolean) {
+    toggle?.setAttribute("aria-expanded", String(open));
+    menu?.classList.toggle("hidden", !open);
+    chevron?.classList.toggle("rotate-180", open);
+  }
+
+  function isOpen() {
+    return toggle?.getAttribute("aria-expanded") === "true";
+  }
+
+  toggle?.addEventListener("click", () => {
+    setOpen(!isOpen());
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!isOpen()) return;
+    const target = event.target as Node;
+    if (!container?.contains(target)) {
+      setOpen(false);
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && isOpen()) {
+      setOpen(false);
+      toggle?.focus();
+    }
+  });
+
+  menu?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => setOpen(false));
+  });
+</script>
