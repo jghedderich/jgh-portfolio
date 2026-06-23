@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+import About from '../components/about/About.astro';
+import SkillsSection from '../components/skills/SkillsSection.astro';
+import HeroSection from '../components/hero/HeroSection.astro';
+import ProjectList from '../components/projects/ProjectList.astro';
+import ExperienceSection from '../components/experience/ExperienceSection.astro';
+import LocaleRedirect from '../components/common/LocaleRedirect.astro';
+import { useTranslations } from '../i18n/translate';
+import { getLangFromUrl } from '../i18n/utils';
+
+interface Props {
+  redirectOnLoad?: boolean;
+}
+
+const { redirectOnLoad = false } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout title={t('meta.title')} description={t('meta.description')}>
+  {redirectOnLoad && <LocaleRedirect />}
+  <div class="flex flex-col gap-10">
+    <HeroSection />
+    <ExperienceSection />
+    <ProjectList />
+    <SkillsSection />
+    <About />
+  </div>
+</Layout>
+
+<style>
+  body {
+    overflow-x: hidden;
+    background: #fefefe;
+  }
+</style>

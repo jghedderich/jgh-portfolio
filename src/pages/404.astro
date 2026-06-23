@@ -1,11 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getLangFromUrl, translatePath } from '../i18n/utils';
+import { useTranslations } from '../i18n/translate';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const homeHref = translatePath('/', lang);
 ---
 
-<Layout title="404 - Page not found" description="Page not found">
+<Layout title={`404 - ${t('404.title')}`} description={t('404.title')}>
   <section class="py-60 flex flex-col justify-center items-center gap-6">
     <h1 class="text-7xl font-bold">404</h1>
-    <h2 class="text-3xl font-bold">Page not found</h2>
-    <a href="/" class="text-blue-600 hover:underline">Back to home</a>
+    <h2 class="text-3xl font-bold">{t('404.title')}</h2>
+    <a href={homeHref} class="text-blue-600 hover:underline">{t('404.back')}</a>
   </section>
 </Layout>

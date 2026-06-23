@@ -3,19 +3,22 @@ import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import Badge from '../common/Badge.astro';
 import Icon from '../icons/Icon.astro';
+import { getLangFromUrl, translatePath } from '../../i18n/utils';
 
 interface Props {
   project: CollectionEntry<'projects'>;
 }
 
 const { project } = Astro.props;
-const { title, description, thumbnail, tech } = project.data;
+const { title, description, thumbnail, tech, slug } = project.data;
+const lang = getLangFromUrl(Astro.url);
+const projectHref = translatePath(`/projects/${slug}`, lang);
 ---
 
 <article
   class="border border-gray-200 dark:border-none rounded-md shadow hover:shadow-lg transition ease-out overflow-hidden bg-white dark:bg-slate-800 dark:hover:bg-slate-700 group duration-500"
 >
-  <a href={'/projects/' + project.data.slug} class="flex flex-col">
+  <a href={projectHref} class="flex flex-col">
     <div
       class="bg-blue-50 transition ease-out duration-500 dark:bg-slate-900 dark:group-hover:bg-slate-800 group"
     >

@@ -3,14 +3,18 @@ import { getCollection } from 'astro:content';
 import ProjectCard from './ProjectCard.astro';
 import Icon from '../icons/Icon.astro';
 import { sortedProjects } from '../../lib/sortedProjects';
+import { getLangFromUrl } from '../../i18n/utils';
+import { useTranslations } from '../../i18n/translate';
 
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 const projects = sortedProjects(await getCollection('projects'));
 ---
 
 <section class="flex flex-col gap-5 max-w-screen-lg mx-auto px-5 w-full">
   <div class="flex gap-3 items-center mb-6">
     <Icon name="codeBracket" class="size-7" />
-    <h2 class="text-3xl font-semibold">Projects</h2>
+    <h2 class="text-3xl font-semibold">{t('section.projects')}</h2>
   </div>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
     {projects.map((project) => <ProjectCard project={project} />)}

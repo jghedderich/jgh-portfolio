@@ -1,0 +1,177 @@
+---
+import { Image } from "astro:assets";
+import { getCollection, render } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import ProjectSection from "../components/projects/ProjectSection.astro";
+import Icon from "../components/icons/Icon.astro";
+import { getTechIcon } from "../lib/tech-icons";
+import { sortedProjects } from "../lib/sortedProjects";
+import { getLangFromUrl, translatePath } from "../i18n/utils";
+import { useTranslations } from "../i18n/translate";
+
+interface Props {
+  entry: CollectionEntry<"projects">;
+}
+
+const { entry } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const { Content } = await render(entry);
+const { title, description, url, hero, repoLinks, tech } = entry.data;
+
+const allProjects = sortedProjects(await getCollection("projects"));
+const idx = allProjects.findIndex((p) => p.id === entry.id);
+const prev = idx > 0 ? allProjects[idx - 1] : null;
+const next = idx < allProjects.length - 1 ? allProjects[idx + 1] : null;
+---
+
+<Layout title={`${title} - Juan Hedderich`} description={description}>
+  <div class="flex flex-col gap-16">
+    <header
+      class="flex flex-col gap-2 justify-center items-center p-6 text-center"
+    >
+      <h1 class="text-2xl font-semibold">{title}</h1>
+      <h2
+        class="text-4xl md:text-5xl font-semibold text-balance max-w-screen-md leading-tight"
+      >
+        {description}
+      </h2>
+      <div class="mt-10 mx-6 max-w-xl">
+        <Image src={hero} loading="eager" alt="" class="rounded-md" />
+      </div>
+      <div class="mt-6">
+        {
+          repoLinks.length > 0 && (
+            <>
+              <span class="text-lg mb-2 block">{t("project.viewCode")}</span>
+              <div class="flex flex-wrap gap-3 mb-6 justify-center">
+                {repoLinks.map((link) => (
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="bg-blue-600 hover:rotate-3 font-semibold transition ease-out text-white rounded-full px-4 py-1"
+                  >
+                    {link.title}
+                  </a>
+                ))}
+              </div>
+            </>
+          )
+        }
+        {
+          url && (
+            <a
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex gap-2 items-center justify-center text-lg text-blue-600 hover:underline"
+            >
+              {t("project.visitSite")} <Icon name="hyperLink" class="size-5" />
+            </a>
+          )
+        }
+      </div>
+    </header>
+  </div>
+
+  <article
+    class="max-w-screen-lg mx-auto px-5 pb-16 text-gray-800 dark:text-gray-200"
+  >
+    <div
+      class="prose prose-slate max-w-none dark:prose-invert prose-a:text-blue-600 hover:prose-a:text-blue-700 dark:prose-a:text-blue-400 dark:hover:prose-a:text-blue-300"
+    >
+      <Content />
+    </div>
+  </article>
+
+  <ProjectSection title={t("project.technologies")}>
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 items-start gap-6 justify-evenly min-h-[200px] my-6"
+    >
+      <div class="shadow rounded-md p-6 bg-white dark:bg-slate-900">
+        <h3 class="text-2xl mb-6 text-center font-semibold">
+          {t("project.frontend")}
+        </h3>
+        <div class="flex flex-wrap gap-8 justify-center items-end">
+          {
+            tech.frontend.map((name) => {
+              const icon = getTechIcon(name);
+              return (
+                <div class="flex flex-col items-center gap-1 min-w-[5rem]">
+                  {icon ? (
+                    <Image src={icon} alt="" class="size-20 md:size-24" />
+                  ) : (
+                    <div class="size-20 md:size-24 rounded-md bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-xs font-medium text-center p-1">
+                      {name}
+                    </div>
+                  )}
+                  <span class="text-sm text-center">{name}</span>
+                </div>
+              );
+            })
+          }
+        </div>
+      </div>
+      <div class="shadow rounded-md p-6 bg-white dark:bg-slate-900">
+        <h3 class="text-2xl mb-6 text-center font-semibold">
+          {t("project.backend")}
+        </h3>
+        <div class="flex flex-wrap gap-8 justify-center items-end">
+          {
+            tech.backend.map((name) => {
+              const icon = getTechIcon(name);
+              return (
+                <div class="flex flex-col items-center gap-1 min-w-[5rem]">
+                  {icon ? (
+                    <Image src={icon} alt="" class="size-20 md:size-24" />
+                  ) : (
+                    <div class="size-20 md:size-24 rounded-md bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-xs font-medium text-center p-1">
+                      {name}
+                    </div>
+                  )}
+                  <span class="text-sm text-center">{name}</span>
+                </div>
+              );
+            })
+          }
+        </div>
+      </div>
+    </div>
+  </ProjectSection>
+
+  <section class="flex flex-col items-center gap-10 justify-center pb-16">
+    <h4 class="text-3xl font-semibold">{t("project.otherProjects")}</h4>
+    {
+      allProjects.length > 1 && (
+        <div class="flex gap-10 justify-center flex-wrap">
+          {prev && (
+            <div class="flex flex-col gap-3 items-center">
+              <a
+                href={translatePath(`/projects/${prev.data.slug}`, lang)}
+                aria-label={t("project.previous")}
+                class="rounded-full shadow hover:scale-105 transition ease-out bg-blue-600 text-white p-3 w-fit"
+              >
+                <Icon name="arrow" class="size-7 rotate-90" />
+              </a>
+              <span class="max-w-[10rem] text-center">{prev.data.title}</span>
+            </div>
+          )}
+          {next && (
+            <div class="flex flex-col gap-3 items-center">
+              <a
+                href={translatePath(`/projects/${next.data.slug}`, lang)}
+                aria-label={t("project.next")}
+                class="rounded-full shadow hover:scale-105 transition ease-out bg-blue-600 text-white p-3 w-fit"
+              >
+                <Icon name="arrow" class="size-7 -rotate-90" />
+              </a>
+              <span class="max-w-[10rem] text-center">{next.data.title}</span>
+            </div>
+          )}
+        </div>
+      )
+    }
+  </section>
+</Layout>

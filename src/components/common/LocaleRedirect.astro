@@ -1,0 +1,25 @@
+<script is:inline>
+  (function () {
+    const STORAGE_KEY = 'locale-preference';
+    const locales = ['en', 'es', 'de'];
+    const defaultLocale = 'en';
+
+    if (location.pathname !== '/') return;
+
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored && locales.includes(stored)) {
+      if (stored !== 'en') {
+        location.replace('/' + stored + '/');
+      }
+      return;
+    }
+
+    const primary = (navigator.language || '').split('-')[0]?.toLowerCase();
+    const matched =
+      primary && locales.includes(primary) ? primary : defaultLocale;
+    localStorage.setItem(STORAGE_KEY, matched);
+    if (matched !== 'en') {
+      location.replace('/' + matched + '/');
+    }
+  })();
+</script>

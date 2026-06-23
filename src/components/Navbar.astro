@@ -1,7 +1,12 @@
 ---
 import Icon from '../components/icons/Icon.astro';
+import LanguageSelector from './common/LanguageSelector.astro';
+import { getLangFromUrl, stripLocaleFromPath, translatePath } from '../i18n/utils';
 
 const currentPath = Astro.url.pathname;
+const lang = getLangFromUrl(Astro.url);
+const homeHref = translatePath('/', lang);
+const isProjectPage = stripLocaleFromPath(currentPath).startsWith('/projects');
 ---
 
 <nav
@@ -10,9 +15,9 @@ const currentPath = Astro.url.pathname;
 >
   <div class="relative w-full max-w-screen-xl">
     {
-      currentPath.includes('projects') && (
+      isProjectPage && (
         <a
-          href="/"
+          href={homeHref}
           class="flex gap-1 items-center pl-9 hover:text-blue-600 transition ease-out w-fit"
         >
           <div class="rotate-90">
@@ -22,8 +27,10 @@ const currentPath = Astro.url.pathname;
       )
     }
 
+    <LanguageSelector />
+
     <a
-      href="/"
+      href={homeHref}
       aria-label="Home"
       class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
     >

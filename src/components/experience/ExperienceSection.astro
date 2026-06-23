@@ -1,12 +1,19 @@
 ---
-import { experience } from '../../data/experience';
+import { experienceByLocale } from '../../i18n/experience';
+import { formatExperienceDate } from '../../i18n/dates';
+import { getLangFromUrl } from '../../i18n/utils';
+import { useTranslations } from '../../i18n/translate';
 import Icon from '../icons/Icon.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const experience = experienceByLocale[lang];
 ---
 
 <section class="max-w-screen-lg px-5 mx-auto">
   <div class="flex gap-3 items-center mb-6">
     <Icon name="briefcase" class="size-7" />
-    <h2 class="text-3xl font-semibold">Work experience</h2>
+    <h2 class="text-3xl font-semibold">{t('section.experience')}</h2>
   </div>
   <ol class="relative border-s border-blue-200 dark:border-gray-700">
     {
@@ -14,8 +21,10 @@ import Icon from '../icons/Icon.astro';
         <li class="mb-10 ms-6">
           <div class="absolute size-3 bg-blue-600 rounded-full mt-2 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700" />
           <time class="mb-1 text-sm font-normal leading-none  text-gray-700 dark:text-gray-300">
-            {ex.startDate} -{' '}
-            {ex.endDate === undefined ? 'Present' : ex.endDate}
+            {formatExperienceDate(ex.start, lang)} -{' '}
+            {ex.end === undefined
+              ? t('experience.present')
+              : formatExperienceDate(ex.end, lang)}
           </time>
           <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">
             {ex.title}

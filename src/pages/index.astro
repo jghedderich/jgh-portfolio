@@ -1,28 +1,5 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import About from '../components/about/About.astro';
-import SkillsSection from '../components/skills/SkillsSection.astro';
-import HeroSection from '../components/hero/HeroSection.astro';
-import ProjectList from '../components/projects/ProjectList.astro';
-import ExperienceSection from '../components/experience/ExperienceSection.astro';
+import HomePage from '../layouts/HomePage.astro';
 ---
 
-<Layout
-  title="Juan Hedderich — Software Engineer & Web Developer"
-  description="Portfolio of Juan Hedderich: software engineer focused on web applications, UI engineering, and AI (RAG)."
->
-  <div class="flex flex-col gap-10">
-    <HeroSection />
-    <ExperienceSection />
-    <ProjectList />
-    <SkillsSection />
-    <About />
-  </div>
-</Layout>
-
-<style>
-  body {
-    overflow-x: hidden;
-    background: #fefefe;
-  }
-</style>
+<HomePage redirectOnLoad />

@@ -2,58 +2,76 @@
 import { ClientRouter } from 'astro:transitions';
 import Footer from '../components/common/Footer.astro';
 import Navbar from '../components/Navbar.astro';
+import { localeOgTags, type Locale } from '../i18n/ui';
+import { getAlternateUrls, getLangFromUrl } from '../i18n/utils';
+import { useTranslations } from '../i18n/translate';
+
 interface Props {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
 }
 
-const { title, description } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const { title = t('meta.title'), description = t('meta.description') } =
+  Astro.props;
+
+const site = Astro.site?.href ?? 'https://juan-hedderich.netlify.app';
+const canonicalUrl = new URL(Astro.url.pathname, site).href;
+const alternates = getAlternateUrls(Astro.url.pathname, site);
+
 import '@fontsource-variable/inter';
 import '../styles/global.css';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
     <title>{title}</title>
+    <link rel="canonical" href={canonicalUrl} />
+    {
+      alternates.map(({ locale, href }) => (
+        <link rel="alternate" hreflang={locale} href={href} />
+      ))
+    }
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href={alternates.find((a) => a.locale === 'en')?.href ?? canonicalUrl}
+    />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
     <meta name="generator" content={Astro.generator} />
 
-    <meta property="og:url" content="https://juan-hedderich.netlify.app/" />
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content="en_US" />
-    <meta
-      property="og:title"
-      content="Juan Hedderich — Software Engineer & Web Developer"
-    />
-    <meta
-      property="og:description"
-      content="Portfolio of Juan Hedderich: software engineer focused on web applications, UI engineering, and AI (RAG)."
-    />
+    <meta property="og:locale" content={localeOgTags[lang]} />
+    {
+      alternates
+        .filter(({ locale }) => locale !== lang)
+        .map(({ locale }) => (
+          <meta
+            property="og:locale:alternate"
+            content={localeOgTags[locale as Locale]}
+          />
+        ))
+    }
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
     <meta
       property="og:image"
       content="https://juan-hedderich.netlify.app/og.jpg"
     />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      property="twitter:url"
-      content="https://juan-hedderich.netlify.app/"
-    />
-    <meta
-      name="twitter:title"
-      content="Juan Hedderich — Software Engineer & Web Developer"
-    />
-    <meta
-      name="twitter:description"
-      content="Portfolio of Juan Hedderich: software engineer focused on web applications, UI engineering, and AI (RAG)."
-    />
+    <meta property="twitter:url" content={canonicalUrl} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
     <ClientRouter />
   </head>
   <body>

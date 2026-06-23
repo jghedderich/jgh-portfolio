@@ -1,0 +1,27 @@
+---
+import { languages, type Locale } from '../../i18n/ui';
+import { getLangFromUrl, switchLocalePath } from '../../i18n/utils';
+import { useTranslations } from '../../i18n/translate';
+import { LanguageSelect } from '../LanguageSelect.tsx';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const currentPath = Astro.url.pathname;
+
+const localeOptions = (Object.entries(languages) as [Locale, string][]).map(
+  ([locale, label]) => ({
+    locale,
+    label,
+    href: switchLocalePath(currentPath, locale),
+  }),
+);
+---
+
+<div class="absolute top-1/2 right-9 z-40 -translate-y-1/2">
+  <LanguageSelect
+    client:load
+    lang={lang}
+    options={localeOptions}
+    ariaLabel={t('nav.language')}
+  />
+</div>

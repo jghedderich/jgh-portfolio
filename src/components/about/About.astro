@@ -2,26 +2,27 @@
 import { Image } from 'astro:assets';
 import juanImage from '../../assets/juan-restaurante.jpeg';
 import Icon from '../icons/Icon.astro';
+import { getLangFromUrl } from '../../i18n/utils';
+import { useTranslations } from '../../i18n/translate';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section class="p-6 mt-6 max-w-screen-lg mx-auto w-full">
   <div class="flex gap-3 items-center mb-6">
     <Icon name="user" class="size-9" />
-    <h2 class="text-3xl font-semibold">About me</h2>
+    <h2 class="text-3xl font-semibold">{t('section.about')}</h2>
   </div>
   <div
     class="flex justify-between md:flex-row flex-col-reverse items-center gap-10"
   >
     <div class="text-gray-700 dark:text-gray-300">
       <p class="mb-2 max-w-lg">
-        My name is Juan Guillermo Hedderich. I started programming at 17, shortly
-        before university. I&apos;m studying computer engineering at Universidad
-        Católica Andrés Bello (UCAB).
+        {t('about.p1')}
       </p>
       <p class="max-w-lg">
-        I&apos;ve taken several courses in frontend development and UX. I enjoy
-        expressing my interest in art and design through the applications I build.
-        I also like music, sports, and video games.
+        {t('about.p2')}
       </p>
       <div class="flex items-center gap-5 mt-5 text-black">
         <a
