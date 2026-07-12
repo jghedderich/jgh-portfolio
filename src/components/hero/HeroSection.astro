@@ -20,7 +20,7 @@ const yearsText = `${yearsPassed} ${yearLabel}`;
 const bio = t("hero.bio").replace("{years}", yearsText);
 
 const buttonClass =
-  "shadow hover:bg-blue-500 bg-blue-600 rounded-full text-white transition ease-out gap-3 px-4 flex items-center will-change-transform font-bold min-w-max";
+  "shadow hover:bg-blue-500 bg-blue-600 rounded-full text-white transition ease-out gap-3 px-4 py-2 flex items-center will-change-transform font-bold min-w-max";
 ---
 
 <section
@@ -57,7 +57,7 @@ const buttonClass =
         <button
           type="button"
           id="cv-download-toggle"
-          class:list={[buttonClass, "py-2"]}
+          class={buttonClass}
           aria-expanded="false"
           aria-haspopup="menu"
           aria-controls="cv-download-menu"
@@ -96,12 +96,14 @@ const buttonClass =
     </div>
     <p class="text-sm mt-3">{t("hero.languages")}</p>
   </div>
-  <Image
-    src={juanImage}
-    loading="eager"
-    alt=""
-    class="rounded-full size-52 md:size-72 shadow-md border border-gray-200 dark:border-none"
-  />
+  <div class="shrink-0">
+    <Image
+      src={juanImage}
+      loading="eager"
+      alt=""
+      class="rounded-full size-52 md:size-72 shadow-md border border-gray-200 dark:border-none"
+    />
+  </div>
 </section>
 
 <script>

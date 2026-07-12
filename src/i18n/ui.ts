@@ -41,7 +41,7 @@ export const ui = {
     'skills.tools': 'Tools',
     'experience.present': 'Present',
     'about.p1':
-      "My name is Juan Guillermo Hedderich. I started programming at 17, shortly before university. I'm studying computer engineering at Universidad Católica Andrés Bello (UCAB).",
+      "My name is Juan Guillermo Hedderich. I started programming at 17, shortly before university. I graduated with a degree in computer engineering from Universidad Católica Andrés Bello (UCAB).",
     'about.p2':
       "I've taken several courses in frontend development and UX. I enjoy expressing my interest in art and design through the applications I build. I also like music, sports, and video games.",
     'footer.built': 'Built in Venezuela',
@@ -79,7 +79,7 @@ export const ui = {
     'skills.tools': 'Herramientas',
     'experience.present': 'Actualidad',
     'about.p1':
-      'Me llamo Juan Guillermo Hedderich. Empecé a programar a los 17 años, poco antes de la universidad. Estudio ingeniería informática en la Universidad Católica Andrés Bello (UCAB).',
+      'Me llamo Juan Guillermo Hedderich. Empecé a programar a los 17 años, poco antes de la universidad. Me gradué como ingeniero informático en la Universidad Católica Andrés Bello (UCAB).',
     'about.p2':
       'He tomado varios cursos de desarrollo frontend y UX. Disfruto expresar mi interés por el arte y el diseño a través de las aplicaciones que construyo. También me gustan la música, el deporte y los videojuegos.',
     'footer.built': 'Hecho en Venezuela',
@@ -117,7 +117,7 @@ export const ui = {
     'skills.tools': 'Tools',
     'experience.present': 'Heute',
     'about.p1':
-      'Mein Name ist Juan Guillermo Hedderich. Mit 17 Jahren, kurz vor dem Studium, habe ich mit dem Programmieren begonnen. Ich studiere Informatik an der Universidad Católica Andrés Bello (UCAB).',
+      'Mein Name ist Juan Guillermo Hedderich. Mit 17 Jahren, kurz vor dem Studium, habe ich mit dem Programmieren begonnen. Ich habe Informatik an der Universidad Católica Andrés Bello (UCAB) abgeschlossen.',
     'about.p2':
       'Ich habe mehrere Kurse in Frontend-Entwicklung und UX absolviert. Ich bringe mein Interesse an Kunst und Design gerne in die Anwendungen ein, die ich entwickle. Außerdem mag ich Musik, Sport und Videospiele.',
     'footer.built': 'Gebaut in Venezuela',
