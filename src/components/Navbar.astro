@@ -43,19 +43,30 @@ const isProjectPage = stripLocaleFromPath(currentPath).startsWith('/projects');
 </nav>
 
 <script>
-  let prevScrollPosition = 0;
-  let navbar = document.getElementById('navbar');
+  let prevScrollPosition = window.scrollY;
+
   function checkScrollDirection() {
+    const navbar = document.getElementById('navbar');
+    if (!navbar) return;
+
     const scrollPosition = window.scrollY;
     if (scrollPosition > prevScrollPosition) {
-      navbar!.classList.add('hide');
+      navbar.classList.add('hide');
     } else {
-      navbar!.classList.remove('hide');
+      navbar.classList.remove('hide');
     }
     prevScrollPosition = scrollPosition;
   }
 
-  window.addEventListener('scroll', checkScrollDirection);
+  function onPageLoad() {
+    prevScrollPosition = window.scrollY;
+    document.getElementById('navbar')?.classList.remove('hide');
+  }
+
+  // Module scripts run once; look up #navbar on each scroll so View Transitions
+  // page swaps don't leave a stale element reference.
+  window.addEventListener('scroll', checkScrollDirection, { passive: true });
+  document.addEventListener('astro:page-load', onPageLoad);
 </script>
 
 <style>

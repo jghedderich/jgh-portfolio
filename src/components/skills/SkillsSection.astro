@@ -35,29 +35,29 @@ const toolSkills = skills.filter((s) => s.type === 'tools');
   }
 </script>
 
-<section class="flex flex-col w-full items-start max-w-screen-lg mx-auto px-5">
+<section class="flex flex-col w-full items-start max-w-screen-md mx-auto px-5">
   <h2 class="flex items-center gap-4 text-3xl font-semibold">
-    <Icon name="academicCap" class="size-8" /> {t('section.skills')}
+    <Icon name="pencilRuler" class="size-8" /> {t('section.skills')}
   </h2>
 
   <div class="w-full py-10 space-y-10">
     <div class="w-full">
       <h3 class="text-xl font-semibold mb-4">{t('skills.frontend')}</h3>
-      <div class="max-w-screen-lg grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 mx-auto gap-3">
+      <div class="max-w-screen-md grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 mx-auto gap-3">
         {frontendSkills.map((skill) => <SkillCard {skill} />)}
       </div>
     </div>
 
     <div class="w-full">
       <h3 class="text-xl font-semibold mb-4">{t('skills.backend')}</h3>
-      <div class="max-w-screen-lg grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 mx-auto gap-3">
+      <div class="max-w-screen-md grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 mx-auto gap-3">
         {backendSkills.map((skill) => <SkillCard {skill} />)}
       </div>
     </div>
 
     <div class="w-full">
       <h3 class="text-xl font-semibold mb-4">{t('skills.tools')}</h3>
-      <div class="max-w-screen-lg grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 mx-auto gap-3">
+      <div class="max-w-screen-md grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 mx-auto gap-3">
         {toolSkills.map((skill) => <SkillCard {skill} />)}
       </div>
     </div>

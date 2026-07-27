@@ -117,12 +117,6 @@ export const skills: Skill[] = [
     url: 'https://astro.build/',
   },
   {
-    name: 'Bootstrap',
-    image: getTechAsset('bootstrap')!,
-    type: 'frontend',
-    url: 'https://getbootstrap.com/',
-  },
-  {
     name: 'Express',
     image: getTechAsset('express')!,
     type: 'backend',

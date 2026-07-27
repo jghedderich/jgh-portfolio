@@ -50,19 +50,19 @@ There are four user roles—**Provider**, **Driver**, **Operator**, and **Admini
 
 The web app is the operational hub: it manages provider, driver, and operator data, creates service orders, and coordinates assignments. When an order is created, the assigned driver gets a notification and can accept or reject from the mobile app.
 
-<Image src={createOrder} alt="Creating a towing order in the admin UI" class="rounded-md shadow mx-auto my-6 max-w-4xl" />
+<Image src={createOrder} alt="Creating a towing order in the admin UI" class="rounded-md shadow mx-auto my-6 w-full" />
 
 ## Service orders
 
 Order cost is calculated automatically from distance. Drivers can request additional charges for complications (tolls, restricted zones, etc.). Depending on the client’s policy, the service may be free (as in the screenshot). The company operates different crane types; the system selects an appropriate crane for the customer’s vehicle.
 
-<Image src={orderDetail} alt="Towing order detail and pricing" class="rounded-md shadow mx-auto my-6 max-w-4xl" />
+<Image src={orderDetail} alt="Towing order detail and pricing" class="rounded-md shadow mx-auto my-6 w-full" />
 
 ## Providers
 
 Providers own the shops that offer towing services. They manage company information, drivers, and vehicles. There are **internal** and **external** providers; when assigning orders, internal drivers are preferred when it does not hurt customer satisfaction.
 
-<Image src={vehicles} alt="Provider vehicles management" class="rounded-md shadow mx-auto my-6 max-w-4xl" />
+<Image src={vehicles} alt="Provider vehicles management" class="rounded-md shadow mx-auto my-6 w-full" />
 
 ## Microservices backend
 
@@ -70,4 +70,4 @@ The backend follows a microservice style: separate deployable modules (**Orders*
 
 We used **JWT** authentication, **RabbitMQ** queues, **Redis** caching, **Firebase Cloud Messaging** for notifications, **MailerSend** for email, and structured logging. Microservices add operational complexity—we hit real deployment issues and temporarily exposed services from our machines with **Ngrok** while stabilizing the stack.
 
-<Image src={deploy} alt="Deployment architecture diagram" class="rounded-md shadow mx-auto my-6 max-w-4xl" />
+<Image src={deploy} alt="Deployment architecture diagram" class="rounded-md shadow mx-auto my-6 w-full" />
