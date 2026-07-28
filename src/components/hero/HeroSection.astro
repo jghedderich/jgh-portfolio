@@ -31,7 +31,7 @@ const buttonClass =
       {t("hero.greeting")}
       <span class="text-blue-600">Juan</span>
     </h1>
-    <p class="text-base text-balance mt-2 text-black dark:text-gray-300">
+    <p class="text-base text-balance mt-2 text-black">
       {bio}
     </p>
     <div class="flex flex-wrap gap-3 mt-3">
@@ -45,7 +45,7 @@ const buttonClass =
         <Icon name="github-mark" class="size-5" />
       </a>
       <a
-        href="https://www.linkedin.com/in/juan-hedderich-00778825b/"
+        href="https://www.linkedin.com/in/juanhedderich/"
         target="_blank"
         rel="noopener noreferrer"
         class={buttonClass}
@@ -73,13 +73,13 @@ const buttonClass =
         <div
           id="cv-download-menu"
           role="menu"
-          class="hidden absolute left-0 top-full z-10 mt-2 min-w-full overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-lg dark:border-gray-700 dark:bg-slate-900"
+          class="hidden absolute left-0 top-full z-10 mt-2 min-w-full overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-lg"
         >
           <a
             role="menuitem"
             href="/Juan_Hedderich_CV_With_Foto.pdf"
             download="Juan-Hedderich-CV-With-Photo.pdf"
-            class="block px-4 py-2.5 text-sm font-semibold text-gray-900 transition ease-out hover:bg-gray-100 dark:text-gray-100 dark:hover:bg-slate-800"
+            class="block px-4 py-2.5 text-sm font-semibold text-gray-900 transition ease-out hover:bg-gray-100"
           >
             {t("hero.cvWithPhoto")}
           </a>
@@ -87,7 +87,7 @@ const buttonClass =
             role="menuitem"
             href="/JGH-CV.pdf"
             download="Juan-Hedderich-CV.pdf"
-            class="block px-4 py-2.5 text-sm font-semibold text-gray-900 transition ease-out hover:bg-gray-100 dark:text-gray-100 dark:hover:bg-slate-800"
+            class="block px-4 py-2.5 text-sm font-semibold text-gray-900 transition ease-out hover:bg-gray-100"
           >
             {t("hero.cvNoPhoto")}
           </a>
@@ -101,7 +101,7 @@ const buttonClass =
       src={juanImage}
       loading="eager"
       alt=""
-      class="rounded-full size-40 md:size-56 shadow-md border border-gray-200 dark:border-none"
+      class="rounded-full size-40 md:size-56 shadow-md border border-gray-200"
     />
   </div>
 </section>

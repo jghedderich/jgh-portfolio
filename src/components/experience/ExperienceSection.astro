@@ -15,18 +15,18 @@ const experience = experienceByLocale[lang];
     <Icon name="briefcase" class="size-7" />
     <h2 class="text-3xl font-semibold">{t('section.experience')}</h2>
   </div>
-  <ol class="relative border-s border-blue-200 dark:border-gray-700">
+  <ol class="relative border-s border-blue-200">
     {
       experience.map((ex) => (
         <li class="mb-10 ms-6">
-          <div class="absolute size-3 bg-blue-600 rounded-full mt-2 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700" />
-          <time class="mb-1 text-sm font-normal leading-none  text-gray-700 dark:text-gray-300">
+          <div class="absolute size-3 bg-blue-600 rounded-full mt-2 -start-1.5 border border-white" />
+          <time class="mb-1 text-sm font-normal leading-none text-gray-700">
             {formatExperienceDate(ex.start, lang)} -{' '}
             {ex.end === undefined
               ? t('experience.present')
               : formatExperienceDate(ex.end, lang)}
           </time>
-          <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+          <h3 class="text-xl font-semibold text-gray-900">
             {ex.title}
           </h3>
           <a
@@ -35,7 +35,7 @@ const experience = experienceByLocale[lang];
           >
             {ex.company}
           </a>
-          <p class="mb-4 mt-2 text-base font-normal text-gray-700 dark:text-gray-300">
+          <p class="mb-4 mt-2 text-base font-normal text-gray-700">
             {ex.description}
           </p>
         </li>

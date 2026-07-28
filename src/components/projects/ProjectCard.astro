@@ -16,12 +16,10 @@ const projectHref = translatePath(`/projects/${slug}`, lang);
 ---
 
 <article
-  class="border border-gray-200 dark:border-none rounded-md shadow hover:shadow-lg transition ease-out overflow-hidden bg-white dark:bg-slate-800 dark:hover:bg-slate-700 group duration-500"
+  class="border border-gray-200 rounded-md shadow hover:shadow-lg transition ease-out overflow-hidden bg-white group duration-500"
 >
   <a href={projectHref} class="flex flex-col">
-    <div
-      class="bg-blue-50 transition ease-out duration-500 dark:bg-slate-900 dark:group-hover:bg-slate-800 group"
-    >
+    <div class="bg-blue-50 transition ease-out duration-500 group">
       <Image
         src={thumbnail}
         alt=""
@@ -29,7 +27,7 @@ const projectHref = translatePath(`/projects/${slug}`, lang);
         class="h-64 object-cover w-full"
       />
     </div>
-    <section class="p-4 min-w-full border-t border-gray-200 dark:border-none">
+    <section class="p-4 min-w-full border-t border-gray-200">
       <div class="flex items-center gap-2">
         <h3 class="w-fit text-xl font-semibold">{title}</h3>
         <Icon
@@ -38,7 +36,7 @@ const projectHref = translatePath(`/projects/${slug}`, lang);
           stroke-width="3"
         />
       </div>
-      <p class="text-gray-700 dark:text-gray-300 mb-3">{description}</p>
+      <p class="text-gray-700 mb-3">{description}</p>
 
       <div class="flex flex-wrap gap-2">
         {tech.frontend.map((label) => (

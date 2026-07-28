@@ -42,7 +42,7 @@ A major part of the work was migrating to a **micro-frontend architecture**, sep
 
 Crucially, I refactored the platform’s original custom chat module. What started as a peer-to-peer messaging system was re-engineered into an intelligent interface capable of **triaging conversations**: the AI assistant intercepts queries, provides instant technical answers, and maintains context across the session.
 
-<Image src={ingestKnowledgeImage} alt="Micro-frontend architecture and the AI triage chat module" class="rounded-md shadow mx-auto my-6 w-full bg-white/70 dark:bg-white/5" />
+<Image src={ingestKnowledgeImage} alt="Micro-frontend architecture and the AI triage chat module" class="rounded-md shadow mx-auto my-6 w-full bg-white/70" />
 
 ## Hybrid support: AI to human delegation
 
@@ -50,7 +50,7 @@ Using **LangGraph**, I designed a stateful orchestration layer that manages the 
 
 This seamlessly hands off the conversation to a human representative, keeping the experience smooth for the user while protecting the “human touch” for high-impact situations.
 
-<Image src={langgraphLogicImage} alt="Human handover flow: query, analysis, retrieval, and escalation to a human agent when needed" class="rounded-md shadow mx-auto my-6 w-full bg-white/70 dark:bg-white/5" />
+<Image src={langgraphLogicImage} alt="Human handover flow: query, analysis, retrieval, and escalation to a human agent when needed" class="rounded-md shadow mx-auto my-6 w-full bg-white/70" />
 
 ## Advanced stack & multimodal ingestion
 
@@ -66,4 +66,4 @@ To prove the value of automation, I built a metrics system that tracks key KPIs:
 - **Retrieval Accuracy**: RAG performance improvements guided by user feedback
 - **Lead Identification**: signals to prioritize high-intent users for human agents
 
-<Image src={metricsImage} alt="Analytics dashboard: AI vs. Human intervention and top-performing documents" class="rounded-md shadow mx-auto my-6 w-full bg-white/70 dark:bg-white/5" />
+<Image src={metricsImage} alt="Analytics dashboard: AI vs. Human intervention and top-performing documents" class="rounded-md shadow mx-auto my-6 w-full bg-white/70" />
