@@ -1,0 +1,24 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // Workers Builds auto-installs with `bun install --frozen-lockfile` on the
+  // image default (currently Bun 1.2.x). Do not pin BUN_VERSION. In the dashboard
+  // set SKIP_DEPENDENCY_INSTALL=1 and keep build command `bun run build` after
+  // a non-frozen install, or set BUN_VERSION=latest so frozen install matches
+  // current Bun. Non-production deploys: default `npx wrangler versions upload`.
+  "name": "jgh-portfolio",
+  "main": "./workers/www-to-apex.js",
+  "compatibility_date": "2026-09-01",
+  "workers_dev": true,
+  "preview_urls": true,
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash",
+    "run_worker_first": true,
+  },
+  "routes": [
+    { "pattern": "juanhedderich.com", "custom_domain": true },
+    { "pattern": "www.juanhedderich.com", "custom_domain": true },
+  ],
+}

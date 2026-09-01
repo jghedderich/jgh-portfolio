@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://juan-hedderich.netlify.app',
+  site: 'https://juanhedderich.com',
   integrations: [mdx(), react()],
   i18n: {
     locales: ['en', 'es', 'de'],

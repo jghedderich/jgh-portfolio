@@ -2,6 +2,12 @@
 
 Portfolio site for Juan Hedderich — personal branding, work history, and project showcase.
 
+## Presence
+
+**Canonical origin**:
+The public hostname of this portfolio: `juanhedderich.com`. Visitors, crawlers, and social previews treat this as the site.
+_Avoid_: Site URL, production URL, Netlify URL, Workers URL
+
 ## Internationalization
 
 **Locale**:
