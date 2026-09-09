@@ -55,7 +55,6 @@ export const ui = {
     'project.next': 'Next project',
     '404.title': 'Page not found',
     '404.back': 'Back to home',
-    'nav.language': 'Language',
   },
   es: {
     'meta.title': 'Juan Hedderich — Ingeniero de Software y Desarrollador Web',
@@ -93,7 +92,6 @@ export const ui = {
     'project.next': 'Proyecto siguiente',
     '404.title': 'Página no encontrada',
     '404.back': 'Volver al inicio',
-    'nav.language': 'Idioma',
   },
   de: {
     'meta.title': 'Juan Hedderich — Softwareentwickler & Webentwickler',
@@ -131,7 +129,6 @@ export const ui = {
     'project.next': 'Nächstes Projekt',
     '404.title': 'Seite nicht gefunden',
     '404.back': 'Zurück zur Startseite',
-    'nav.language': 'Sprache',
   },
 } as const;
 

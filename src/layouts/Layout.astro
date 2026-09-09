@@ -1,7 +1,6 @@
 ---
 import { ClientRouter } from 'astro:transitions';
 import Footer from '../components/common/Footer.astro';
-import Navbar from '../components/Navbar.astro';
 import { localeOgTags, type Locale } from '../i18n/ui';
 import { getAlternateUrls, getLangFromUrl } from '../i18n/utils';
 import { useTranslations } from '../i18n/translate';
@@ -75,14 +74,13 @@ import '../styles/global.css';
     <ClientRouter />
   </head>
   <body>
-    <Navbar />
     <div class="relative h-full w-full bg-white">
       <div
         class="fixed inset-0 -z-10 h-full w-full bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"
       >
       </div>
     </div>
-    <main class="pt-24">
+    <main>
       <slot />
     </main>
     <Footer />
